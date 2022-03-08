@@ -35,6 +35,19 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
 
+  # Easily make Flutter apps responsive. Automatically adapt UI to different screen sizes.
+  # By Codelessly.
+  responsive_framework: ^0.1.7
+
+  # AutoRoute is a declarative routing solution, where everything needed for navigation is
+  # automatically generated for you.
+  # By Milad Akarie.
+  auto_route: ^3.2.4
+
+  # A Flutter package to use and make beautiful Material design based themes.
+  # By Mike Rydstrom.
+  flex_color_scheme: ^4.2.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -45,6 +58,9 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^1.0.0
+
+  auto_route_generator: 3.2.3
+  build_runner: ^2.1.7
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

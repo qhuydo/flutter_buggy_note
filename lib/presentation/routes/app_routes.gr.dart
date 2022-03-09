@@ -36,6 +36,10 @@ class AppRouter extends _i2.RootStackRouter {
     UpcomingRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i1.UpcomingPage());
+    },
+    SearchRoute.name: (routeData) {
+      return _i2.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i1.SearchPage());
     }
   };
 
@@ -47,7 +51,9 @@ class AppRouter extends _i2.RootStackRouter {
           _i2.RouteConfig(TodayRoute.name,
               path: 'today-page', parent: HomeRoute.name),
           _i2.RouteConfig(UpcomingRoute.name,
-              path: 'upcoming-page', parent: HomeRoute.name)
+              path: 'upcoming-page', parent: HomeRoute.name),
+          _i2.RouteConfig(SearchRoute.name,
+              path: 'search-page', parent: HomeRoute.name)
         ])
       ];
 }
@@ -83,4 +89,12 @@ class UpcomingRoute extends _i2.PageRouteInfo<void> {
   const UpcomingRoute() : super(UpcomingRoute.name, path: 'upcoming-page');
 
   static const String name = 'UpcomingRoute';
+}
+
+/// generated route for
+/// [_i1.SearchPage]
+class SearchRoute extends _i2.PageRouteInfo<void> {
+  const SearchRoute() : super(SearchRoute.name, path: 'search-page');
+
+  static const String name = 'SearchRoute';
 }

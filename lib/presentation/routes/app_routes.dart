@@ -12,6 +12,7 @@ import '../pages.dart';
         AutoRoute(page: AllTodosPage),
         AutoRoute(page: TodayPage),
         AutoRoute(page: UpcomingPage),
+        AutoRoute(page: SearchPage),
       ],
       initial: true,
     ),

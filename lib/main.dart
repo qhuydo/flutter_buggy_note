@@ -1,6 +1,8 @@
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
+import 'const/breakpoints.dart';
 import 'presentation/routes/app_routes.gr.dart';
 
 void main() {
@@ -19,6 +21,17 @@ class BuggyNoteApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routerDelegate: _appRouter.delegate(),
       routeInformationParser: _appRouter.defaultRouteParser(),
+      builder: (context, child) => ResponsiveWrapper.builder(
+        child,
+        // maxWidth: 1200,
+        minWidth: 600,
+        defaultScale: true,
+        breakpoints: const [
+          ResponsiveBreakpoint.resize(phoneBreakpoint, name: MOBILE),
+          ResponsiveBreakpoint.autoScale(tabletBreakpoint, name: TABLET),
+          ResponsiveBreakpoint.resize(desktopBreakpoint, name: DESKTOP),
+        ],
+      ),
       themeMode: ThemeMode.light,
       theme: FlexThemeData.light(
         scheme: FlexScheme.blueWhale,

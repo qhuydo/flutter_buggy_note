@@ -1,25 +1,91 @@
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 
-import 'presentation/home/home_page.dart';
+import 'presentation/routes/app_routes.gr.dart';
 
 void main() {
-  runApp(const BuggyNoteApp());
+  runApp(BuggyNoteApp());
 }
 
 class BuggyNoteApp extends StatelessWidget {
-  const BuggyNoteApp({Key? key}) : super(key: key);
+  final _appRouter = AppRouter();
 
-  // This widget is the root of your application.
+  BuggyNoteApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Buggy note',
-      theme: FlexThemeData.light(),
-      darkTheme: FlexThemeData.dark(),
-      themeMode: ThemeMode.system,
       debugShowCheckedModeBanner: false,
-      home: const HomePage(),
+      routerDelegate: _appRouter.delegate(),
+      routeInformationParser: _appRouter.defaultRouteParser(),
+      themeMode: ThemeMode.light,
+      theme: FlexThemeData.light(
+        scheme: FlexScheme.blueWhale,
+        surfaceMode: FlexSurfaceMode.highScaffoldLowSurface,
+        blendLevel: 18,
+        appBarStyle: FlexAppBarStyle.primary,
+        appBarOpacity: 0.95,
+        appBarElevation: 0,
+        transparentStatusBar: true,
+        tabBarStyle: FlexTabBarStyle.forAppBar,
+        tooltipsMatchBackground: true,
+        swapColors: false,
+        lightIsWhite: false,
+        useSubThemes: true,
+        visualDensity: FlexColorScheme.comfortablePlatformDensity,
+        // fontFamily: GoogleFonts.notoSans().fontFamily,
+        subThemesData: const FlexSubThemesData(
+          useTextTheme: true,
+          defaultRadius: 8,
+          fabUseShape: true,
+          interactionEffects: true,
+          bottomNavigationBarElevation: 0,
+          bottomNavigationBarOpacity: 0.95,
+          navigationBarOpacity: 0.95,
+          navigationBarMutedUnselectedText: true,
+          navigationBarMutedUnselectedIcon: true,
+          inputDecoratorIsFilled: true,
+          inputDecoratorBorderType: FlexInputBorderType.outline,
+          inputDecoratorUnfocusedHasBorder: true,
+          blendOnColors: true,
+          blendTextTheme: true,
+          popupMenuOpacity: 0.95,
+        ),
+      ),
+      darkTheme: FlexThemeData.dark(
+        scheme: FlexScheme.blueWhale,
+        surfaceMode: FlexSurfaceMode.highScaffoldLowSurface,
+        blendLevel: 18,
+        appBarStyle: FlexAppBarStyle.background,
+        appBarOpacity: 0.95,
+        appBarElevation: 0,
+        transparentStatusBar: true,
+        tabBarStyle: FlexTabBarStyle.forAppBar,
+        tooltipsMatchBackground: true,
+        swapColors: false,
+        darkIsTrueBlack: false,
+        useSubThemes: true,
+        visualDensity: FlexColorScheme.comfortablePlatformDensity,
+        // fontFamily: GoogleFonts.notoSans().fontFamily,
+        subThemesData: const FlexSubThemesData(
+          useTextTheme: true,
+          defaultRadius: 8,
+          fabUseShape: true,
+          interactionEffects: true,
+          bottomNavigationBarElevation: 0,
+          bottomNavigationBarOpacity: 0.95,
+          navigationBarOpacity: 0.95,
+          navigationBarMutedUnselectedText: true,
+          navigationBarMutedUnselectedIcon: true,
+          inputDecoratorIsFilled: true,
+          inputDecoratorBorderType: FlexInputBorderType.outline,
+          inputDecoratorUnfocusedHasBorder: true,
+          blendOnColors: true,
+          blendTextTheme: true,
+          popupMenuOpacity: 0.95,
+        ),
+      ),
     );
   }
 }

@@ -6,11 +6,15 @@ import '../pages.dart';
   preferRelativeImports: true,
   replaceInRouteName: 'Page,Route',
   routes: [
-    AutoRoute(page: HomePage, children: [
-      AutoRoute(page: AllTodosPage),
-      AutoRoute(page: TodayPage),
-      AutoRoute(page: UpcomingPage),
-    ]),
+    AutoRoute(
+      page: HomePage,
+      children: [
+        AutoRoute(page: AllTodosPage),
+        AutoRoute(page: TodayPage),
+        AutoRoute(page: UpcomingPage),
+      ],
+      initial: true,
+    ),
   ],
 )
 class $AppRouter {}

@@ -41,7 +41,7 @@ class AppRouter extends _i2.RootStackRouter {
 
   @override
   List<_i2.RouteConfig> get routes => [
-        _i2.RouteConfig(HomeRoute.name, path: '/home-page', children: [
+        _i2.RouteConfig(HomeRoute.name, path: '/', children: [
           _i2.RouteConfig(AllTodosRoute.name,
               path: 'all-todos-page', parent: HomeRoute.name),
           _i2.RouteConfig(TodayRoute.name,
@@ -56,7 +56,7 @@ class AppRouter extends _i2.RootStackRouter {
 /// [_i1.HomePage]
 class HomeRoute extends _i2.PageRouteInfo<void> {
   const HomeRoute({List<_i2.PageRouteInfo>? children})
-      : super(HomeRoute.name, path: '/home-page', initialChildren: children);
+      : super(HomeRoute.name, path: '/', initialChildren: children);
 
   static const String name = 'HomeRoute';
 }

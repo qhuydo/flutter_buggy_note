@@ -70,7 +70,7 @@ class MenuItem extends StatelessWidget {
               // However, you can do this on a menu that selects an item that
               // should remain highlighted and show last selected item:
               // color: selected ? theme.focusColor : Colors.transparent,
-              color: Colors.transparent,
+              color: selected ? theme.focusColor : Colors.transparent,
               child: InkWell(
                 onTap: onTap,
                 child: SizedBox(

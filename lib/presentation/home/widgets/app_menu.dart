@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'menu_item.dart';
 
+const menuWidth = 275.0;
+const railWidth = 66.0;
+
 class AppMenu extends StatefulWidget {
   const AppMenu({
     Key? key,

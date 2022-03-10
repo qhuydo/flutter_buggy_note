@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 extension DeviceSize on BuildContext {
-  bool isMobile() {
+  bool isMobileSize() {
     final responsiveValue = ResponsiveValue(
       this,
       defaultValue: false,
@@ -14,7 +14,7 @@ extension DeviceSize on BuildContext {
     return responsiveValue.value == true;
   }
 
-  bool isDesktop() {
+  bool isDesktopSize() {
     final responsiveValue = ResponsiveValue(
       this,
       defaultValue: false,

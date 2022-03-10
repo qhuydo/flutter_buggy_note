@@ -29,9 +29,92 @@ class _HomePageState extends State<HomePage> {
 
   final scaffoldKey = GlobalKey();
 
+  Widget buildSideMenu(BuildContext context) {
+    return ConstrainedBox(
+      constraints: const BoxConstraints(maxWidth: menuWidth),
+      child: Material(
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 300),
+          width: activeMenuWidth,
+          child: AppMenu(
+            railWidth: railWidth,
+            maxWidth: menuWidth,
+            onOperate: () {
+              setState(() {
+                isMenuExpanded = !isMenuExpanded;
+              });
+            },
+            onSelect: (index) {
+              if (index >= 0 && index < _routes.length) {
+                context.navigateTo(_routes[index]);
+              }
+            },
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget buildScaffold(BuildContext context) {
+    return Expanded(
+      child: AutoTabsScaffold(
+        key: scaffoldKey,
+        routes: _routes,
+        extendBodyBehindAppBar: true,
+        extendBody: true,
+        appBarBuilder: (context, _) => AppBar(
+          title: const Text('Home'),
+        ),
+        bottomNavigationBuilder: (context, tabsRouter) => ResponsiveVisibility(
+          visibleWhen: const [
+            Condition.smallerThan(name: MOBILE),
+            Condition.equals(name: MOBILE),
+          ],
+          hiddenWhen: const [
+            Condition.largerThan(name: MOBILE),
+          ],
+          child: NavigationBar(
+            selectedIndex: tabsRouter.activeIndex,
+            onDestinationSelected: tabsRouter.setActiveIndex,
+            destinations: [
+              NavigationDestination(
+                icon: Icon(
+                  tabsRouter.activeIndex == 0
+                      ? Icons.all_inbox
+                      : Icons.all_inbox_outlined,
+                ),
+                label: 'All',
+              ),
+              NavigationDestination(
+                icon: Icon(
+                  tabsRouter.activeIndex == 1
+                      ? Icons.calendar_today
+                      : Icons.calendar_today_outlined,
+                ),
+                label: 'Today',
+              ),
+              NavigationDestination(
+                icon: Icon(
+                  tabsRouter.activeIndex == 2
+                      ? Icons.calendar_month
+                      : Icons.calendar_month_outlined,
+                ),
+                label: 'Upcoming',
+              ),
+              const NavigationDestination(
+                icon: Icon(Icons.search),
+                label: 'Search',
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    final isMobile = context.isMobile();
+    final isMobile = context.isMobileSize();
 
     if (!isMenuExpanded) activeMenuWidth = railWidth;
     if (isMenuExpanded) activeMenuWidth = menuWidth;
@@ -41,72 +124,8 @@ class _HomePageState extends State<HomePage> {
       value: FlexColorScheme.themedSystemNavigationBar(context),
       child: Row(
         children: [
-          ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: menuWidth),
-            child: Material(
-              child: AnimatedContainer(
-                duration: const Duration(milliseconds: 300),
-                width: activeMenuWidth,
-                child: AppMenu(
-                  railWidth: railWidth,
-                  maxWidth: menuWidth,
-                  onOperate: () {
-                    setState(() {
-                      isMenuExpanded = !isMenuExpanded;
-                    });
-                  },
-                  onSelect: (index) {
-                    if (index >= 0 && index < _routes.length) {
-                      context.navigateTo(_routes[index]);
-                    }
-                  },
-                ),
-              ),
-            ),
-          ),
-          Expanded(
-            child: AutoTabsScaffold(
-              key: scaffoldKey,
-              routes: _routes,
-              extendBodyBehindAppBar: true,
-              extendBody: true,
-              appBarBuilder: (context, _) => AppBar(
-                title: const Text('Home'),
-              ),
-              bottomNavigationBuilder: (context, tabsRouter) =>
-                  ResponsiveVisibility(
-                visibleWhen: const [
-                  Condition.smallerThan(name: MOBILE),
-                  Condition.equals(name: MOBILE),
-                ],
-                hiddenWhen: const [
-                  Condition.largerThan(name: MOBILE),
-                ],
-                child: NavigationBar(
-                  selectedIndex: tabsRouter.activeIndex,
-                  onDestinationSelected: tabsRouter.setActiveIndex,
-                  destinations: const [
-                    NavigationDestination(
-                      icon: Icon(Icons.all_inbox_outlined),
-                      label: 'All',
-                    ),
-                    NavigationDestination(
-                      icon: Icon(Icons.calendar_today_outlined),
-                      label: 'Today',
-                    ),
-                    NavigationDestination(
-                      icon: Icon(Icons.calendar_month_outlined),
-                      label: 'Upcoming',
-                    ),
-                    NavigationDestination(
-                      icon: Icon(Icons.search),
-                      label: 'Search',
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
+          buildSideMenu(context),
+          buildScaffold(context),
         ],
       ),
     );

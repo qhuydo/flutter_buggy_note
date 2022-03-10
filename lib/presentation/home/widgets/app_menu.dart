@@ -1,0 +1,117 @@
+import 'package:flutter/material.dart';
+
+import 'menu_item.dart';
+
+class AppMenu extends StatefulWidget {
+  const AppMenu({
+    Key? key,
+    this.title,
+    required this.maxWidth,
+    this.onOperate,
+    this.onSelect,
+    required this.railWidth,
+  }) : super(key: key);
+  final Widget? title;
+  final double maxWidth;
+  final VoidCallback? onOperate;
+  final ValueChanged<int>? onSelect;
+  final double railWidth;
+
+  @override
+  State<AppMenu> createState() => _AppMenuState();
+}
+
+class _AppMenuState extends State<AppMenu> {
+  int selectedItem = 0;
+
+  static const List<IconData> _icons = [
+    Icons.all_inbox_outlined,
+    Icons.calendar_today_outlined,
+    Icons.calendar_month_outlined,
+    Icons.search,
+  ];
+
+  static const List<String> _labels = <String>[
+    'All',
+    'Today',
+    'Upcoming',
+    'Search',
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints size) {
+        // The overflow box is not the prettiest approach, but has some
+        // convenient properties for this simple animated menu using just
+        // a single AnimatedContainer.
+        return OverflowBox(
+          alignment: AlignmentDirectional.topStart,
+          minWidth: 0,
+          maxWidth: widget.maxWidth,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // We use an AppBar element as header in the menu too, a custom
+              // Widget would be less restrictive, but for simplicity, the
+              // AppBar has so many nice things built in to handle text style,
+              // size and scaling for the title that are tedious to replicate
+              AppBar(
+                title: widget.title,
+                titleSpacing: 0,
+                leadingWidth: widget.railWidth,
+                leading: IconButton(
+                  padding: EdgeInsets.zero,
+                  icon: const Icon(Icons.menu),
+                  onPressed: widget.onOperate,
+                ),
+              ),
+              Expanded(
+                child: Container(
+                  width: size.maxWidth,
+                  decoration: BoxDecoration(
+                    border: BorderDirectional(
+                      end: BorderSide(
+                        color: Theme.of(context).dividerColor,
+                      ),
+                    ),
+                  ),
+                  child: ClipRect(
+                    child: OverflowBox(
+                      alignment: AlignmentDirectional.topStart,
+                      minWidth: 0,
+                      maxWidth: widget.maxWidth,
+                      child: ListView(
+                        padding: EdgeInsets.zero, //  Removes all edge insets
+                        children: [
+                          // Add all the menu items.
+                          for (int i = 0; i < _icons.length; i++)
+                            MenuItem(
+                              width: size.maxWidth,
+                              menuWidth: widget.maxWidth,
+                              onTap: () {
+                                setState(() {
+                                  selectedItem = i;
+                                });
+                                widget.onSelect?.call(i);
+                              },
+                              selected: selectedItem == i,
+                              icon: _icons[i],
+                              label: _labels[i],
+                              showDivider: i.isEven,
+                              railWidth: widget.railWidth,
+                            ),
+                          const Divider(thickness: 1, height: 1),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+}

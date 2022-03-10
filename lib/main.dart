@@ -24,15 +24,15 @@ class BuggyNoteApp extends StatelessWidget {
       builder: (context, child) => ResponsiveWrapper.builder(
         child,
         // maxWidth: 1200,
-        minWidth: 600,
+        // minWidth: 600,
         defaultScale: true,
         breakpoints: const [
-          ResponsiveBreakpoint.resize(phoneBreakpoint, name: MOBILE),
-          ResponsiveBreakpoint.autoScale(tabletBreakpoint, name: TABLET),
+          ResponsiveBreakpoint.autoScale(phoneBreakpoint, name: MOBILE),
+          ResponsiveBreakpoint.resize(tabletBreakpoint, name: TABLET),
           ResponsiveBreakpoint.resize(desktopBreakpoint, name: DESKTOP),
         ],
       ),
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.system,
       theme: FlexThemeData.light(
         scheme: FlexScheme.blueWhale,
         surfaceMode: FlexSurfaceMode.highScaffoldLowSurface,

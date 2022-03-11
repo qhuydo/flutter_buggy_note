@@ -14,6 +14,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+Todo _$TodoFromJson(Map<String, dynamic> json) {
+  return _Todo.fromJson(json);
+}
+
 /// @nodoc
 class _$TodoTearOff {
   const _$TodoTearOff();
@@ -26,7 +30,6 @@ class _$TodoTearOff {
       int priority = 0,
       String comment = '',
       TodoStatus status = TodoStatus.pending,
-      List<String> tagList = const [],
       dynamic isArchived = false,
       dynamic isRemoved = false,
       int order = 0}) {
@@ -38,11 +41,14 @@ class _$TodoTearOff {
       priority: priority,
       comment: comment,
       status: status,
-      tagList: tagList,
       isArchived: isArchived,
       isRemoved: isRemoved,
       order: order,
     );
+  }
+
+  Todo fromJson(Map<String, Object?> json) {
+    return Todo.fromJson(json);
   }
 }
 
@@ -58,11 +64,11 @@ mixin _$Todo {
   int get priority => throw _privateConstructorUsedError;
   String get comment => throw _privateConstructorUsedError;
   TodoStatus get status => throw _privateConstructorUsedError;
-  List<String> get tagList => throw _privateConstructorUsedError;
   dynamic get isArchived => throw _privateConstructorUsedError;
   dynamic get isRemoved => throw _privateConstructorUsedError;
   int get order => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $TodoCopyWith<Todo> get copyWith => throw _privateConstructorUsedError;
 }
@@ -79,7 +85,6 @@ abstract class $TodoCopyWith<$Res> {
       int priority,
       String comment,
       TodoStatus status,
-      List<String> tagList,
       dynamic isArchived,
       dynamic isRemoved,
       int order});
@@ -102,7 +107,6 @@ class _$TodoCopyWithImpl<$Res> implements $TodoCopyWith<$Res> {
     Object? priority = freezed,
     Object? comment = freezed,
     Object? status = freezed,
-    Object? tagList = freezed,
     Object? isArchived = freezed,
     Object? isRemoved = freezed,
     Object? order = freezed,
@@ -136,10 +140,6 @@ class _$TodoCopyWithImpl<$Res> implements $TodoCopyWith<$Res> {
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as TodoStatus,
-      tagList: tagList == freezed
-          ? _value.tagList
-          : tagList // ignore: cast_nullable_to_non_nullable
-              as List<String>,
       isArchived: isArchived == freezed
           ? _value.isArchived
           : isArchived // ignore: cast_nullable_to_non_nullable
@@ -169,7 +169,6 @@ abstract class _$TodoCopyWith<$Res> implements $TodoCopyWith<$Res> {
       int priority,
       String comment,
       TodoStatus status,
-      List<String> tagList,
       dynamic isArchived,
       dynamic isRemoved,
       int order});
@@ -193,7 +192,6 @@ class __$TodoCopyWithImpl<$Res> extends _$TodoCopyWithImpl<$Res>
     Object? priority = freezed,
     Object? comment = freezed,
     Object? status = freezed,
-    Object? tagList = freezed,
     Object? isArchived = freezed,
     Object? isRemoved = freezed,
     Object? order = freezed,
@@ -227,10 +225,6 @@ class __$TodoCopyWithImpl<$Res> extends _$TodoCopyWithImpl<$Res>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as TodoStatus,
-      tagList: tagList == freezed
-          ? _value.tagList
-          : tagList // ignore: cast_nullable_to_non_nullable
-              as List<String>,
       isArchived: isArchived == freezed ? _value.isArchived : isArchived,
       isRemoved: isRemoved == freezed ? _value.isRemoved : isRemoved,
       order: order == freezed
@@ -242,8 +236,8 @@ class __$TodoCopyWithImpl<$Res> extends _$TodoCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
-class _$_Todo implements _Todo {
+@JsonSerializable()
+class _$_Todo with DiagnosticableTreeMixin implements _Todo {
   _$_Todo(
       {required this.title,
       required this.id,
@@ -252,10 +246,11 @@ class _$_Todo implements _Todo {
       this.priority = 0,
       this.comment = '',
       this.status = TodoStatus.pending,
-      this.tagList = const [],
       this.isArchived = false,
       this.isRemoved = false,
       this.order = 0});
+
+  factory _$_Todo.fromJson(Map<String, dynamic> json) => _$$_TodoFromJson(json);
 
   @override
   final String title;
@@ -276,9 +271,6 @@ class _$_Todo implements _Todo {
   final TodoStatus status;
   @JsonKey()
   @override
-  final List<String> tagList;
-  @JsonKey()
-  @override
   final dynamic isArchived;
   @JsonKey()
   @override
@@ -288,8 +280,25 @@ class _$_Todo implements _Todo {
   final int order;
 
   @override
-  String toString() {
-    return 'Todo(title: $title, id: $id, colour: $colour, dueDate: $dueDate, priority: $priority, comment: $comment, status: $status, tagList: $tagList, isArchived: $isArchived, isRemoved: $isRemoved, order: $order)';
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'Todo(title: $title, id: $id, colour: $colour, dueDate: $dueDate, priority: $priority, comment: $comment, status: $status, isArchived: $isArchived, isRemoved: $isRemoved, order: $order)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Todo'))
+      ..add(DiagnosticsProperty('title', title))
+      ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('colour', colour))
+      ..add(DiagnosticsProperty('dueDate', dueDate))
+      ..add(DiagnosticsProperty('priority', priority))
+      ..add(DiagnosticsProperty('comment', comment))
+      ..add(DiagnosticsProperty('status', status))
+      ..add(DiagnosticsProperty('isArchived', isArchived))
+      ..add(DiagnosticsProperty('isRemoved', isRemoved))
+      ..add(DiagnosticsProperty('order', order));
   }
 
   @override
@@ -304,7 +313,6 @@ class _$_Todo implements _Todo {
             const DeepCollectionEquality().equals(other.priority, priority) &&
             const DeepCollectionEquality().equals(other.comment, comment) &&
             const DeepCollectionEquality().equals(other.status, status) &&
-            const DeepCollectionEquality().equals(other.tagList, tagList) &&
             const DeepCollectionEquality()
                 .equals(other.isArchived, isArchived) &&
             const DeepCollectionEquality().equals(other.isRemoved, isRemoved) &&
@@ -321,7 +329,6 @@ class _$_Todo implements _Todo {
       const DeepCollectionEquality().hash(priority),
       const DeepCollectionEquality().hash(comment),
       const DeepCollectionEquality().hash(status),
-      const DeepCollectionEquality().hash(tagList),
       const DeepCollectionEquality().hash(isArchived),
       const DeepCollectionEquality().hash(isRemoved),
       const DeepCollectionEquality().hash(order));
@@ -330,6 +337,11 @@ class _$_Todo implements _Todo {
   @override
   _$TodoCopyWith<_Todo> get copyWith =>
       __$TodoCopyWithImpl<_Todo>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_TodoToJson(this);
+  }
 }
 
 abstract class _Todo implements Todo {
@@ -341,10 +353,11 @@ abstract class _Todo implements Todo {
       int priority,
       String comment,
       TodoStatus status,
-      List<String> tagList,
       dynamic isArchived,
       dynamic isRemoved,
       int order}) = _$_Todo;
+
+  factory _Todo.fromJson(Map<String, dynamic> json) = _$_Todo.fromJson;
 
   @override
   String get title;
@@ -360,8 +373,6 @@ abstract class _Todo implements Todo {
   String get comment;
   @override
   TodoStatus get status;
-  @override
-  List<String> get tagList;
   @override
   dynamic get isArchived;
   @override

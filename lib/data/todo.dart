@@ -1,6 +1,7 @@
+import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
 part 'todo.freezed.dart';
+part 'todo.g.dart';
 
 enum TodoStatus {
   pending,
@@ -17,9 +18,10 @@ class Todo with _$Todo {
     @Default(0) int priority,
     @Default('') String comment,
     @Default(TodoStatus.pending) TodoStatus status,
-    @Default([]) List<String> tagList,
     @Default(false) isArchived,
     @Default(false) isRemoved,
     @Default(0) int order,
   }) = _Todo;
+
+  factory Todo.fromJson(Map<String, dynamic> json) => _$TodoFromJson(json);
 }

@@ -22,9 +22,9 @@ Todo _$TodoFromJson(Map<String, dynamic> json) {
 class _$TodoTearOff {
   const _$TodoTearOff();
 
-  _Todo call(
+  _Todo _(
       {required String title,
-      required int id,
+      required String id,
       int? colour,
       int? dueDate,
       int priority = 0,
@@ -60,7 +60,7 @@ const $Todo = _$TodoTearOff();
 /// @nodoc
 mixin _$Todo {
   String get title => throw _privateConstructorUsedError;
-  int get id => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   int? get colour => throw _privateConstructorUsedError;
   int? get dueDate => throw _privateConstructorUsedError;
   int get priority => throw _privateConstructorUsedError;
@@ -82,7 +82,7 @@ abstract class $TodoCopyWith<$Res> {
       _$TodoCopyWithImpl<$Res>;
   $Res call(
       {String title,
-      int id,
+      String id,
       int? colour,
       int? dueDate,
       int priority,
@@ -124,7 +124,7 @@ class _$TodoCopyWithImpl<$Res> implements $TodoCopyWith<$Res> {
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       colour: colour == freezed
           ? _value.colour
           : colour // ignore: cast_nullable_to_non_nullable
@@ -172,7 +172,7 @@ abstract class _$TodoCopyWith<$Res> implements $TodoCopyWith<$Res> {
   @override
   $Res call(
       {String title,
-      int id,
+      String id,
       int? colour,
       int? dueDate,
       int priority,
@@ -215,7 +215,7 @@ class __$TodoCopyWithImpl<$Res> extends _$TodoCopyWithImpl<$Res>
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       colour: colour == freezed
           ? _value.colour
           : colour // ignore: cast_nullable_to_non_nullable
@@ -271,7 +271,7 @@ class _$_Todo with DiagnosticableTreeMixin implements _Todo {
   @override
   final String title;
   @override
-  final int id;
+  final String id;
   @override
   final int? colour;
   @override
@@ -299,14 +299,14 @@ class _$_Todo with DiagnosticableTreeMixin implements _Todo {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Todo(title: $title, id: $id, colour: $colour, dueDate: $dueDate, priority: $priority, comment: $comment, status: $status, isArchived: $isArchived, isRemoved: $isRemoved, order: $order, labels: $labels)';
+    return 'Todo._(title: $title, id: $id, colour: $colour, dueDate: $dueDate, priority: $priority, comment: $comment, status: $status, isArchived: $isArchived, isRemoved: $isRemoved, order: $order, labels: $labels)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'Todo'))
+      ..add(DiagnosticsProperty('type', 'Todo._'))
       ..add(DiagnosticsProperty('title', title))
       ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('colour', colour))
@@ -368,7 +368,7 @@ class _$_Todo with DiagnosticableTreeMixin implements _Todo {
 abstract class _Todo implements Todo {
   factory _Todo(
       {required String title,
-      required int id,
+      required String id,
       int? colour,
       int? dueDate,
       int priority,
@@ -384,7 +384,7 @@ abstract class _Todo implements Todo {
   @override
   String get title;
   @override
-  int get id;
+  String get id;
   @override
   int? get colour;
   @override

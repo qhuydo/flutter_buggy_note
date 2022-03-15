@@ -63,6 +63,16 @@ dependencies:
   # By the Dart project authors.
   json_serializable: ^6.1.5
 
+  # Lightweight and blazing fast key-value database written in pure Dart. Strongly encrypted using
+  # AES-256.
+  # (c) Apache-2.0 License. By Simon Leier.
+  hive: ^2.0.6
+  hive_flutter: ^1.1.0
+
+  # RFC4122 (v1, v4, v5) UUID Generator and Parser for all Dart platforms (Web, VM, Flutter)
+  # (c) MIT License. By Yulian Kuncheff.
+  uuid: ^3.0.6
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -77,6 +87,7 @@ dev_dependencies:
   auto_route_generator: 3.2.3
   build_runner: ^2.1.7
   freezed: ^1.1.1
+  hive_generator: ^1.1.2
 
 # The following section is specific to Flutter.
 flutter:

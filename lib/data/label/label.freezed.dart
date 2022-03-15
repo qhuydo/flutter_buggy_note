@@ -14,23 +14,16 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Label _$LabelFromJson(Map<String, dynamic> json) {
-  return _Label.fromJson(json);
-}
-
 /// @nodoc
 class _$LabelTearOff {
   const _$LabelTearOff();
 
-  _Label call({required int id, required String title}) {
+  _Label call(
+      {@HiveField(0) required int id, @HiveField(1) required String title}) {
     return _Label(
       id: id,
       title: title,
     );
-  }
-
-  Label fromJson(Map<String, Object?> json) {
-    return Label.fromJson(json);
   }
 }
 
@@ -39,10 +32,11 @@ const $Label = _$LabelTearOff();
 
 /// @nodoc
 mixin _$Label {
+  @HiveField(0)
   int get id => throw _privateConstructorUsedError;
+  @HiveField(1)
   String get title => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $LabelCopyWith<Label> get copyWith => throw _privateConstructorUsedError;
 }
@@ -51,7 +45,7 @@ mixin _$Label {
 abstract class $LabelCopyWith<$Res> {
   factory $LabelCopyWith(Label value, $Res Function(Label) then) =
       _$LabelCopyWithImpl<$Res>;
-  $Res call({int id, String title});
+  $Res call({@HiveField(0) int id, @HiveField(1) String title});
 }
 
 /// @nodoc
@@ -85,7 +79,7 @@ abstract class _$LabelCopyWith<$Res> implements $LabelCopyWith<$Res> {
   factory _$LabelCopyWith(_Label value, $Res Function(_Label) then) =
       __$LabelCopyWithImpl<$Res>;
   @override
-  $Res call({int id, String title});
+  $Res call({@HiveField(0) int id, @HiveField(1) String title});
 }
 
 /// @nodoc
@@ -116,16 +110,16 @@ class __$LabelCopyWithImpl<$Res> extends _$LabelCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
-class _$_Label with DiagnosticableTreeMixin implements _Label {
-  _$_Label({required this.id, required this.title});
 
-  factory _$_Label.fromJson(Map<String, dynamic> json) =>
-      _$$_LabelFromJson(json);
+@HiveType(typeId: typeIdLabel, adapterName: 'LabelAdapter')
+class _$_Label with DiagnosticableTreeMixin implements _Label {
+  _$_Label({@HiveField(0) required this.id, @HiveField(1) required this.title});
 
   @override
+  @HiveField(0)
   final int id;
   @override
+  @HiveField(1)
   final String title;
 
   @override
@@ -161,21 +155,18 @@ class _$_Label with DiagnosticableTreeMixin implements _Label {
   @override
   _$LabelCopyWith<_Label> get copyWith =>
       __$LabelCopyWithImpl<_Label>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_LabelToJson(this);
-  }
 }
 
 abstract class _Label implements Label {
-  factory _Label({required int id, required String title}) = _$_Label;
-
-  factory _Label.fromJson(Map<String, dynamic> json) = _$_Label.fromJson;
+  factory _Label(
+      {@HiveField(0) required int id,
+      @HiveField(1) required String title}) = _$_Label;
 
   @override
+  @HiveField(0)
   int get id;
   @override
+  @HiveField(1)
   String get title;
   @override
   @JsonKey(ignore: true)

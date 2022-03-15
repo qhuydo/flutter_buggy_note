@@ -14,29 +14,25 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Todo _$TodoFromJson(Map<String, dynamic> json) {
-  return _Todo.fromJson(json);
-}
-
 /// @nodoc
 class _$TodoTearOff {
   const _$TodoTearOff();
 
-  _Todo _(
-      {required String title,
-      required String id,
-      int? colour,
-      int? dueDate,
-      int priority = 0,
-      String comment = '',
-      TodoStatus status = TodoStatus.pending,
-      dynamic isArchived = false,
-      dynamic isRemoved = false,
-      int order = 0,
-      List<Label>? labels}) {
+  _Todo call(
+      {@HiveField(0) required int id,
+      @HiveField(1) required String title,
+      @HiveField(2) int? colour,
+      @HiveField(3) DateTime? dueDate,
+      @HiveField(4) Priority priority = Priority.priority4,
+      @HiveField(5) String comment = '',
+      @HiveField(6) TodoStatus status = TodoStatus.pending,
+      @HiveField(7) dynamic isArchived = false,
+      @HiveField(8) dynamic isRemoved = false,
+      @HiveField(9) int order = 0,
+      @HiveField(10) List<Label>? labels}) {
     return _Todo(
-      title: title,
       id: id,
+      title: title,
       colour: colour,
       dueDate: dueDate,
       priority: priority,
@@ -48,10 +44,6 @@ class _$TodoTearOff {
       labels: labels,
     );
   }
-
-  Todo fromJson(Map<String, Object?> json) {
-    return Todo.fromJson(json);
-  }
 }
 
 /// @nodoc
@@ -59,19 +51,29 @@ const $Todo = _$TodoTearOff();
 
 /// @nodoc
 mixin _$Todo {
+  @HiveField(0)
+  int get id => throw _privateConstructorUsedError;
+  @HiveField(1)
   String get title => throw _privateConstructorUsedError;
-  String get id => throw _privateConstructorUsedError;
+  @HiveField(2)
   int? get colour => throw _privateConstructorUsedError;
-  int? get dueDate => throw _privateConstructorUsedError;
-  int get priority => throw _privateConstructorUsedError;
+  @HiveField(3)
+  DateTime? get dueDate => throw _privateConstructorUsedError;
+  @HiveField(4)
+  Priority get priority => throw _privateConstructorUsedError;
+  @HiveField(5)
   String get comment => throw _privateConstructorUsedError;
+  @HiveField(6)
   TodoStatus get status => throw _privateConstructorUsedError;
+  @HiveField(7)
   dynamic get isArchived => throw _privateConstructorUsedError;
+  @HiveField(8)
   dynamic get isRemoved => throw _privateConstructorUsedError;
+  @HiveField(9)
   int get order => throw _privateConstructorUsedError;
+  @HiveField(10)
   List<Label>? get labels => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $TodoCopyWith<Todo> get copyWith => throw _privateConstructorUsedError;
 }
@@ -81,17 +83,17 @@ abstract class $TodoCopyWith<$Res> {
   factory $TodoCopyWith(Todo value, $Res Function(Todo) then) =
       _$TodoCopyWithImpl<$Res>;
   $Res call(
-      {String title,
-      String id,
-      int? colour,
-      int? dueDate,
-      int priority,
-      String comment,
-      TodoStatus status,
-      dynamic isArchived,
-      dynamic isRemoved,
-      int order,
-      List<Label>? labels});
+      {@HiveField(0) int id,
+      @HiveField(1) String title,
+      @HiveField(2) int? colour,
+      @HiveField(3) DateTime? dueDate,
+      @HiveField(4) Priority priority,
+      @HiveField(5) String comment,
+      @HiveField(6) TodoStatus status,
+      @HiveField(7) dynamic isArchived,
+      @HiveField(8) dynamic isRemoved,
+      @HiveField(9) int order,
+      @HiveField(10) List<Label>? labels});
 }
 
 /// @nodoc
@@ -104,8 +106,8 @@ class _$TodoCopyWithImpl<$Res> implements $TodoCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? title = freezed,
     Object? id = freezed,
+    Object? title = freezed,
     Object? colour = freezed,
     Object? dueDate = freezed,
     Object? priority = freezed,
@@ -117,13 +119,13 @@ class _$TodoCopyWithImpl<$Res> implements $TodoCopyWith<$Res> {
     Object? labels = freezed,
   }) {
     return _then(_value.copyWith(
-      title: title == freezed
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String,
       colour: colour == freezed
           ? _value.colour
@@ -132,11 +134,11 @@ class _$TodoCopyWithImpl<$Res> implements $TodoCopyWith<$Res> {
       dueDate: dueDate == freezed
           ? _value.dueDate
           : dueDate // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as DateTime?,
       priority: priority == freezed
           ? _value.priority
           : priority // ignore: cast_nullable_to_non_nullable
-              as int,
+              as Priority,
       comment: comment == freezed
           ? _value.comment
           : comment // ignore: cast_nullable_to_non_nullable
@@ -171,17 +173,17 @@ abstract class _$TodoCopyWith<$Res> implements $TodoCopyWith<$Res> {
       __$TodoCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String title,
-      String id,
-      int? colour,
-      int? dueDate,
-      int priority,
-      String comment,
-      TodoStatus status,
-      dynamic isArchived,
-      dynamic isRemoved,
-      int order,
-      List<Label>? labels});
+      {@HiveField(0) int id,
+      @HiveField(1) String title,
+      @HiveField(2) int? colour,
+      @HiveField(3) DateTime? dueDate,
+      @HiveField(4) Priority priority,
+      @HiveField(5) String comment,
+      @HiveField(6) TodoStatus status,
+      @HiveField(7) dynamic isArchived,
+      @HiveField(8) dynamic isRemoved,
+      @HiveField(9) int order,
+      @HiveField(10) List<Label>? labels});
 }
 
 /// @nodoc
@@ -195,8 +197,8 @@ class __$TodoCopyWithImpl<$Res> extends _$TodoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? title = freezed,
     Object? id = freezed,
+    Object? title = freezed,
     Object? colour = freezed,
     Object? dueDate = freezed,
     Object? priority = freezed,
@@ -208,13 +210,13 @@ class __$TodoCopyWithImpl<$Res> extends _$TodoCopyWithImpl<$Res>
     Object? labels = freezed,
   }) {
     return _then(_Todo(
-      title: title == freezed
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String,
       colour: colour == freezed
           ? _value.colour
@@ -223,11 +225,11 @@ class __$TodoCopyWithImpl<$Res> extends _$TodoCopyWithImpl<$Res>
       dueDate: dueDate == freezed
           ? _value.dueDate
           : dueDate // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as DateTime?,
       priority: priority == freezed
           ? _value.priority
           : priority // ignore: cast_nullable_to_non_nullable
-              as int,
+              as Priority,
       comment: comment == freezed
           ? _value.comment
           : comment // ignore: cast_nullable_to_non_nullable
@@ -251,64 +253,74 @@ class __$TodoCopyWithImpl<$Res> extends _$TodoCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@HiveType(typeId: typeIdTodo, adapterName: 'TodoAdapter')
 class _$_Todo with DiagnosticableTreeMixin implements _Todo {
   _$_Todo(
-      {required this.title,
-      required this.id,
-      this.colour,
-      this.dueDate,
-      this.priority = 0,
-      this.comment = '',
-      this.status = TodoStatus.pending,
-      this.isArchived = false,
-      this.isRemoved = false,
-      this.order = 0,
-      this.labels});
-
-  factory _$_Todo.fromJson(Map<String, dynamic> json) => _$$_TodoFromJson(json);
+      {@HiveField(0) required this.id,
+      @HiveField(1) required this.title,
+      @HiveField(2) this.colour,
+      @HiveField(3) this.dueDate,
+      @HiveField(4) this.priority = Priority.priority4,
+      @HiveField(5) this.comment = '',
+      @HiveField(6) this.status = TodoStatus.pending,
+      @HiveField(7) this.isArchived = false,
+      @HiveField(8) this.isRemoved = false,
+      @HiveField(9) this.order = 0,
+      @HiveField(10) this.labels});
 
   @override
+  @HiveField(0)
+  final int id;
+  @override
+  @HiveField(1)
   final String title;
   @override
-  final String id;
-  @override
+  @HiveField(2)
   final int? colour;
   @override
-  final int? dueDate;
+  @HiveField(3)
+  final DateTime? dueDate;
   @JsonKey()
   @override
-  final int priority;
+  @HiveField(4)
+  final Priority priority;
   @JsonKey()
   @override
+  @HiveField(5)
   final String comment;
   @JsonKey()
   @override
+  @HiveField(6)
   final TodoStatus status;
   @JsonKey()
   @override
+  @HiveField(7)
   final dynamic isArchived;
   @JsonKey()
   @override
+  @HiveField(8)
   final dynamic isRemoved;
   @JsonKey()
   @override
+  @HiveField(9)
   final int order;
   @override
+  @HiveField(10)
   final List<Label>? labels;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Todo._(title: $title, id: $id, colour: $colour, dueDate: $dueDate, priority: $priority, comment: $comment, status: $status, isArchived: $isArchived, isRemoved: $isRemoved, order: $order, labels: $labels)';
+    return 'Todo(id: $id, title: $title, colour: $colour, dueDate: $dueDate, priority: $priority, comment: $comment, status: $status, isArchived: $isArchived, isRemoved: $isRemoved, order: $order, labels: $labels)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'Todo._'))
-      ..add(DiagnosticsProperty('title', title))
+      ..add(DiagnosticsProperty('type', 'Todo'))
       ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('title', title))
       ..add(DiagnosticsProperty('colour', colour))
       ..add(DiagnosticsProperty('dueDate', dueDate))
       ..add(DiagnosticsProperty('priority', priority))
@@ -325,8 +337,8 @@ class _$_Todo with DiagnosticableTreeMixin implements _Todo {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Todo &&
-            const DeepCollectionEquality().equals(other.title, title) &&
             const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.title, title) &&
             const DeepCollectionEquality().equals(other.colour, colour) &&
             const DeepCollectionEquality().equals(other.dueDate, dueDate) &&
             const DeepCollectionEquality().equals(other.priority, priority) &&
@@ -342,8 +354,8 @@ class _$_Todo with DiagnosticableTreeMixin implements _Todo {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(title),
       const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(title),
       const DeepCollectionEquality().hash(colour),
       const DeepCollectionEquality().hash(dueDate),
       const DeepCollectionEquality().hash(priority),
@@ -358,50 +370,54 @@ class _$_Todo with DiagnosticableTreeMixin implements _Todo {
   @override
   _$TodoCopyWith<_Todo> get copyWith =>
       __$TodoCopyWithImpl<_Todo>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_TodoToJson(this);
-  }
 }
 
 abstract class _Todo implements Todo {
   factory _Todo(
-      {required String title,
-      required String id,
-      int? colour,
-      int? dueDate,
-      int priority,
-      String comment,
-      TodoStatus status,
-      dynamic isArchived,
-      dynamic isRemoved,
-      int order,
-      List<Label>? labels}) = _$_Todo;
-
-  factory _Todo.fromJson(Map<String, dynamic> json) = _$_Todo.fromJson;
+      {@HiveField(0) required int id,
+      @HiveField(1) required String title,
+      @HiveField(2) int? colour,
+      @HiveField(3) DateTime? dueDate,
+      @HiveField(4) Priority priority,
+      @HiveField(5) String comment,
+      @HiveField(6) TodoStatus status,
+      @HiveField(7) dynamic isArchived,
+      @HiveField(8) dynamic isRemoved,
+      @HiveField(9) int order,
+      @HiveField(10) List<Label>? labels}) = _$_Todo;
 
   @override
+  @HiveField(0)
+  int get id;
+  @override
+  @HiveField(1)
   String get title;
   @override
-  String get id;
-  @override
+  @HiveField(2)
   int? get colour;
   @override
-  int? get dueDate;
+  @HiveField(3)
+  DateTime? get dueDate;
   @override
-  int get priority;
+  @HiveField(4)
+  Priority get priority;
   @override
+  @HiveField(5)
   String get comment;
   @override
+  @HiveField(6)
   TodoStatus get status;
   @override
+  @HiveField(7)
   dynamic get isArchived;
   @override
+  @HiveField(8)
   dynamic get isRemoved;
   @override
+  @HiveField(9)
   int get order;
   @override
+  @HiveField(10)
   List<Label>? get labels;
   @override
   @JsonKey(ignore: true)

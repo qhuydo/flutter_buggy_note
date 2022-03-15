@@ -18,6 +18,9 @@ _$_Todo _$$_TodoFromJson(Map<String, dynamic> json) => _$_Todo(
       isArchived: json['isArchived'] ?? false,
       isRemoved: json['isRemoved'] ?? false,
       order: json['order'] as int? ?? 0,
+      labels: (json['labels'] as List<dynamic>?)
+          ?.map((e) => Label.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$$_TodoToJson(_$_Todo instance) => <String, dynamic>{
@@ -31,6 +34,7 @@ Map<String, dynamic> _$$_TodoToJson(_$_Todo instance) => <String, dynamic>{
       'isArchived': instance.isArchived,
       'isRemoved': instance.isRemoved,
       'order': instance.order,
+      'labels': instance.labels,
     };
 
 const _$TodoStatusEnumMap = {

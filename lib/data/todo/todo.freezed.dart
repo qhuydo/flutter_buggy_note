@@ -32,7 +32,8 @@ class _$TodoTearOff {
       TodoStatus status = TodoStatus.pending,
       dynamic isArchived = false,
       dynamic isRemoved = false,
-      int order = 0}) {
+      int order = 0,
+      List<Label>? labels}) {
     return _Todo(
       title: title,
       id: id,
@@ -44,6 +45,7 @@ class _$TodoTearOff {
       isArchived: isArchived,
       isRemoved: isRemoved,
       order: order,
+      labels: labels,
     );
   }
 
@@ -67,6 +69,7 @@ mixin _$Todo {
   dynamic get isArchived => throw _privateConstructorUsedError;
   dynamic get isRemoved => throw _privateConstructorUsedError;
   int get order => throw _privateConstructorUsedError;
+  List<Label>? get labels => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -87,7 +90,8 @@ abstract class $TodoCopyWith<$Res> {
       TodoStatus status,
       dynamic isArchived,
       dynamic isRemoved,
-      int order});
+      int order,
+      List<Label>? labels});
 }
 
 /// @nodoc
@@ -110,6 +114,7 @@ class _$TodoCopyWithImpl<$Res> implements $TodoCopyWith<$Res> {
     Object? isArchived = freezed,
     Object? isRemoved = freezed,
     Object? order = freezed,
+    Object? labels = freezed,
   }) {
     return _then(_value.copyWith(
       title: title == freezed
@@ -152,6 +157,10 @@ class _$TodoCopyWithImpl<$Res> implements $TodoCopyWith<$Res> {
           ? _value.order
           : order // ignore: cast_nullable_to_non_nullable
               as int,
+      labels: labels == freezed
+          ? _value.labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as List<Label>?,
     ));
   }
 }
@@ -171,7 +180,8 @@ abstract class _$TodoCopyWith<$Res> implements $TodoCopyWith<$Res> {
       TodoStatus status,
       dynamic isArchived,
       dynamic isRemoved,
-      int order});
+      int order,
+      List<Label>? labels});
 }
 
 /// @nodoc
@@ -195,6 +205,7 @@ class __$TodoCopyWithImpl<$Res> extends _$TodoCopyWithImpl<$Res>
     Object? isArchived = freezed,
     Object? isRemoved = freezed,
     Object? order = freezed,
+    Object? labels = freezed,
   }) {
     return _then(_Todo(
       title: title == freezed
@@ -231,6 +242,10 @@ class __$TodoCopyWithImpl<$Res> extends _$TodoCopyWithImpl<$Res>
           ? _value.order
           : order // ignore: cast_nullable_to_non_nullable
               as int,
+      labels: labels == freezed
+          ? _value.labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as List<Label>?,
     ));
   }
 }
@@ -248,7 +263,8 @@ class _$_Todo with DiagnosticableTreeMixin implements _Todo {
       this.status = TodoStatus.pending,
       this.isArchived = false,
       this.isRemoved = false,
-      this.order = 0});
+      this.order = 0,
+      this.labels});
 
   factory _$_Todo.fromJson(Map<String, dynamic> json) => _$$_TodoFromJson(json);
 
@@ -278,10 +294,12 @@ class _$_Todo with DiagnosticableTreeMixin implements _Todo {
   @JsonKey()
   @override
   final int order;
+  @override
+  final List<Label>? labels;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Todo(title: $title, id: $id, colour: $colour, dueDate: $dueDate, priority: $priority, comment: $comment, status: $status, isArchived: $isArchived, isRemoved: $isRemoved, order: $order)';
+    return 'Todo(title: $title, id: $id, colour: $colour, dueDate: $dueDate, priority: $priority, comment: $comment, status: $status, isArchived: $isArchived, isRemoved: $isRemoved, order: $order, labels: $labels)';
   }
 
   @override
@@ -298,7 +316,8 @@ class _$_Todo with DiagnosticableTreeMixin implements _Todo {
       ..add(DiagnosticsProperty('status', status))
       ..add(DiagnosticsProperty('isArchived', isArchived))
       ..add(DiagnosticsProperty('isRemoved', isRemoved))
-      ..add(DiagnosticsProperty('order', order));
+      ..add(DiagnosticsProperty('order', order))
+      ..add(DiagnosticsProperty('labels', labels));
   }
 
   @override
@@ -316,7 +335,8 @@ class _$_Todo with DiagnosticableTreeMixin implements _Todo {
             const DeepCollectionEquality()
                 .equals(other.isArchived, isArchived) &&
             const DeepCollectionEquality().equals(other.isRemoved, isRemoved) &&
-            const DeepCollectionEquality().equals(other.order, order));
+            const DeepCollectionEquality().equals(other.order, order) &&
+            const DeepCollectionEquality().equals(other.labels, labels));
   }
 
   @override
@@ -331,7 +351,8 @@ class _$_Todo with DiagnosticableTreeMixin implements _Todo {
       const DeepCollectionEquality().hash(status),
       const DeepCollectionEquality().hash(isArchived),
       const DeepCollectionEquality().hash(isRemoved),
-      const DeepCollectionEquality().hash(order));
+      const DeepCollectionEquality().hash(order),
+      const DeepCollectionEquality().hash(labels));
 
   @JsonKey(ignore: true)
   @override
@@ -355,7 +376,8 @@ abstract class _Todo implements Todo {
       TodoStatus status,
       dynamic isArchived,
       dynamic isRemoved,
-      int order}) = _$_Todo;
+      int order,
+      List<Label>? labels}) = _$_Todo;
 
   factory _Todo.fromJson(Map<String, dynamic> json) = _$_Todo.fromJson;
 
@@ -379,6 +401,8 @@ abstract class _Todo implements Todo {
   dynamic get isRemoved;
   @override
   int get order;
+  @override
+  List<Label>? get labels;
   @override
   @JsonKey(ignore: true)
   _$TodoCopyWith<_Todo> get copyWith => throw _privateConstructorUsedError;

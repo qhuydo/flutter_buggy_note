@@ -1,5 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+import '../label/label.dart';
 part 'todo.freezed.dart';
 part 'todo.g.dart';
 
@@ -21,6 +23,7 @@ class Todo with _$Todo {
     @Default(false) isArchived,
     @Default(false) isRemoved,
     @Default(0) int order,
+    List<Label>? labels,
   }) = _Todo;
 
   factory Todo.fromJson(Map<String, dynamic> json) => _$TodoFromJson(json);

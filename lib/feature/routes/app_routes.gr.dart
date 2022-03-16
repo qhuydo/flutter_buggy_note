@@ -25,9 +25,9 @@ class AppRouter extends _i2.RootStackRouter {
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i1.HomePage());
     },
-    AllTodosRoute.name: (routeData) {
+    OverviewRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i1.AllTodosPage());
+          routeData: routeData, child: const _i1.OverviewPage());
     },
     TodayRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
@@ -46,8 +46,8 @@ class AppRouter extends _i2.RootStackRouter {
   @override
   List<_i2.RouteConfig> get routes => [
         _i2.RouteConfig(HomeRoute.name, path: '/', children: [
-          _i2.RouteConfig(AllTodosRoute.name,
-              path: 'all-todos-page', parent: HomeRoute.name),
+          _i2.RouteConfig(OverviewRoute.name,
+              path: 'overview-page', parent: HomeRoute.name),
           _i2.RouteConfig(TodayRoute.name,
               path: 'today-page', parent: HomeRoute.name),
           _i2.RouteConfig(UpcomingRoute.name,
@@ -68,11 +68,11 @@ class HomeRoute extends _i2.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i1.AllTodosPage]
-class AllTodosRoute extends _i2.PageRouteInfo<void> {
-  const AllTodosRoute() : super(AllTodosRoute.name, path: 'all-todos-page');
+/// [_i1.OverviewPage]
+class OverviewRoute extends _i2.PageRouteInfo<void> {
+  const OverviewRoute() : super(OverviewRoute.name, path: 'overview-page');
 
-  static const String name = 'AllTodosRoute';
+  static const String name = 'OverviewRoute';
 }
 
 /// generated route for

@@ -16,7 +16,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   static const _routes = [
-    AllTodosRoute(),
+    OverviewRoute(),
     TodayRoute(),
     UpcomingRoute(),
     SearchRoute(),

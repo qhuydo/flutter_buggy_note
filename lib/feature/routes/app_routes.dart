@@ -9,7 +9,7 @@ import '../pages.dart';
     AutoRoute(
       page: HomePage,
       children: [
-        AutoRoute(page: AllTodosPage),
+        AutoRoute(page: OverviewPage),
         AutoRoute(page: TodayPage),
         AutoRoute(page: UpcomingPage),
         AutoRoute(page: SearchPage),

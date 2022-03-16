@@ -30,7 +30,7 @@ class AppRouter extends _i2.RootStackRouter {
       final args = routeData.argsAs<EditRouteArgs>();
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData,
-          child: _i1.EditPage(key: args.key, todo: args.todo));
+          child: _i1.EditPage(key: args.key, initialTodo: args.initialTodo));
     },
     OverviewRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
@@ -62,7 +62,9 @@ class AppRouter extends _i2.RootStackRouter {
           _i2.RouteConfig(SearchRoute.name,
               path: 'search-page', parent: HomeRoute.name)
         ]),
-        _i2.RouteConfig(EditRoute.name, path: '/edit/:id')
+        _i2.RouteConfig(EditRoute.name, path: '/edit/:id'),
+        _i2.RouteConfig('/add#redirect',
+            path: '/add', redirectTo: '/edit/0', fullMatch: true)
       ];
 }
 
@@ -78,23 +80,24 @@ class HomeRoute extends _i2.PageRouteInfo<void> {
 /// generated route for
 /// [_i1.EditPage]
 class EditRoute extends _i2.PageRouteInfo<EditRouteArgs> {
-  EditRoute({_i3.Key? key, required _i4.Todo todo})
+  EditRoute({_i3.Key? key, required _i4.Todo? initialTodo})
       : super(EditRoute.name,
-            path: '/edit/:id', args: EditRouteArgs(key: key, todo: todo));
+            path: '/edit/:id',
+            args: EditRouteArgs(key: key, initialTodo: initialTodo));
 
   static const String name = 'EditRoute';
 }
 
 class EditRouteArgs {
-  const EditRouteArgs({this.key, required this.todo});
+  const EditRouteArgs({this.key, required this.initialTodo});
 
   final _i3.Key? key;
 
-  final _i4.Todo todo;
+  final _i4.Todo? initialTodo;
 
   @override
   String toString() {
-    return 'EditRouteArgs{key: $key, todo: $todo}';
+    return 'EditRouteArgs{key: $key, initialTodo: $initialTodo}';
   }
 }
 

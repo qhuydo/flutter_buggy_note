@@ -14,9 +14,11 @@ part 'edit_todo_state.dart';
 class EditTodoBloc extends Bloc<EditTodoEvent, EditTodoState> {
   final TodoRepository _todoRepository;
 
-  EditTodoBloc({required TodoRepository todoRepository})
-      : _todoRepository = todoRepository,
-        super(EditTodoState()) {
+  EditTodoBloc({
+    required TodoRepository todoRepository,
+    Todo? initialTodo,
+  })  : _todoRepository = todoRepository,
+        super(EditTodoState(initialTodo: initialTodo)) {
     on<EditTodoEvent>((event, emit) async {
       await event.when(
         titleChanged: (title) async => await _onTitleChanged(

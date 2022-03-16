@@ -107,7 +107,7 @@ class TodoOverviewView extends StatelessWidget {
                           .add(TodoOverviewEvent.undoDeletionRequested());
                     },
                     onTap: () {
-                      context.pushRoute(EditRoute(todo: todo));
+                      context.pushRoute(EditRoute(initialTodo: todo));
                     },
                   )
               ],

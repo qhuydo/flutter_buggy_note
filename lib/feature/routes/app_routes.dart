@@ -19,7 +19,8 @@ import '../pages.dart';
     AutoRoute(
       page: EditPage,
       path: '/edit/:id',
-    )
+    ),
+    RedirectRoute(path: '/add', redirectTo: '/edit/0'),
   ],
 )
 class $AppRouter {}

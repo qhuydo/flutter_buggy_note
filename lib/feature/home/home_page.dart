@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 import '../helpers/device.dart';
-import '../routes/app_routes.gr.dart';
+import '../common/routes/app_routes.gr.dart';
 import 'widgets/app_menu.dart';
 
 class HomePage extends StatefulWidget {

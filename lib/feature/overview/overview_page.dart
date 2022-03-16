@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../domain/todo_repository.dart';
-import '../routes/app_routes.gr.dart';
+import '../common/routes/app_routes.gr.dart';
 import 'bloc/todo_overview_bloc.dart';
 import 'widgets/widgets.dart';
 

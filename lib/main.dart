@@ -8,8 +8,8 @@ import 'app/hive_setup.dart';
 import 'const/breakpoints.dart';
 import 'data/api/local_todo_api.dart';
 import 'domain/todo_repository.dart';
-import 'feature/routes/app_routes.gr.dart';
-import 'feature/theme/theme.dart';
+import 'feature/common/routes/app_routes.gr.dart';
+import 'feature/common/theme/theme.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -1,26 +1,25 @@
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
+import 'app/bootstrap.dart';
+import 'app/hive_setup.dart';
 import 'const/breakpoints.dart';
 import 'data/api/local_todo_api.dart';
-import 'data/models.dart';
 import 'domain/todo_repository.dart';
 import 'feature/routes/app_routes.gr.dart';
 import 'feature/theme/theme.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Hive.initFlutter();
-  Hive.registerAdapter<Todo>(TodoAdapter());
+  await initHive();
 
   final todoApi = LocalTodoApi();
-  final todosRepository = TodoRepository(todoApi);
+  // final todosRepository = TodoRepository(todoApi);
 
-  runApp(BuggyNoteApp(todoRepository: todosRepository));
-  // bootstrap(todoApi: todoApi);
+  // runApp(BuggyNoteApp(todoRepository: todosRepository));
+  bootstrap(todoApi: todoApi);
 }
 
 class BuggyNoteApp extends StatelessWidget {
@@ -35,14 +34,14 @@ class BuggyNoteApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return RepositoryProvider.value(
       value: todoRepository,
-      child: _BuggyNoteAppView(),
+      child: const _BuggyNoteAppView(),
     );
   }
 }
 
 class _BuggyNoteAppView extends StatefulWidget {
 
-  _BuggyNoteAppView({Key? key}) : super(key: key);
+  const _BuggyNoteAppView({Key? key}) : super(key: key);
 
   @override
   State<_BuggyNoteAppView> createState() => _BuggyNoteAppViewState();

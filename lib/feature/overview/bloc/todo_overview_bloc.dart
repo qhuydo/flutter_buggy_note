@@ -18,20 +18,21 @@ class TodoOverviewBloc extends Bloc<TodoOverviewEvent, TodoOverviewState> {
     required TodoRepository todoRepository,
   })  : _todoRepository = todoRepository,
         super(TodoOverviewState()) {
-    on<TodoOverviewEvent>((event, emit) {
-      event.when(
-        subscriptionRequested: () => _onSubscriptionRequested(emit),
-        todoRemoved: (todo) => _onTodoRemoved(todo, emit),
-        filterOptionChanged: (filter) => _onFilterOptionChanged(
+    on<TodoOverviewEvent>((event, emit) async {
+      await event.when(
+        subscriptionRequested: () async => await _onSubscriptionRequested(emit),
+        todoRemoved: (todo) async => await _onTodoRemoved(todo, emit),
+        filterOptionChanged: (filter) async => await _onFilterOptionChanged(
           filter,
           emit,
         ),
-        todoCompletionToggled: (todo, isCompleted) => _onTodoCompletionToggled(
+        todoCompletionToggled: (todo, isCompleted) async =>
+            await _onTodoCompletionToggled(
           todo,
           isCompleted,
           emit,
         ),
-        undoDeletionRequested: () => _onUndoDeletionRequested(emit),
+        undoDeletionRequested: () async => await _onUndoDeletionRequested(emit),
       );
     });
   }

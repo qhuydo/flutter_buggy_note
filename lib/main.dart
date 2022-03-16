@@ -40,7 +40,6 @@ class BuggyNoteApp extends StatelessWidget {
 }
 
 class _BuggyNoteAppView extends StatefulWidget {
-
   const _BuggyNoteAppView({Key? key}) : super(key: key);
 
   @override
@@ -53,7 +52,6 @@ class _BuggyNoteAppViewState extends State<_BuggyNoteAppView> {
 
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp.router(
       title: 'Buggy note',
       debugShowCheckedModeBanner: false,

@@ -51,8 +51,13 @@ class EditTodoBloc extends Bloc<EditTodoEvent, EditTodoState> {
   Future<void> _onSubmitted(Emitter<EditTodoState> emit) async {
     emit(state.copyWith(status: EditTodoStatus.loading));
 
-    final todo =
-        (state.initialTodo ?? Todo(id: 0, title: state.title)).copyWith(
+    final todo = (state.initialTodo ??
+            Todo(
+              id: 0,
+              title: state.title,
+              dueDate: DateTime.now(),
+            ))
+        .copyWith(
       description: state.description,
     );
 

@@ -109,6 +109,13 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
+        floatingActionButton: Tooltip(
+          message: 'Add new todo',
+          child: FloatingActionButton(
+            onPressed: () => context.router.push(EditRoute(initialTodo: null)),
+            child: const Icon(Icons.add),
+          ),
+        ),
       ),
     );
   }

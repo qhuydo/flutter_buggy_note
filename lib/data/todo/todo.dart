@@ -15,7 +15,7 @@ class Todo with _$Todo {
   @HiveType(typeId: typeIdTodo, adapterName: 'TodoAdapter')
   factory Todo({
     @HiveField(0) required int id,
-    @HiveField(1) required String title,
+    @HiveField(1) @Default('') String title,
     @HiveField(2) int? colour,
     @HiveField(3) DateTime? dueDate,
     @HiveField(4) @Default(Priority.priority4) Priority priority,

@@ -30,14 +30,22 @@ class AppBlocObserver extends BlocObserver {
   @override
   void onEvent(Bloc bloc, Object? event) {
     super.onEvent(bloc, event);
-    log("$event");
+    log("onEvent  - $event");
   }
 
   @override
   void onChange(BlocBase bloc, Change change) {
     super.onChange(bloc, change);
     log(
-      "$bloc\n${change.currentState.toString()}\n${change.nextState.toString()}",
+      "onChange - $bloc\n"
+      "${change.currentState.toString()}\n"
+      "${change.nextState.toString()}",
     );
+  }
+
+  @override
+  void onCreate(BlocBase bloc) {
+    super.onCreate(bloc);
+    log("onCreate - $bloc");
   }
 }

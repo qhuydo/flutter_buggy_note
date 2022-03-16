@@ -54,6 +54,7 @@ class LocalTodoApi implements TodoApi {
     } else {
       if (_box.containsKey(todo.id)) {
         await _box.putAt(todo.id, todo);
+        _todoStreamController.add(_box.values.toList());
       } else {
         return await _addNewTodo(todo);
       }

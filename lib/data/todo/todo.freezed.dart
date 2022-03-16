@@ -20,7 +20,7 @@ class _$TodoTearOff {
 
   _Todo call(
       {@HiveField(0) required int id,
-      @HiveField(1) required String title,
+      @HiveField(1) String title = '',
       @HiveField(2) int? colour,
       @HiveField(3) DateTime? dueDate,
       @HiveField(4) Priority priority = Priority.priority4,
@@ -274,7 +274,7 @@ class __$TodoCopyWithImpl<$Res> extends _$TodoCopyWithImpl<$Res>
 class _$_Todo with DiagnosticableTreeMixin implements _Todo {
   _$_Todo(
       {@HiveField(0) required this.id,
-      @HiveField(1) required this.title,
+      @HiveField(1) this.title = '',
       @HiveField(2) this.colour,
       @HiveField(3) this.dueDate,
       @HiveField(4) this.priority = Priority.priority4,
@@ -289,6 +289,7 @@ class _$_Todo with DiagnosticableTreeMixin implements _Todo {
   @override
   @HiveField(0)
   final int id;
+  @JsonKey()
   @override
   @HiveField(1)
   final String title;
@@ -401,7 +402,7 @@ class _$_Todo with DiagnosticableTreeMixin implements _Todo {
 abstract class _Todo implements Todo {
   factory _Todo(
       {@HiveField(0) required int id,
-      @HiveField(1) required String title,
+      @HiveField(1) String title,
       @HiveField(2) int? colour,
       @HiveField(3) DateTime? dueDate,
       @HiveField(4) Priority priority,

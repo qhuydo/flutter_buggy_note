@@ -6,23 +6,27 @@ import 'package:responsive_framework/responsive_framework.dart';
 
 import 'const/breakpoints.dart';
 import 'data/api/local_todo_api.dart';
+import 'data/models.dart';
 import 'domain/todo_repository.dart';
 import 'feature/routes/app_routes.gr.dart';
 import 'feature/theme/theme.dart';
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
+  Hive.registerAdapter<Todo>(TodoAdapter());
 
   final todoApi = LocalTodoApi();
   final todosRepository = TodoRepository(todoApi);
-  BuggyNoteApp(todoRepository: todosRepository);
+
+  runApp(BuggyNoteApp(todoRepository: todosRepository));
   // bootstrap(todoApi: todoApi);
 }
 
 class BuggyNoteApp extends StatelessWidget {
   final TodoRepository todoRepository;
 
-  BuggyNoteApp({
+  const BuggyNoteApp({
     Key? key,
     required this.todoRepository,
   }) : super(key: key);
@@ -36,14 +40,20 @@ class BuggyNoteApp extends StatelessWidget {
   }
 }
 
-class _BuggyNoteAppView extends StatelessWidget {
-  final _appRouter = AppRouter();
+class _BuggyNoteAppView extends StatefulWidget {
 
   _BuggyNoteAppView({Key? key}) : super(key: key);
 
   @override
+  State<_BuggyNoteAppView> createState() => _BuggyNoteAppViewState();
+}
+
+class _BuggyNoteAppViewState extends State<_BuggyNoteAppView> {
+  final _appRouter = AppRouter();
+  final _appTheme = AppTheme(scheme: FlexScheme.money);
+
+  @override
   Widget build(BuildContext context) {
-    final appTheme = AppTheme(scheme: FlexScheme.blue);
 
     return MaterialApp.router(
       title: 'Buggy note',
@@ -62,8 +72,8 @@ class _BuggyNoteAppView extends StatelessWidget {
         ],
       ),
       themeMode: ThemeMode.system,
-      theme: appTheme.light,
-      darkTheme: appTheme.dark,
+      theme: _appTheme.light,
+      darkTheme: _appTheme.dark,
     );
   }
 }

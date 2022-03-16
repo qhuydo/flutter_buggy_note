@@ -9,6 +9,7 @@ class MenuItem extends StatelessWidget {
   final VoidCallback onTap;
   final bool selected;
   final IconData icon;
+  final IconData? selectedIcon;
   final String label;
   final bool showDivider;
   final double railWidth;
@@ -23,8 +24,8 @@ class MenuItem extends StatelessWidget {
     required this.label,
     this.showDivider = false,
     required this.railWidth,
+    this.selectedIcon,
   }) : super(key: key);
-
 
   @override
   Widget build(BuildContext context) {
@@ -33,9 +34,9 @@ class MenuItem extends StatelessWidget {
 
     final Color iconColor = isLight
         ? Color.alphaBlend(theme.colorScheme.primary.withAlpha(0x99),
-        theme.colorScheme.onBackground)
+            theme.colorScheme.onBackground)
         : Color.alphaBlend(theme.colorScheme.primary.withAlpha(0x7F),
-        theme.colorScheme.onBackground);
+            theme.colorScheme.onBackground);
 
     final Color textColor = theme.colorScheme.onBackground;
 
@@ -45,10 +46,10 @@ class MenuItem extends StatelessWidget {
     // much smaller, even 2 different sizes.
     final double endPadding = (width > railWidth + 10)
         ? 12
-    // If we use a really narrow rail rail, make padding even smaller-
+        // If we use a really narrow rail rail, make padding even smaller-
         : railWidth < 60
-        ? 5
-        : 8;
+            ? 5
+            : 8;
     // Remove the menu when it gets smaller than 4dp during animation.
     if (width < 4) {
       return const SizedBox.shrink();
@@ -93,7 +94,9 @@ class MenuItem extends StatelessWidget {
                               width: railWidth,
                               height: railWidth,
                             ),
-                            child: Icon(icon, color: iconColor),
+                            child: Icon(
+                                selected ? (selectedIcon ?? icon) : icon,
+                                color: iconColor),
                           ),
                         ),
                         // Below width of 10dp we remove the label.

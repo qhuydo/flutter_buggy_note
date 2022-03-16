@@ -34,6 +34,13 @@ class _AppMenuState extends State<AppMenu> {
     Icons.search,
   ];
 
+  static const List<IconData> _selectedIcons = [
+    Icons.all_inbox,
+    Icons.calendar_today,
+    Icons.calendar_month,
+    Icons.search,
+  ];
+
   static const List<String> _labels = <String>[
     'All',
     'Today',
@@ -103,6 +110,7 @@ class _AppMenuState extends State<AppMenu> {
                               label: _labels[i],
                               showDivider: i.isEven,
                               railWidth: widget.railWidth,
+                              selectedIcon: _selectedIcons[i],
                             ),
                           const Divider(thickness: 1, height: 1),
                         ],

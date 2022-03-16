@@ -40,12 +40,24 @@ class LocalTodoApi implements TodoApi {
     _todoStreamController.add(_box.values.toList());
   }
 
-  @override
-  Future<void> saveTodo(Todo todo) async {
+  Future<void> _addNewTodo(Todo todo) async {
     final nextId = await _box.add(todo);
     // final nextId = _box.length;
     await _box.putAt(nextId, todo.copyWith(id: nextId));
     _todoStreamController.add(_box.values.toList());
+  }
+
+  @override
+  Future<void> saveTodo(Todo todo, {bool overwrite = false}) async {
+    if (!overwrite) {
+      return await _addNewTodo(todo);
+    } else {
+      if (_box.containsKey(todo.id)) {
+        await _box.putAt(todo.id, todo);
+      } else {
+        return await _addNewTodo(todo);
+      }
+    }
   }
 
 }

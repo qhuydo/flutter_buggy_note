@@ -12,3 +12,10 @@ enum TodoStatus {
   @HiveField(1)
   completed,
 }
+
+extension TodoStatusBooleanX on bool {
+  TodoStatus fromCompletionState() {
+    return this ? TodoStatus.completed : TodoStatus.pending;
+  }
+}
+

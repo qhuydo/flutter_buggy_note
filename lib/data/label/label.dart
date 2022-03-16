@@ -4,8 +4,8 @@ import 'package:hive/hive.dart';
 
 import '../helpers/hive_type_id_map.dart';
 
-part 'label.freezed.dart';
 part 'label.g.dart';
+part 'label.freezed.dart';
 
 @freezed
 class Label with _$Label {

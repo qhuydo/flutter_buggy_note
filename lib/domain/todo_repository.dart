@@ -8,7 +8,11 @@ class TodoRepository {
 
   Stream<List<Todo>> getTodos() => _todoApi.getTodos();
 
-  Future<void> saveTodo(Todo todo) => _todoApi.saveTodo(todo);
+  Future<void> saveTodo(Todo todo, {bool overwrite = false}) =>
+      _todoApi.saveTodo(
+        todo,
+        overwrite: overwrite,
+      );
 
   Future<void> deleteTodo(int id) => _todoApi.removeTodo(id);
 

@@ -7,9 +7,8 @@ import '../label/label.dart';
 import 'priority.dart';
 import 'todo_status.dart';
 
-part 'todo.freezed.dart';
-
 part 'todo.g.dart';
+part 'todo.freezed.dart';
 
 @freezed
 class Todo with _$Todo {
@@ -25,7 +24,7 @@ class Todo with _$Todo {
     @HiveField(7) @Default(false) isArchived,
     @HiveField(8) @Default(false) isRemoved,
     @HiveField(9) @Default(0) int order,
-    @HiveField(10) List<Label>? labels,
+    @HiveField(10) @Default([]) List<Label> labels,
   }) = _Todo;
 
 // factory Todo.fromJson(Map<String, dynamic> json) => _$TodoFromJson(json);

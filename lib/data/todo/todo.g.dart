@@ -27,7 +27,7 @@ class TodoAdapter extends TypeAdapter<_$_Todo> {
       isArchived: fields[7] as dynamic,
       isRemoved: fields[8] as dynamic,
       order: fields[9] as int,
-      labels: (fields[10] as List?)?.cast<Label>(),
+      labels: (fields[10] as List).cast<Label>(),
     );
   }
 

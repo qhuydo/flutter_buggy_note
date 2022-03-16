@@ -29,7 +29,7 @@ class _$TodoTearOff {
       @HiveField(7) dynamic isArchived = false,
       @HiveField(8) dynamic isRemoved = false,
       @HiveField(9) int order = 0,
-      @HiveField(10) List<Label>? labels}) {
+      @HiveField(10) List<Label> labels = const []}) {
     return _Todo(
       id: id,
       title: title,
@@ -72,7 +72,7 @@ mixin _$Todo {
   @HiveField(9)
   int get order => throw _privateConstructorUsedError;
   @HiveField(10)
-  List<Label>? get labels => throw _privateConstructorUsedError;
+  List<Label> get labels => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TodoCopyWith<Todo> get copyWith => throw _privateConstructorUsedError;
@@ -93,7 +93,7 @@ abstract class $TodoCopyWith<$Res> {
       @HiveField(7) dynamic isArchived,
       @HiveField(8) dynamic isRemoved,
       @HiveField(9) int order,
-      @HiveField(10) List<Label>? labels});
+      @HiveField(10) List<Label> labels});
 }
 
 /// @nodoc
@@ -162,7 +162,7 @@ class _$TodoCopyWithImpl<$Res> implements $TodoCopyWith<$Res> {
       labels: labels == freezed
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>?,
+              as List<Label>,
     ));
   }
 }
@@ -183,7 +183,7 @@ abstract class _$TodoCopyWith<$Res> implements $TodoCopyWith<$Res> {
       @HiveField(7) dynamic isArchived,
       @HiveField(8) dynamic isRemoved,
       @HiveField(9) int order,
-      @HiveField(10) List<Label>? labels});
+      @HiveField(10) List<Label> labels});
 }
 
 /// @nodoc
@@ -247,7 +247,7 @@ class __$TodoCopyWithImpl<$Res> extends _$TodoCopyWithImpl<$Res>
       labels: labels == freezed
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>?,
+              as List<Label>,
     ));
   }
 }
@@ -267,7 +267,7 @@ class _$_Todo with DiagnosticableTreeMixin implements _Todo {
       @HiveField(7) this.isArchived = false,
       @HiveField(8) this.isRemoved = false,
       @HiveField(9) this.order = 0,
-      @HiveField(10) this.labels});
+      @HiveField(10) this.labels = const []});
 
   @override
   @HiveField(0)
@@ -305,9 +305,10 @@ class _$_Todo with DiagnosticableTreeMixin implements _Todo {
   @override
   @HiveField(9)
   final int order;
+  @JsonKey()
   @override
   @HiveField(10)
-  final List<Label>? labels;
+  final List<Label> labels;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -384,7 +385,7 @@ abstract class _Todo implements Todo {
       @HiveField(7) dynamic isArchived,
       @HiveField(8) dynamic isRemoved,
       @HiveField(9) int order,
-      @HiveField(10) List<Label>? labels}) = _$_Todo;
+      @HiveField(10) List<Label> labels}) = _$_Todo;
 
   @override
   @HiveField(0)
@@ -418,7 +419,7 @@ abstract class _Todo implements Todo {
   int get order;
   @override
   @HiveField(10)
-  List<Label>? get labels;
+  List<Label> get labels;
   @override
   @JsonKey(ignore: true)
   _$TodoCopyWith<_Todo> get copyWith => throw _privateConstructorUsedError;

@@ -5,7 +5,7 @@ abstract class TodoApi {
 
   Stream<List<Todo>> getTodos();
 
-  Future<void> saveTodo(Todo todo);
+  Future<void> saveTodo(Todo todo, {bool overwrite = false});
 
   Future<void> removeTodo(int id);
 

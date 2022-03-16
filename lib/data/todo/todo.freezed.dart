@@ -29,7 +29,8 @@ class _$TodoTearOff {
       @HiveField(7) dynamic isArchived = false,
       @HiveField(8) dynamic isRemoved = false,
       @HiveField(9) int order = 0,
-      @HiveField(10) List<Label> labels = const []}) {
+      @HiveField(10) List<Label> labels = const [],
+      @HiveField(11) String description = ''}) {
     return _Todo(
       id: id,
       title: title,
@@ -42,6 +43,7 @@ class _$TodoTearOff {
       isRemoved: isRemoved,
       order: order,
       labels: labels,
+      description: description,
     );
   }
 }
@@ -73,6 +75,8 @@ mixin _$Todo {
   int get order => throw _privateConstructorUsedError;
   @HiveField(10)
   List<Label> get labels => throw _privateConstructorUsedError;
+  @HiveField(11)
+  String get description => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TodoCopyWith<Todo> get copyWith => throw _privateConstructorUsedError;
@@ -93,7 +97,8 @@ abstract class $TodoCopyWith<$Res> {
       @HiveField(7) dynamic isArchived,
       @HiveField(8) dynamic isRemoved,
       @HiveField(9) int order,
-      @HiveField(10) List<Label> labels});
+      @HiveField(10) List<Label> labels,
+      @HiveField(11) String description});
 }
 
 /// @nodoc
@@ -117,6 +122,7 @@ class _$TodoCopyWithImpl<$Res> implements $TodoCopyWith<$Res> {
     Object? isRemoved = freezed,
     Object? order = freezed,
     Object? labels = freezed,
+    Object? description = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -163,6 +169,10 @@ class _$TodoCopyWithImpl<$Res> implements $TodoCopyWith<$Res> {
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -183,7 +193,8 @@ abstract class _$TodoCopyWith<$Res> implements $TodoCopyWith<$Res> {
       @HiveField(7) dynamic isArchived,
       @HiveField(8) dynamic isRemoved,
       @HiveField(9) int order,
-      @HiveField(10) List<Label> labels});
+      @HiveField(10) List<Label> labels,
+      @HiveField(11) String description});
 }
 
 /// @nodoc
@@ -208,6 +219,7 @@ class __$TodoCopyWithImpl<$Res> extends _$TodoCopyWithImpl<$Res>
     Object? isRemoved = freezed,
     Object? order = freezed,
     Object? labels = freezed,
+    Object? description = freezed,
   }) {
     return _then(_Todo(
       id: id == freezed
@@ -248,6 +260,10 @@ class __$TodoCopyWithImpl<$Res> extends _$TodoCopyWithImpl<$Res>
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -267,7 +283,8 @@ class _$_Todo with DiagnosticableTreeMixin implements _Todo {
       @HiveField(7) this.isArchived = false,
       @HiveField(8) this.isRemoved = false,
       @HiveField(9) this.order = 0,
-      @HiveField(10) this.labels = const []});
+      @HiveField(10) this.labels = const [],
+      @HiveField(11) this.description = ''});
 
   @override
   @HiveField(0)
@@ -309,10 +326,14 @@ class _$_Todo with DiagnosticableTreeMixin implements _Todo {
   @override
   @HiveField(10)
   final List<Label> labels;
+  @JsonKey()
+  @override
+  @HiveField(11)
+  final String description;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Todo(id: $id, title: $title, colour: $colour, dueDate: $dueDate, priority: $priority, comment: $comment, status: $status, isArchived: $isArchived, isRemoved: $isRemoved, order: $order, labels: $labels)';
+    return 'Todo(id: $id, title: $title, colour: $colour, dueDate: $dueDate, priority: $priority, comment: $comment, status: $status, isArchived: $isArchived, isRemoved: $isRemoved, order: $order, labels: $labels, description: $description)';
   }
 
   @override
@@ -330,7 +351,8 @@ class _$_Todo with DiagnosticableTreeMixin implements _Todo {
       ..add(DiagnosticsProperty('isArchived', isArchived))
       ..add(DiagnosticsProperty('isRemoved', isRemoved))
       ..add(DiagnosticsProperty('order', order))
-      ..add(DiagnosticsProperty('labels', labels));
+      ..add(DiagnosticsProperty('labels', labels))
+      ..add(DiagnosticsProperty('description', description));
   }
 
   @override
@@ -349,7 +371,9 @@ class _$_Todo with DiagnosticableTreeMixin implements _Todo {
                 .equals(other.isArchived, isArchived) &&
             const DeepCollectionEquality().equals(other.isRemoved, isRemoved) &&
             const DeepCollectionEquality().equals(other.order, order) &&
-            const DeepCollectionEquality().equals(other.labels, labels));
+            const DeepCollectionEquality().equals(other.labels, labels) &&
+            const DeepCollectionEquality()
+                .equals(other.description, description));
   }
 
   @override
@@ -365,7 +389,8 @@ class _$_Todo with DiagnosticableTreeMixin implements _Todo {
       const DeepCollectionEquality().hash(isArchived),
       const DeepCollectionEquality().hash(isRemoved),
       const DeepCollectionEquality().hash(order),
-      const DeepCollectionEquality().hash(labels));
+      const DeepCollectionEquality().hash(labels),
+      const DeepCollectionEquality().hash(description));
 
   @JsonKey(ignore: true)
   @override
@@ -385,7 +410,8 @@ abstract class _Todo implements Todo {
       @HiveField(7) dynamic isArchived,
       @HiveField(8) dynamic isRemoved,
       @HiveField(9) int order,
-      @HiveField(10) List<Label> labels}) = _$_Todo;
+      @HiveField(10) List<Label> labels,
+      @HiveField(11) String description}) = _$_Todo;
 
   @override
   @HiveField(0)
@@ -420,6 +446,9 @@ abstract class _Todo implements Todo {
   @override
   @HiveField(10)
   List<Label> get labels;
+  @override
+  @HiveField(11)
+  String get description;
   @override
   @JsonKey(ignore: true)
   _$TodoCopyWith<_Todo> get copyWith => throw _privateConstructorUsedError;

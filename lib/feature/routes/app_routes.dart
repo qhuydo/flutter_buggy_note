@@ -16,6 +16,10 @@ import '../pages.dart';
       ],
       initial: true,
     ),
+    AutoRoute(
+      page: EditPage,
+      path: '/edit/:id',
+    )
   ],
 )
 class $AppRouter {}

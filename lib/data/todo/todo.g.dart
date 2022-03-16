@@ -28,13 +28,14 @@ class TodoAdapter extends TypeAdapter<_$_Todo> {
       isRemoved: fields[8] as dynamic,
       order: fields[9] as int,
       labels: (fields[10] as List).cast<Label>(),
+      description: fields[11] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, _$_Todo obj) {
     writer
-      ..writeByte(11)
+      ..writeByte(12)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -56,7 +57,9 @@ class TodoAdapter extends TypeAdapter<_$_Todo> {
       ..writeByte(9)
       ..write(obj.order)
       ..writeByte(10)
-      ..write(obj.labels);
+      ..write(obj.labels)
+      ..writeByte(11)
+      ..write(obj.description);
   }
 
   @override

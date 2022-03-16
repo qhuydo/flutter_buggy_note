@@ -49,7 +49,7 @@ class _BuggyNoteAppView extends StatefulWidget {
 
 class _BuggyNoteAppViewState extends State<_BuggyNoteAppView> {
   final _appRouter = AppRouter();
-  final _appTheme = AppTheme(scheme: FlexScheme.money);
+  final _appTheme = AppTheme(scheme: FlexScheme.blue);
 
   @override
   Widget build(BuildContext context) {

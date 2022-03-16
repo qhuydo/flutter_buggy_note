@@ -25,6 +25,7 @@ class Todo with _$Todo {
     @HiveField(8) @Default(false) isRemoved,
     @HiveField(9) @Default(0) int order,
     @HiveField(10) @Default([]) List<Label> labels,
+    @HiveField(11) @Default('') String description,
   }) = _Todo;
 
 // factory Todo.fromJson(Map<String, dynamic> json) => _$TodoFromJson(json);

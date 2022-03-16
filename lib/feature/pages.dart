@@ -1,3 +1,4 @@
+export 'edit/edit_page.dart';
 export 'overview/overview_page.dart';
 export 'home/home_page.dart';
 export 'search/search_page.dart';

@@ -74,6 +74,7 @@ class _HomePageState extends State<HomePage> {
             Condition.largerThan(name: MOBILE),
           ],
           child: NavigationBar(
+            labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
             selectedIndex: tabsRouter.activeIndex,
             onDestinationSelected: tabsRouter.setActiveIndex,
             destinations: [

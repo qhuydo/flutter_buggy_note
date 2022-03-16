@@ -1,9 +1,11 @@
-import 'package:flutter/cupertino.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../domain/todo_repository.dart';
+import '../routes/app_routes.gr.dart';
 import 'bloc/todo_overview_bloc.dart';
+import 'widgets/widgets.dart';
 
 class OverviewPage extends StatelessWidget {
   const OverviewPage({Key? key}) : super(key: key);
@@ -27,8 +29,7 @@ class TodoOverviewView extends StatelessWidget {
     return MultiBlocListener(
       listeners: [
         BlocListener<TodoOverviewBloc, TodoOverviewState>(
-          listenWhen: (previous, current) =>
-              previous.status != current.status,
+          listenWhen: (previous, current) => previous.status != current.status,
           listener: (context, state) {
             if (state.status == TodoOverViewStatus.failure) {
               ScaffoldMessenger.of(context)
@@ -89,8 +90,26 @@ class TodoOverviewView extends StatelessWidget {
           return Scrollbar(
             child: ListView(
               children: [
-                // for (final todo in state.todos)
-                  // TodoListTile()
+                for (final todo in state.todos)
+                  TodoListTile(
+                    todo: todo,
+                    onCompleteButtonToggled: (value) {
+                      context.read<TodoOverviewBloc>().add(
+                            TodoOverviewEvent.todoCompletionToggled(
+                              todo: todo,
+                              isCompleted: value,
+                            ),
+                          );
+                    },
+                    onDismissed: (_) {
+                      context
+                          .read<TodoOverviewBloc>()
+                          .add(TodoOverviewEvent.undoDeletionRequested());
+                    },
+                    onTap: () {
+                      context.pushRoute(EditRoute(todo: todo));
+                    },
+                  )
               ],
             ),
           );

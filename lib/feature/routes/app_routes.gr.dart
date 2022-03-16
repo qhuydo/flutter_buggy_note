@@ -13,6 +13,7 @@
 import 'package:auto_route/auto_route.dart' as _i2;
 import 'package:flutter/material.dart' as _i3;
 
+import '../../data/models.dart' as _i4;
 import '../pages.dart' as _i1;
 
 class AppRouter extends _i2.RootStackRouter {
@@ -24,6 +25,12 @@ class AppRouter extends _i2.RootStackRouter {
     HomeRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i1.HomePage());
+    },
+    EditRoute.name: (routeData) {
+      final args = routeData.argsAs<EditRouteArgs>();
+      return _i2.MaterialPageX<dynamic>(
+          routeData: routeData,
+          child: _i1.EditPage(key: args.key, todo: args.todo));
     },
     OverviewRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
@@ -54,7 +61,8 @@ class AppRouter extends _i2.RootStackRouter {
               path: 'upcoming-page', parent: HomeRoute.name),
           _i2.RouteConfig(SearchRoute.name,
               path: 'search-page', parent: HomeRoute.name)
-        ])
+        ]),
+        _i2.RouteConfig(EditRoute.name, path: '/edit/:id')
       ];
 }
 
@@ -65,6 +73,29 @@ class HomeRoute extends _i2.PageRouteInfo<void> {
       : super(HomeRoute.name, path: '/', initialChildren: children);
 
   static const String name = 'HomeRoute';
+}
+
+/// generated route for
+/// [_i1.EditPage]
+class EditRoute extends _i2.PageRouteInfo<EditRouteArgs> {
+  EditRoute({_i3.Key? key, required _i4.Todo todo})
+      : super(EditRoute.name,
+            path: '/edit/:id', args: EditRouteArgs(key: key, todo: todo));
+
+  static const String name = 'EditRoute';
+}
+
+class EditRouteArgs {
+  const EditRouteArgs({this.key, required this.todo});
+
+  final _i3.Key? key;
+
+  final _i4.Todo todo;
+
+  @override
+  String toString() {
+    return 'EditRouteArgs{key: $key, todo: $todo}';
+  }
 }
 
 /// generated route for

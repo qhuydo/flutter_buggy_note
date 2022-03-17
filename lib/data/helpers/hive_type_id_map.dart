@@ -20,3 +20,4 @@ const typeIdTodo = 0;
 const typeIdTodoStatus = 1;
 const typeIdPriority = 2;
 const typeIdLabel = 3;
+const typeIdSearchHistory = 4;

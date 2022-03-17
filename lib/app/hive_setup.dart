@@ -9,5 +9,6 @@ Future<void> initHive() async {
     ..registerAdapter(TodoAdapter())
     ..registerAdapter(PriorityAdapter())
     ..registerAdapter(TodoStatusAdapter())
-    ..registerAdapter(LabelAdapter());
+    ..registerAdapter(LabelAdapter())
+    ..registerAdapter(SearchHistoryAdapter());
 }

@@ -58,6 +58,7 @@ class EditTodoBloc extends Bloc<EditTodoEvent, EditTodoState> {
               dueDate: DateTime.now(),
             ))
         .copyWith(
+      title: state.title,
       description: state.description,
     );
 

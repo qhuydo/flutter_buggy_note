@@ -1,3 +1,4 @@
+import '../search_option/search_option.dart';
 import '../todo/todo.dart';
 
 abstract class TodoApi {
@@ -10,4 +11,6 @@ abstract class TodoApi {
   Future<void> removeTodo(int id);
 
   Future<void> completeTodo({required int id});
+
+  Iterable<Todo> search(SearchOption searchOption);
 }

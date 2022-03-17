@@ -2,7 +2,7 @@ import 'package:collection/collection.dart';
 
 import '../common/date_utils.dart';
 import '../data/api/todo_api.dart';
-import '../data/todo/todo.dart';
+import '../data/models.dart';
 
 class TodoRepository {
   final TodoApi _todoApi;
@@ -18,6 +18,9 @@ class TodoRepository {
                   DateTime.now(),
                 );
           }).toList());
+
+  Iterable<Todo> search(SearchOption searchOption) =>
+      _todoApi.search(searchOption);
 
   Future<void> saveTodo(Todo todo, {bool overwrite = false}) =>
       _todoApi.saveTodo(

@@ -2,6 +2,7 @@ import 'package:hive/hive.dart';
 import 'package:rxdart/subjects.dart';
 
 import '../../common/todo_failure.dart';
+import '../search_option/search_option.dart';
 import '../todo/todo.dart';
 import '../todo/todo_status.dart';
 import 'todo_api.dart';
@@ -59,6 +60,11 @@ class LocalTodoApi implements TodoApi {
         return await _addNewTodo(todo);
       }
     }
+  }
+
+  @override
+  Iterable<Todo> search(SearchOption searchOption) {
+    return _box.values.where((element) => searchOption.match(element));
   }
 
 }

@@ -1,17 +1,8 @@
 import 'package:collection/collection.dart';
 
+import '../common/date_utils.dart';
 import '../data/api/todo_api.dart';
 import '../data/todo/todo.dart';
-
-extension DateOnlyCompare on DateTime {
-  bool isSameDate(DateTime other) {
-    return year == other.year && month == other.month && day == other.day;
-  }
-
-  DateTime keepDayInfo() {
-    return DateTime(year, month, day);
-  }
-}
 
 class TodoRepository {
   final TodoApi _todoApi;

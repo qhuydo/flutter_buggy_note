@@ -12,11 +12,13 @@ class OverviewPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => TodoOverviewBloc(
-        todoRepository: context.read<TodoRepository>(),
-      )..add(TodoOverviewEvent.subscriptionRequested()),
-      child: const Scaffold(body: TodoOverviewView()),
+    return SafeArea(
+      child: BlocProvider(
+        create: (context) => TodoOverviewBloc(
+          todoRepository: context.read<TodoRepository>(),
+        )..add(TodoOverviewEvent.subscriptionRequested()),
+        child: const Scaffold(body: TodoOverviewView()),
+      ),
     );
   }
 }

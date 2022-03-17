@@ -547,7 +547,7 @@ class _$UpcomingStateTearOff {
 
   _UpcomingState call(
       {UpcomingStatus status = UpcomingStatus.initial,
-      CalendarFormat format = CalendarFormat.twoWeeks,
+      required CalendarFormat format,
       required DateTime focusedDay,
       DateTime? selectedDay,
       required DateTime firstDay,
@@ -726,7 +726,7 @@ class __$UpcomingStateCopyWithImpl<$Res>
 class _$_UpcomingState extends _UpcomingState {
   const _$_UpcomingState(
       {this.status = UpcomingStatus.initial,
-      this.format = CalendarFormat.twoWeeks,
+      required this.format,
       required this.focusedDay,
       this.selectedDay,
       required this.firstDay,
@@ -737,7 +737,6 @@ class _$_UpcomingState extends _UpcomingState {
   @JsonKey()
   @override
   final UpcomingStatus status;
-  @JsonKey()
   @override
   final CalendarFormat format;
   @override
@@ -793,7 +792,7 @@ class _$_UpcomingState extends _UpcomingState {
 abstract class _UpcomingState extends UpcomingState {
   const factory _UpcomingState(
       {UpcomingStatus status,
-      CalendarFormat format,
+      required CalendarFormat format,
       required DateTime focusedDay,
       DateTime? selectedDay,
       required DateTime firstDay,

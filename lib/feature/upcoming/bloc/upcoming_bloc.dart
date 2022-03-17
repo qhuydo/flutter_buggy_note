@@ -1,8 +1,11 @@
+import 'dart:io';
+
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:table_calendar/table_calendar.dart';
 
+import '../../../common/date_utils.dart';
 import '../../../data/models.dart';
 import '../../../domain/todo_repository.dart';
 
@@ -20,8 +23,10 @@ class UpcomingBloc extends Bloc<UpcomingEvent, UpcomingState> {
         super(
           UpcomingState(
             focusedDay: UpcomingState.getDefaultFocusedDay(),
+            selectedDay: UpcomingState.getDefaultFocusedDay(),
             firstDay: UpcomingState.defaultFirstDay,
             lastDay: UpcomingState.defaultLastDay,
+            format: UpcomingState.defaultCalendarFormat,
           ),
         ) {
     on<UpcomingEvent>((event, emit) async {

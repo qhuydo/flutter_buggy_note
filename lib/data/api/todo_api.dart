@@ -12,5 +12,5 @@ abstract class TodoApi {
 
   Future<void> completeTodo({required int id});
 
-  Iterable<Todo> search(SearchOption searchOption);
+  Future<Iterable<Todo>> search(SearchOption searchOption);
 }

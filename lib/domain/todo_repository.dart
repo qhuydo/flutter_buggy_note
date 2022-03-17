@@ -19,7 +19,7 @@ class TodoRepository {
                 );
           }).toList());
 
-  Iterable<Todo> search(SearchOption searchOption) =>
+  Future<Iterable<Todo>> search(SearchOption searchOption) =>
       _todoApi.search(searchOption);
 
   Future<void> saveTodo(Todo todo, {bool overwrite = false}) =>

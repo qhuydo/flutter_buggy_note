@@ -91,6 +91,10 @@ dependencies:
   # (c) Apache-2.0 License. By Aleksander Woźniak.
   table_calendar: ^3.0.4
 
+  # Collections and utilities functions and classes related to collections.
+  # (c)  BSD-3-Clause License. By the Dart project authors.
+  collection: ^1.15.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -11,12 +11,25 @@ enum EditTodoStatus {
 class EditTodoState with _$EditTodoState {
   const EditTodoState._();
 
-  factory EditTodoState({
-    @Default(EditTodoStatus.initial) EditTodoStatus status,
+  factory EditTodoState(
+      {EditTodoStatus status = EditTodoStatus.initial,
+      Todo? initialTodo,
+      String title = '',
+      String description = ''}) {
+    return EditTodoState.__(
+      status,
+      initialTodo,
+      initialTodo?.title ?? title,
+      initialTodo?.description ?? description,
+    );
+  }
+
+  factory EditTodoState.__(
+    EditTodoStatus status,
     Todo? initialTodo,
-    @Default('') String title,
-    @Default('') String description,
-  }) = _EditTodoState;
+    String title,
+    String description,
+  ) = _EditTodoState;
 
   bool get isNewTodo => initialTodo == null;
 }

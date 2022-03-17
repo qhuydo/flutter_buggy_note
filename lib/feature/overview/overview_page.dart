@@ -4,8 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../domain/todo_repository.dart';
 import '../common/routes/app_routes.gr.dart';
+import '../common/widgets/todo_list_tile.dart';
 import 'bloc/todo_overview_bloc.dart';
-import 'widgets/widgets.dart';
 
 class OverviewPage extends StatelessWidget {
   const OverviewPage({Key? key}) : super(key: key);

@@ -508,16 +508,13 @@ abstract class _EditTodoSubmitted implements EditTodoEvent {
 class _$EditTodoStateTearOff {
   const _$EditTodoStateTearOff();
 
-  _EditTodoState call(
-      {EditTodoStatus status = EditTodoStatus.initial,
-      Todo? initialTodo,
-      String title = '',
-      String description = ''}) {
+  _EditTodoState __(EditTodoStatus status, Todo? initialTodo, String title,
+      String description) {
     return _EditTodoState(
-      status: status,
-      initialTodo: initialTodo,
-      title: title,
-      description: description,
+      status,
+      initialTodo,
+      title,
+      description,
     );
   }
 }
@@ -635,19 +632,19 @@ class __$EditTodoStateCopyWithImpl<$Res>
     Object? description = freezed,
   }) {
     return _then(_EditTodoState(
-      status: status == freezed
+      status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as EditTodoStatus,
-      initialTodo: initialTodo == freezed
+      initialTodo == freezed
           ? _value.initialTodo
           : initialTodo // ignore: cast_nullable_to_non_nullable
               as Todo?,
-      title: title == freezed
+      title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      description: description == freezed
+      description == freezed
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
@@ -658,28 +655,21 @@ class __$EditTodoStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_EditTodoState extends _EditTodoState {
-  _$_EditTodoState(
-      {this.status = EditTodoStatus.initial,
-      this.initialTodo,
-      this.title = '',
-      this.description = ''})
+  _$_EditTodoState(this.status, this.initialTodo, this.title, this.description)
       : super._();
 
-  @JsonKey()
   @override
   final EditTodoStatus status;
   @override
   final Todo? initialTodo;
-  @JsonKey()
   @override
   final String title;
-  @JsonKey()
   @override
   final String description;
 
   @override
   String toString() {
-    return 'EditTodoState(status: $status, initialTodo: $initialTodo, title: $title, description: $description)';
+    return 'EditTodoState.__(status: $status, initialTodo: $initialTodo, title: $title, description: $description)';
   }
 
   @override
@@ -710,11 +700,8 @@ class _$_EditTodoState extends _EditTodoState {
 }
 
 abstract class _EditTodoState extends EditTodoState {
-  factory _EditTodoState(
-      {EditTodoStatus status,
-      Todo? initialTodo,
-      String title,
-      String description}) = _$_EditTodoState;
+  factory _EditTodoState(EditTodoStatus status, Todo? initialTodo, String title,
+      String description) = _$_EditTodoState;
   _EditTodoState._() : super._();
 
   @override

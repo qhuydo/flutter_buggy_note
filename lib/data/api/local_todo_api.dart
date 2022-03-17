@@ -65,7 +65,7 @@ class LocalTodoApi implements TodoApi {
   @override
   Future<Iterable<Todo>> search(SearchOption searchOption) {
     return Future.value(
-      _box.values.where((element) => searchOption.match(element)),
+      _box.values.where((element) => searchOption.match(element)).toList(),
     );
   }
 }

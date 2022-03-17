@@ -95,6 +95,11 @@ dependencies:
   # (c)  BSD-3-Clause License. By the Dart project authors.
   collection: ^1.15.0
 
+  # A Flutter implementation of an expandable and animated floating search bar, also known as
+  # persistent search.
+  # (c) MIT License. By bxqm.
+  material_floating_search_bar: ^0.3.7
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

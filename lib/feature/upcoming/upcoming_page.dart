@@ -56,10 +56,10 @@ class UpcomingView extends StatelessWidget {
           const Calendar(),
           const SizedBox(height: 8),
           BlocBuilder<UpcomingBloc, UpcomingState>(
-              buildWhen: (previous, current) =>
-                  previous.selectedDay != current.selectedDay ||
-                  (previous.status != current.status &&
-                      current.status != UpcomingStatus.failure),
+              // buildWhen: (previous, current) =>
+              //     previous.selectedDay != current.selectedDay ||
+              //     (previous.status != current.status &&
+              //         current.status != UpcomingStatus.failure),
               builder: (context, state) {
                 if (state.currentTodos.isEmpty) {
                   if (state.status == UpcomingStatus.loading) {

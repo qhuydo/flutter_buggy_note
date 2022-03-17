@@ -16,6 +16,6 @@ class SearchTodoState with _$SearchTodoState {
     @Default(SearchTodoStatus.initial) SearchTodoStatus labelListStatus,
     @Default(SearchOption()) SearchOption searchOption,
     @Default([]) List<SearchHistory> history,
-    @Default([]) Iterable<Todo> result,
+    @Default([]) List<Todo> result,
   }) = _SearchTodoState;
 }

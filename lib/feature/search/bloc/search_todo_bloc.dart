@@ -5,9 +5,7 @@ import '../../../data/models.dart';
 import '../../../domain/todo_repository.dart';
 
 part 'search_todo_bloc.freezed.dart';
-
 part 'search_todo_event.dart';
-
 part 'search_todo_state.dart';
 
 class SearchTodoBloc extends Bloc<SearchTodoEvent, SearchTodoState> {
@@ -37,6 +35,24 @@ class SearchTodoBloc extends Bloc<SearchTodoEvent, SearchTodoState> {
 
   Future<void> _onSubscriptionRequested(Emitter<SearchTodoState> emit) async {
     // TODO
+    emit(state.copyWith(status: SearchTodoStatus.loading));
+    await emit.forEach<List<Todo>>(
+      _todoRepository.getTodos(),
+      onData: (todos) {
+        if (state.searchOption.keyword.isNotEmpty ||
+            state.searchOption.filterApplied) {
+          final result = todos
+              .where(
+                (element) => state.searchOption.match(element),
+              )
+              .toList();
+          return state.copyWith(
+            result: result,
+          );
+        }
+        return state;
+      },
+    );
   }
 
   Future<void> _onSubmitted(Emitter<SearchTodoState> emit) async {

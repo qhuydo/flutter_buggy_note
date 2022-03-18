@@ -49,53 +49,56 @@ class _SettingsCardState extends State<SettingsCard> {
           scheme.primary.withAlpha(4 * blendFactor), headerColor);
     }
 
-    return Card(
-      color: cardColor,
-      child: Column(
-        children: [
-          Theme(
-            data: theme.copyWith(cardColor: headerColor),
-            child: Material(
-              type: MaterialType.card,
-              child: ListTile(
-                leading: widget.leading,
-                title: Text(
-                  widget.title ?? '',
-                  style: theme.textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.bold,
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Card(
+        color: cardColor,
+        child: Column(
+          children: [
+            Theme(
+              data: theme.copyWith(cardColor: headerColor),
+              child: Material(
+                type: MaterialType.card,
+                child: ListTile(
+                  leading: widget.leading,
+                  title: Text(
+                    widget.title ?? '',
+                    style: theme.textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-                trailing: ExpandIcon(
-                  size: 32,
-                  isExpanded: _isOpen,
-                  padding: EdgeInsets.zero,
-                  onPressed: (_) {
+                  trailing: ExpandIcon(
+                    size: 32,
+                    isExpanded: _isOpen,
+                    padding: EdgeInsets.zero,
+                    onPressed: (_) {
+                      setState(() {
+                        _isOpen = !_isOpen;
+                      });
+                    },
+                  ),
+                  onTap: () {
                     setState(() {
                       _isOpen = !_isOpen;
                     });
                   },
                 ),
-                onTap: () {
-                  setState(() {
-                    _isOpen = !_isOpen;
-                  });
-                },
               ),
             ),
-          ),
-          AnimatedSwitcher(
-            duration: const Duration(milliseconds: 200),
-            transitionBuilder: (Widget child, Animation<double> animation) {
-              return SizeTransition(
-                sizeFactor: animation,
-                child: child,
-              );
-            },
-            child: (_isOpen && widget.child != null)
-                ? widget.child
-                : const SizedBox.shrink(),
-          ),
-        ],
+            AnimatedSwitcher(
+              duration: const Duration(milliseconds: 200),
+              transitionBuilder: (Widget child, Animation<double> animation) {
+                return SizeTransition(
+                  sizeFactor: animation,
+                  child: child,
+                );
+              },
+              child: (_isOpen && widget.child != null)
+                  ? widget.child
+                  : const SizedBox.shrink(),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -1,12 +1,10 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
 import '../../domain/todo_repository.dart';
-import '../common/routes/app_routes.gr.dart';
 import '../common/widgets/scaffold_with_search_bar.dart';
-import '../common/widgets/todo_list_tile.dart';
+import '../common/widgets/todo_list.dart';
 import 'bloc/search_todo_bloc.dart';
 import 'widgets/todo_history_row.dart';
 
@@ -82,33 +80,10 @@ class _SearchPageViewState extends State<SearchPageView> {
                 left: 8,
                 right: 8,
               ),
-              child: ListView(
-                physics: const BouncingScrollPhysics(),
+              child: TodoList(
+                todos: state.result.toList(),
                 shrinkWrap: true,
                 primary: false,
-                padding: const EdgeInsets.all(0),
-                children: [
-                  for (final todo in state.result)
-                    TodoListTile(
-                      todo: todo,
-                      onCompleteButtonToggled: (value) {
-                        // context.read<TodayTodoBloc>().add(
-                        //   TodayTodoEvent.todoCompletionToggled(
-                        //     todo: todo,
-                        //     isCompleted: value,
-                        //   ),
-                        // );
-                      },
-                      onDismissed: (_) {
-                        // context
-                        //     .read<TodayTodoBloc>()
-                        //     .add(TodoOverviewEvent.undoDeletionRequested());
-                      },
-                      onTap: () {
-                        context.pushRoute(EditRoute(initialTodo: todo));
-                      },
-                    )
-                ],
               ),
             ),
           ),

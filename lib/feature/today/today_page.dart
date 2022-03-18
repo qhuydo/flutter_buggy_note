@@ -1,10 +1,8 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../domain/todo_repository.dart';
-import '../common/routes/app_routes.gr.dart';
-import '../common/widgets/todo_list_tile.dart';
+import '../common/widgets/todo_list.dart';
 import 'bloc/today_todo_bloc.dart';
 
 class TodayPage extends StatelessWidget {
@@ -16,7 +14,7 @@ class TodayPage extends StatelessWidget {
       create: (context) => TodayTodoBloc(
         todoRepository: context.read<TodoRepository>(),
       )..add(TodayTodoEvent.subscriptionRequested()),
-      child: const TodayTodoView(),
+      child: const SafeArea(child: TodayTodoView()),
     );
   }
 }
@@ -62,30 +60,7 @@ class TodayTodoView extends StatelessWidget {
             return const SizedBox();
           }
 
-          return ListView(
-            children: [
-              for (final todo in state.todos)
-                TodoListTile(
-                  todo: todo,
-                  onCompleteButtonToggled: (value) {
-                    // context.read<TodayTodoBloc>().add(
-                    //   TodayTodoEvent.todoCompletionToggled(
-                    //     todo: todo,
-                    //     isCompleted: value,
-                    //   ),
-                    // );
-                  },
-                  onDismissed: (_) {
-                    // context
-                    //     .read<TodayTodoBloc>()
-                    //     .add(TodoOverviewEvent.undoDeletionRequested());
-                  },
-                  onTap: () {
-                    context.pushRoute(EditRoute(initialTodo: todo));
-                  },
-                )
-            ],
-          );
+          return TodoList(todos: state.todos);
         },
       ),
     );

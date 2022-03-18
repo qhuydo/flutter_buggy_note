@@ -1,10 +1,8 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../domain/todo_repository.dart';
-import '../common/routes/app_routes.gr.dart';
-import '../common/widgets/todo_list_tile.dart';
+import '../common/widgets/todo_list.dart';
 import 'bloc/upcoming_bloc.dart';
 import 'widgets/calendar.dart';
 
@@ -79,32 +77,10 @@ class UpcomingView extends StatelessWidget {
 
                 return const SizedBox();
               }
-              return ListView(
+              return TodoList(
+                todos: state.currentTodos,
                 shrinkWrap: true,
                 primary: false,
-                padding: const EdgeInsets.all(0),
-                children: [
-                  for (final todo in state.currentTodos)
-                    TodoListTile(
-                      todo: todo,
-                      onCompleteButtonToggled: (value) {
-                        // context.read<TodayTodoBloc>().add(
-                        //   TodayTodoEvent.todoCompletionToggled(
-                        //     todo: todo,
-                        //     isCompleted: value,
-                        //   ),
-                        // );
-                      },
-                      onDismissed: (_) {
-                        // context
-                        //     .read<TodayTodoBloc>()
-                        //     .add(TodoOverviewEvent.undoDeletionRequested());
-                      },
-                      onTap: () {
-                        context.pushRoute(EditRoute(initialTodo: todo));
-                      },
-                    )
-                ],
               );
             }),
           ],

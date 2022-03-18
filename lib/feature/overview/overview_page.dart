@@ -1,10 +1,8 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../domain/todo_repository.dart';
-import '../common/routes/app_routes.gr.dart';
-import '../common/widgets/todo_list_tile.dart';
+import '../common/widgets/todo_list.dart';
 import 'bloc/todo_overview_bloc.dart';
 
 class OverviewPage extends StatelessWidget {
@@ -89,32 +87,7 @@ class TodoOverviewView extends StatelessWidget {
             }
           }
 
-          return Scrollbar(
-            child: ListView.separated(
-              padding: const EdgeInsets.symmetric(vertical: 16),
-              itemCount: state.todos.length,
-              separatorBuilder: (context, index) => const Divider(height: 16),
-              itemBuilder: (context, index) =>  TodoListTile(
-                todo: state.todos[index],
-                onCompleteButtonToggled: (value) {
-                  context.read<TodoOverviewBloc>().add(
-                    TodoOverviewEvent.todoCompletionToggled(
-                      todo: state.todos[index],
-                      isCompleted: value,
-                    ),
-                  );
-                },
-                onDismissed: (_) {
-                  context
-                      .read<TodoOverviewBloc>()
-                      .add(TodoOverviewEvent.undoDeletionRequested());
-                },
-                onTap: () {
-                  context.pushRoute(EditRoute(initialTodo: state.todos[index]));
-                },
-              ),
-            ),
-          );
+          return TodoList(todos: state.todos);
         },
       ),
     );

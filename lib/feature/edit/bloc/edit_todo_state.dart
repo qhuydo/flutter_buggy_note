@@ -11,16 +11,23 @@ enum EditTodoStatus {
 class EditTodoState with _$EditTodoState {
   const EditTodoState._();
 
-  factory EditTodoState(
-      {EditTodoStatus status = EditTodoStatus.initial,
-      Todo? initialTodo,
-      String title = '',
-      String description = ''}) {
+  factory EditTodoState({
+    EditTodoStatus status = EditTodoStatus.initial,
+    Todo? initialTodo,
+    String title = '',
+    String description = '',
+    bool isNewTodo = false,
+    DateTime? dueDate,
+    TodoPriority.Priority priority = TodoPriority.Priority.priority4,
+  }) {
     return EditTodoState.__(
       status,
       initialTodo,
       initialTodo?.title ?? title,
       initialTodo?.description ?? description,
+      isNewTodo,
+      initialTodo?.dueDate ?? dueDate,
+      priority,
     );
   }
 
@@ -29,7 +36,8 @@ class EditTodoState with _$EditTodoState {
     Todo? initialTodo,
     String title,
     String description,
+    bool isNewTodo,
+    DateTime? dueDate,
+    TodoPriority.Priority priority,
   ) = _EditTodoState;
-
-  bool get isNewTodo => initialTodo == null;
 }

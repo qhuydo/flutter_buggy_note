@@ -21,7 +21,6 @@ import '../../pages.dart';
       page: EditPage,
       path: '/edit/:id',
     ),
-    RedirectRoute(path: '/add', redirectTo: '/edit/0'),
     AutoRoute(page: SettingsPage),
   ],
 )

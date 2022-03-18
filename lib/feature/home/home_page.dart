@@ -11,7 +11,6 @@ import 'bloc/home_bloc.dart';
 import 'widgets/app_menu.dart';
 import 'widgets/option_menu.dart';
 
-
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -135,7 +134,10 @@ class _HomePageState extends State<HomePage> {
         floatingActionButton: Tooltip(
           message: 'Add new todo',
           child: FloatingActionButton(
-            onPressed: () => context.router.push(EditRoute(initialTodo: null)),
+            onPressed: () => context.router.push(EditRoute(
+              initialTodo: null,
+              isNewTodo: true,
+            )),
             child: const Icon(Icons.add),
           ),
         ),

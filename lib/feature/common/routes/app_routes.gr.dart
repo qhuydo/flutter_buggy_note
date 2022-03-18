@@ -30,7 +30,10 @@ class AppRouter extends _i2.RootStackRouter {
       final args = routeData.argsAs<EditRouteArgs>();
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData,
-          child: _i1.EditPage(key: args.key, initialTodo: args.initialTodo));
+          child: _i1.EditPage(
+              key: args.key,
+              initialTodo: args.initialTodo,
+              isNewTodo: args.isNewTodo));
     },
     SettingsRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
@@ -73,8 +76,6 @@ class AppRouter extends _i2.RootStackRouter {
               path: 'nested-settings-page', parent: HomeRoute.name)
         ]),
         _i2.RouteConfig(EditRoute.name, path: '/edit/:id'),
-        _i2.RouteConfig('/add#redirect',
-            path: '/add', redirectTo: '/edit/0', fullMatch: true),
         _i2.RouteConfig(SettingsRoute.name, path: '/settings-page')
       ];
 }
@@ -91,24 +92,29 @@ class HomeRoute extends _i2.PageRouteInfo<void> {
 /// generated route for
 /// [_i1.EditPage]
 class EditRoute extends _i2.PageRouteInfo<EditRouteArgs> {
-  EditRoute({_i3.Key? key, required _i4.Todo? initialTodo})
+  EditRoute(
+      {_i3.Key? key, required _i4.Todo? initialTodo, bool isNewTodo = false})
       : super(EditRoute.name,
             path: '/edit/:id',
-            args: EditRouteArgs(key: key, initialTodo: initialTodo));
+            args: EditRouteArgs(
+                key: key, initialTodo: initialTodo, isNewTodo: isNewTodo));
 
   static const String name = 'EditRoute';
 }
 
 class EditRouteArgs {
-  const EditRouteArgs({this.key, required this.initialTodo});
+  const EditRouteArgs(
+      {this.key, required this.initialTodo, this.isNewTodo = false});
 
   final _i3.Key? key;
 
   final _i4.Todo? initialTodo;
 
+  final bool isNewTodo;
+
   @override
   String toString() {
-    return 'EditRouteArgs{key: $key, initialTodo: $initialTodo}';
+    return 'EditRouteArgs{key: $key, initialTodo: $initialTodo, isNewTodo: $isNewTodo}';
   }
 }
 

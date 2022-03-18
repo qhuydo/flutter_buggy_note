@@ -1,19 +1,23 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../data/models.dart';
 import '../../domain/todo_repository.dart';
 import 'bloc/edit_todo_bloc.dart';
+import 'widgets/action_button_row.dart';
 import 'widgets/description_text_field.dart';
 import 'widgets/title_text_field.dart';
 
 class EditPage extends StatelessWidget {
   final Todo? initialTodo;
+  final bool isNewTodo;
 
   const EditPage({
     Key? key,
     required this.initialTodo,
+    this.isNewTodo = false,
   }) : super(key: key);
 
   @override
@@ -22,6 +26,7 @@ class EditPage extends StatelessWidget {
       create: (context) => EditTodoBloc(
         todoRepository: context.read<TodoRepository>(),
         initialTodo: initialTodo,
+        isNewTodo: isNewTodo,
       ),
       child: const EditTodoView(),
     );
@@ -66,7 +71,10 @@ class EditTodoView extends StatelessWidget {
               vertical: 12,
             ),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
+                ActionButtonRow(),
+                SizedBox(height: 16),
                 TitleTextField(),
                 SizedBox(height: 12),
                 DescriptionTextField(),

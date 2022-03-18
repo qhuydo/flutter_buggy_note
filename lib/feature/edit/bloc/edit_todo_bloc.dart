@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../data/models.dart';
-import '../../../data/todo/todo.dart';
+import '../../../data/todo/priority.dart' as TodoPriority;
 import '../../../domain/todo_repository.dart';
 
 part 'edit_todo_bloc.freezed.dart';
@@ -17,8 +17,12 @@ class EditTodoBloc extends Bloc<EditTodoEvent, EditTodoState> {
   EditTodoBloc({
     required TodoRepository todoRepository,
     Todo? initialTodo,
+    bool isNewTodo = false,
   })  : _todoRepository = todoRepository,
-        super(EditTodoState(initialTodo: initialTodo)) {
+        super(EditTodoState(
+          initialTodo: initialTodo,
+          isNewTodo: isNewTodo,
+        )) {
     on<EditTodoEvent>((event, emit) async {
       await event.when(
         titleChanged: (title) async => await _onTitleChanged(
@@ -30,6 +34,14 @@ class EditTodoBloc extends Bloc<EditTodoEvent, EditTodoState> {
           emit,
         ),
         submitted: () async => await _onSubmitted(emit),
+        dueDateChanged: (dueDate) async => await _onDueDateChanged(
+          dueDate,
+          emit,
+        ),
+        priorityChanged: (priority) async => await _onPriorityChanged(
+          priority,
+          emit,
+        ),
       );
     });
   }
@@ -37,16 +49,14 @@ class EditTodoBloc extends Bloc<EditTodoEvent, EditTodoState> {
   Future<void> _onTitleChanged(
     String title,
     Emitter<EditTodoState> emit,
-  ) async {
-    emit(state.copyWith(title: title));
-  }
+  ) async => emit(state.copyWith(title: title));
+
 
   Future<void> _onDescriptionChanged(
     String description,
     Emitter<EditTodoState> emit,
-  ) async {
-    emit(state.copyWith(description: description));
-  }
+  ) async => emit(state.copyWith(description: description));
+
 
   Future<void> _onSubmitted(Emitter<EditTodoState> emit) async {
     emit(state.copyWith(status: EditTodoStatus.loading));
@@ -69,4 +79,15 @@ class EditTodoBloc extends Bloc<EditTodoEvent, EditTodoState> {
       emit(state.copyWith(status: EditTodoStatus.failure));
     }
   }
+
+  Future<void> _onDueDateChanged(
+    DateTime? dueDate,
+    Emitter<EditTodoState> emit,
+  ) async => emit(state.copyWith(dueDate: dueDate));
+
+
+  Future<void> _onPriorityChanged(
+    TodoPriority.Priority priority,
+    Emitter<EditTodoState> emit,
+  ) async => emit(state.copyWith(priority: priority));
 }

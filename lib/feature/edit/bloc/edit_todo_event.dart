@@ -7,5 +7,11 @@ class EditTodoEvent with _$EditTodoEvent {
   factory EditTodoEvent.descriptionChanged(String description) =
       _EditTodoDescriptionChanged;
 
+  factory EditTodoEvent.dueDateChanged(DateTime? dueDate) =
+      _EditTodoDueDateChanged;
+
+  factory EditTodoEvent.priorityChanged(TodoPriority.Priority priority) =
+    _EditTodoPriorityChanged;
+
   factory EditTodoEvent.submitted() = _EditTodoSubmitted;
 }

@@ -30,6 +30,18 @@ class _$EditTodoEventTearOff {
     );
   }
 
+  _EditTodoDueDateChanged dueDateChanged(DateTime? dueDate) {
+    return _EditTodoDueDateChanged(
+      dueDate,
+    );
+  }
+
+  _EditTodoPriorityChanged priorityChanged(TodoPriority.Priority priority) {
+    return _EditTodoPriorityChanged(
+      priority,
+    );
+  }
+
   _EditTodoSubmitted submitted() {
     return _EditTodoSubmitted();
   }
@@ -44,6 +56,8 @@ mixin _$EditTodoEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String title) titleChanged,
     required TResult Function(String description) descriptionChanged,
+    required TResult Function(DateTime? dueDate) dueDateChanged,
+    required TResult Function(TodoPriority.Priority priority) priorityChanged,
     required TResult Function() submitted,
   }) =>
       throw _privateConstructorUsedError;
@@ -51,6 +65,8 @@ mixin _$EditTodoEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String title)? titleChanged,
     TResult Function(String description)? descriptionChanged,
+    TResult Function(DateTime? dueDate)? dueDateChanged,
+    TResult Function(TodoPriority.Priority priority)? priorityChanged,
     TResult Function()? submitted,
   }) =>
       throw _privateConstructorUsedError;
@@ -58,6 +74,8 @@ mixin _$EditTodoEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String title)? titleChanged,
     TResult Function(String description)? descriptionChanged,
+    TResult Function(DateTime? dueDate)? dueDateChanged,
+    TResult Function(TodoPriority.Priority priority)? priorityChanged,
     TResult Function()? submitted,
     required TResult orElse(),
   }) =>
@@ -67,6 +85,8 @@ mixin _$EditTodoEvent {
     required TResult Function(_EditTodoTitleChanged value) titleChanged,
     required TResult Function(_EditTodoDescriptionChanged value)
         descriptionChanged,
+    required TResult Function(_EditTodoDueDateChanged value) dueDateChanged,
+    required TResult Function(_EditTodoPriorityChanged value) priorityChanged,
     required TResult Function(_EditTodoSubmitted value) submitted,
   }) =>
       throw _privateConstructorUsedError;
@@ -74,6 +94,8 @@ mixin _$EditTodoEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_EditTodoTitleChanged value)? titleChanged,
     TResult Function(_EditTodoDescriptionChanged value)? descriptionChanged,
+    TResult Function(_EditTodoDueDateChanged value)? dueDateChanged,
+    TResult Function(_EditTodoPriorityChanged value)? priorityChanged,
     TResult Function(_EditTodoSubmitted value)? submitted,
   }) =>
       throw _privateConstructorUsedError;
@@ -81,6 +103,8 @@ mixin _$EditTodoEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_EditTodoTitleChanged value)? titleChanged,
     TResult Function(_EditTodoDescriptionChanged value)? descriptionChanged,
+    TResult Function(_EditTodoDueDateChanged value)? dueDateChanged,
+    TResult Function(_EditTodoPriorityChanged value)? priorityChanged,
     TResult Function(_EditTodoSubmitted value)? submitted,
     required TResult orElse(),
   }) =>
@@ -172,6 +196,8 @@ class _$_EditTodoTitleChanged implements _EditTodoTitleChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(String title) titleChanged,
     required TResult Function(String description) descriptionChanged,
+    required TResult Function(DateTime? dueDate) dueDateChanged,
+    required TResult Function(TodoPriority.Priority priority) priorityChanged,
     required TResult Function() submitted,
   }) {
     return titleChanged(title);
@@ -182,6 +208,8 @@ class _$_EditTodoTitleChanged implements _EditTodoTitleChanged {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String title)? titleChanged,
     TResult Function(String description)? descriptionChanged,
+    TResult Function(DateTime? dueDate)? dueDateChanged,
+    TResult Function(TodoPriority.Priority priority)? priorityChanged,
     TResult Function()? submitted,
   }) {
     return titleChanged?.call(title);
@@ -192,6 +220,8 @@ class _$_EditTodoTitleChanged implements _EditTodoTitleChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String title)? titleChanged,
     TResult Function(String description)? descriptionChanged,
+    TResult Function(DateTime? dueDate)? dueDateChanged,
+    TResult Function(TodoPriority.Priority priority)? priorityChanged,
     TResult Function()? submitted,
     required TResult orElse(),
   }) {
@@ -207,6 +237,8 @@ class _$_EditTodoTitleChanged implements _EditTodoTitleChanged {
     required TResult Function(_EditTodoTitleChanged value) titleChanged,
     required TResult Function(_EditTodoDescriptionChanged value)
         descriptionChanged,
+    required TResult Function(_EditTodoDueDateChanged value) dueDateChanged,
+    required TResult Function(_EditTodoPriorityChanged value) priorityChanged,
     required TResult Function(_EditTodoSubmitted value) submitted,
   }) {
     return titleChanged(this);
@@ -217,6 +249,8 @@ class _$_EditTodoTitleChanged implements _EditTodoTitleChanged {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_EditTodoTitleChanged value)? titleChanged,
     TResult Function(_EditTodoDescriptionChanged value)? descriptionChanged,
+    TResult Function(_EditTodoDueDateChanged value)? dueDateChanged,
+    TResult Function(_EditTodoPriorityChanged value)? priorityChanged,
     TResult Function(_EditTodoSubmitted value)? submitted,
   }) {
     return titleChanged?.call(this);
@@ -227,6 +261,8 @@ class _$_EditTodoTitleChanged implements _EditTodoTitleChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_EditTodoTitleChanged value)? titleChanged,
     TResult Function(_EditTodoDescriptionChanged value)? descriptionChanged,
+    TResult Function(_EditTodoDueDateChanged value)? dueDateChanged,
+    TResult Function(_EditTodoPriorityChanged value)? priorityChanged,
     TResult Function(_EditTodoSubmitted value)? submitted,
     required TResult orElse(),
   }) {
@@ -317,6 +353,8 @@ class _$_EditTodoDescriptionChanged implements _EditTodoDescriptionChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(String title) titleChanged,
     required TResult Function(String description) descriptionChanged,
+    required TResult Function(DateTime? dueDate) dueDateChanged,
+    required TResult Function(TodoPriority.Priority priority) priorityChanged,
     required TResult Function() submitted,
   }) {
     return descriptionChanged(description);
@@ -327,6 +365,8 @@ class _$_EditTodoDescriptionChanged implements _EditTodoDescriptionChanged {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String title)? titleChanged,
     TResult Function(String description)? descriptionChanged,
+    TResult Function(DateTime? dueDate)? dueDateChanged,
+    TResult Function(TodoPriority.Priority priority)? priorityChanged,
     TResult Function()? submitted,
   }) {
     return descriptionChanged?.call(description);
@@ -337,6 +377,8 @@ class _$_EditTodoDescriptionChanged implements _EditTodoDescriptionChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String title)? titleChanged,
     TResult Function(String description)? descriptionChanged,
+    TResult Function(DateTime? dueDate)? dueDateChanged,
+    TResult Function(TodoPriority.Priority priority)? priorityChanged,
     TResult Function()? submitted,
     required TResult orElse(),
   }) {
@@ -352,6 +394,8 @@ class _$_EditTodoDescriptionChanged implements _EditTodoDescriptionChanged {
     required TResult Function(_EditTodoTitleChanged value) titleChanged,
     required TResult Function(_EditTodoDescriptionChanged value)
         descriptionChanged,
+    required TResult Function(_EditTodoDueDateChanged value) dueDateChanged,
+    required TResult Function(_EditTodoPriorityChanged value) priorityChanged,
     required TResult Function(_EditTodoSubmitted value) submitted,
   }) {
     return descriptionChanged(this);
@@ -362,6 +406,8 @@ class _$_EditTodoDescriptionChanged implements _EditTodoDescriptionChanged {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_EditTodoTitleChanged value)? titleChanged,
     TResult Function(_EditTodoDescriptionChanged value)? descriptionChanged,
+    TResult Function(_EditTodoDueDateChanged value)? dueDateChanged,
+    TResult Function(_EditTodoPriorityChanged value)? priorityChanged,
     TResult Function(_EditTodoSubmitted value)? submitted,
   }) {
     return descriptionChanged?.call(this);
@@ -372,6 +418,8 @@ class _$_EditTodoDescriptionChanged implements _EditTodoDescriptionChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_EditTodoTitleChanged value)? titleChanged,
     TResult Function(_EditTodoDescriptionChanged value)? descriptionChanged,
+    TResult Function(_EditTodoDueDateChanged value)? dueDateChanged,
+    TResult Function(_EditTodoPriorityChanged value)? priorityChanged,
     TResult Function(_EditTodoSubmitted value)? submitted,
     required TResult orElse(),
   }) {
@@ -390,6 +438,317 @@ abstract class _EditTodoDescriptionChanged implements EditTodoEvent {
   @JsonKey(ignore: true)
   _$EditTodoDescriptionChangedCopyWith<_EditTodoDescriptionChanged>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$EditTodoDueDateChangedCopyWith<$Res> {
+  factory _$EditTodoDueDateChangedCopyWith(_EditTodoDueDateChanged value,
+          $Res Function(_EditTodoDueDateChanged) then) =
+      __$EditTodoDueDateChangedCopyWithImpl<$Res>;
+  $Res call({DateTime? dueDate});
+}
+
+/// @nodoc
+class __$EditTodoDueDateChangedCopyWithImpl<$Res>
+    extends _$EditTodoEventCopyWithImpl<$Res>
+    implements _$EditTodoDueDateChangedCopyWith<$Res> {
+  __$EditTodoDueDateChangedCopyWithImpl(_EditTodoDueDateChanged _value,
+      $Res Function(_EditTodoDueDateChanged) _then)
+      : super(_value, (v) => _then(v as _EditTodoDueDateChanged));
+
+  @override
+  _EditTodoDueDateChanged get _value => super._value as _EditTodoDueDateChanged;
+
+  @override
+  $Res call({
+    Object? dueDate = freezed,
+  }) {
+    return _then(_EditTodoDueDateChanged(
+      dueDate == freezed
+          ? _value.dueDate
+          : dueDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_EditTodoDueDateChanged implements _EditTodoDueDateChanged {
+  _$_EditTodoDueDateChanged(this.dueDate);
+
+  @override
+  final DateTime? dueDate;
+
+  @override
+  String toString() {
+    return 'EditTodoEvent.dueDateChanged(dueDate: $dueDate)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _EditTodoDueDateChanged &&
+            const DeepCollectionEquality().equals(other.dueDate, dueDate));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(dueDate));
+
+  @JsonKey(ignore: true)
+  @override
+  _$EditTodoDueDateChangedCopyWith<_EditTodoDueDateChanged> get copyWith =>
+      __$EditTodoDueDateChangedCopyWithImpl<_EditTodoDueDateChanged>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String title) titleChanged,
+    required TResult Function(String description) descriptionChanged,
+    required TResult Function(DateTime? dueDate) dueDateChanged,
+    required TResult Function(TodoPriority.Priority priority) priorityChanged,
+    required TResult Function() submitted,
+  }) {
+    return dueDateChanged(dueDate);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String title)? titleChanged,
+    TResult Function(String description)? descriptionChanged,
+    TResult Function(DateTime? dueDate)? dueDateChanged,
+    TResult Function(TodoPriority.Priority priority)? priorityChanged,
+    TResult Function()? submitted,
+  }) {
+    return dueDateChanged?.call(dueDate);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String title)? titleChanged,
+    TResult Function(String description)? descriptionChanged,
+    TResult Function(DateTime? dueDate)? dueDateChanged,
+    TResult Function(TodoPriority.Priority priority)? priorityChanged,
+    TResult Function()? submitted,
+    required TResult orElse(),
+  }) {
+    if (dueDateChanged != null) {
+      return dueDateChanged(dueDate);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_EditTodoTitleChanged value) titleChanged,
+    required TResult Function(_EditTodoDescriptionChanged value)
+        descriptionChanged,
+    required TResult Function(_EditTodoDueDateChanged value) dueDateChanged,
+    required TResult Function(_EditTodoPriorityChanged value) priorityChanged,
+    required TResult Function(_EditTodoSubmitted value) submitted,
+  }) {
+    return dueDateChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_EditTodoTitleChanged value)? titleChanged,
+    TResult Function(_EditTodoDescriptionChanged value)? descriptionChanged,
+    TResult Function(_EditTodoDueDateChanged value)? dueDateChanged,
+    TResult Function(_EditTodoPriorityChanged value)? priorityChanged,
+    TResult Function(_EditTodoSubmitted value)? submitted,
+  }) {
+    return dueDateChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_EditTodoTitleChanged value)? titleChanged,
+    TResult Function(_EditTodoDescriptionChanged value)? descriptionChanged,
+    TResult Function(_EditTodoDueDateChanged value)? dueDateChanged,
+    TResult Function(_EditTodoPriorityChanged value)? priorityChanged,
+    TResult Function(_EditTodoSubmitted value)? submitted,
+    required TResult orElse(),
+  }) {
+    if (dueDateChanged != null) {
+      return dueDateChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _EditTodoDueDateChanged implements EditTodoEvent {
+  factory _EditTodoDueDateChanged(DateTime? dueDate) =
+      _$_EditTodoDueDateChanged;
+
+  DateTime? get dueDate;
+  @JsonKey(ignore: true)
+  _$EditTodoDueDateChangedCopyWith<_EditTodoDueDateChanged> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$EditTodoPriorityChangedCopyWith<$Res> {
+  factory _$EditTodoPriorityChangedCopyWith(_EditTodoPriorityChanged value,
+          $Res Function(_EditTodoPriorityChanged) then) =
+      __$EditTodoPriorityChangedCopyWithImpl<$Res>;
+  $Res call({TodoPriority.Priority priority});
+}
+
+/// @nodoc
+class __$EditTodoPriorityChangedCopyWithImpl<$Res>
+    extends _$EditTodoEventCopyWithImpl<$Res>
+    implements _$EditTodoPriorityChangedCopyWith<$Res> {
+  __$EditTodoPriorityChangedCopyWithImpl(_EditTodoPriorityChanged _value,
+      $Res Function(_EditTodoPriorityChanged) _then)
+      : super(_value, (v) => _then(v as _EditTodoPriorityChanged));
+
+  @override
+  _EditTodoPriorityChanged get _value =>
+      super._value as _EditTodoPriorityChanged;
+
+  @override
+  $Res call({
+    Object? priority = freezed,
+  }) {
+    return _then(_EditTodoPriorityChanged(
+      priority == freezed
+          ? _value.priority
+          : priority // ignore: cast_nullable_to_non_nullable
+              as TodoPriority.Priority,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_EditTodoPriorityChanged implements _EditTodoPriorityChanged {
+  _$_EditTodoPriorityChanged(this.priority);
+
+  @override
+  final TodoPriority.Priority priority;
+
+  @override
+  String toString() {
+    return 'EditTodoEvent.priorityChanged(priority: $priority)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _EditTodoPriorityChanged &&
+            const DeepCollectionEquality().equals(other.priority, priority));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(priority));
+
+  @JsonKey(ignore: true)
+  @override
+  _$EditTodoPriorityChangedCopyWith<_EditTodoPriorityChanged> get copyWith =>
+      __$EditTodoPriorityChangedCopyWithImpl<_EditTodoPriorityChanged>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String title) titleChanged,
+    required TResult Function(String description) descriptionChanged,
+    required TResult Function(DateTime? dueDate) dueDateChanged,
+    required TResult Function(TodoPriority.Priority priority) priorityChanged,
+    required TResult Function() submitted,
+  }) {
+    return priorityChanged(priority);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String title)? titleChanged,
+    TResult Function(String description)? descriptionChanged,
+    TResult Function(DateTime? dueDate)? dueDateChanged,
+    TResult Function(TodoPriority.Priority priority)? priorityChanged,
+    TResult Function()? submitted,
+  }) {
+    return priorityChanged?.call(priority);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String title)? titleChanged,
+    TResult Function(String description)? descriptionChanged,
+    TResult Function(DateTime? dueDate)? dueDateChanged,
+    TResult Function(TodoPriority.Priority priority)? priorityChanged,
+    TResult Function()? submitted,
+    required TResult orElse(),
+  }) {
+    if (priorityChanged != null) {
+      return priorityChanged(priority);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_EditTodoTitleChanged value) titleChanged,
+    required TResult Function(_EditTodoDescriptionChanged value)
+        descriptionChanged,
+    required TResult Function(_EditTodoDueDateChanged value) dueDateChanged,
+    required TResult Function(_EditTodoPriorityChanged value) priorityChanged,
+    required TResult Function(_EditTodoSubmitted value) submitted,
+  }) {
+    return priorityChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_EditTodoTitleChanged value)? titleChanged,
+    TResult Function(_EditTodoDescriptionChanged value)? descriptionChanged,
+    TResult Function(_EditTodoDueDateChanged value)? dueDateChanged,
+    TResult Function(_EditTodoPriorityChanged value)? priorityChanged,
+    TResult Function(_EditTodoSubmitted value)? submitted,
+  }) {
+    return priorityChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_EditTodoTitleChanged value)? titleChanged,
+    TResult Function(_EditTodoDescriptionChanged value)? descriptionChanged,
+    TResult Function(_EditTodoDueDateChanged value)? dueDateChanged,
+    TResult Function(_EditTodoPriorityChanged value)? priorityChanged,
+    TResult Function(_EditTodoSubmitted value)? submitted,
+    required TResult orElse(),
+  }) {
+    if (priorityChanged != null) {
+      return priorityChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _EditTodoPriorityChanged implements EditTodoEvent {
+  factory _EditTodoPriorityChanged(TodoPriority.Priority priority) =
+      _$_EditTodoPriorityChanged;
+
+  TodoPriority.Priority get priority;
+  @JsonKey(ignore: true)
+  _$EditTodoPriorityChangedCopyWith<_EditTodoPriorityChanged> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -435,6 +794,8 @@ class _$_EditTodoSubmitted implements _EditTodoSubmitted {
   TResult when<TResult extends Object?>({
     required TResult Function(String title) titleChanged,
     required TResult Function(String description) descriptionChanged,
+    required TResult Function(DateTime? dueDate) dueDateChanged,
+    required TResult Function(TodoPriority.Priority priority) priorityChanged,
     required TResult Function() submitted,
   }) {
     return submitted();
@@ -445,6 +806,8 @@ class _$_EditTodoSubmitted implements _EditTodoSubmitted {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String title)? titleChanged,
     TResult Function(String description)? descriptionChanged,
+    TResult Function(DateTime? dueDate)? dueDateChanged,
+    TResult Function(TodoPriority.Priority priority)? priorityChanged,
     TResult Function()? submitted,
   }) {
     return submitted?.call();
@@ -455,6 +818,8 @@ class _$_EditTodoSubmitted implements _EditTodoSubmitted {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String title)? titleChanged,
     TResult Function(String description)? descriptionChanged,
+    TResult Function(DateTime? dueDate)? dueDateChanged,
+    TResult Function(TodoPriority.Priority priority)? priorityChanged,
     TResult Function()? submitted,
     required TResult orElse(),
   }) {
@@ -470,6 +835,8 @@ class _$_EditTodoSubmitted implements _EditTodoSubmitted {
     required TResult Function(_EditTodoTitleChanged value) titleChanged,
     required TResult Function(_EditTodoDescriptionChanged value)
         descriptionChanged,
+    required TResult Function(_EditTodoDueDateChanged value) dueDateChanged,
+    required TResult Function(_EditTodoPriorityChanged value) priorityChanged,
     required TResult Function(_EditTodoSubmitted value) submitted,
   }) {
     return submitted(this);
@@ -480,6 +847,8 @@ class _$_EditTodoSubmitted implements _EditTodoSubmitted {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_EditTodoTitleChanged value)? titleChanged,
     TResult Function(_EditTodoDescriptionChanged value)? descriptionChanged,
+    TResult Function(_EditTodoDueDateChanged value)? dueDateChanged,
+    TResult Function(_EditTodoPriorityChanged value)? priorityChanged,
     TResult Function(_EditTodoSubmitted value)? submitted,
   }) {
     return submitted?.call(this);
@@ -490,6 +859,8 @@ class _$_EditTodoSubmitted implements _EditTodoSubmitted {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_EditTodoTitleChanged value)? titleChanged,
     TResult Function(_EditTodoDescriptionChanged value)? descriptionChanged,
+    TResult Function(_EditTodoDueDateChanged value)? dueDateChanged,
+    TResult Function(_EditTodoPriorityChanged value)? priorityChanged,
     TResult Function(_EditTodoSubmitted value)? submitted,
     required TResult orElse(),
   }) {
@@ -508,13 +879,22 @@ abstract class _EditTodoSubmitted implements EditTodoEvent {
 class _$EditTodoStateTearOff {
   const _$EditTodoStateTearOff();
 
-  _EditTodoState __(EditTodoStatus status, Todo? initialTodo, String title,
-      String description) {
+  _EditTodoState __(
+      EditTodoStatus status,
+      Todo? initialTodo,
+      String title,
+      String description,
+      bool isNewTodo,
+      DateTime? dueDate,
+      TodoPriority.Priority priority) {
     return _EditTodoState(
       status,
       initialTodo,
       title,
       description,
+      isNewTodo,
+      dueDate,
+      priority,
     );
   }
 }
@@ -528,6 +908,9 @@ mixin _$EditTodoState {
   Todo? get initialTodo => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
+  bool get isNewTodo => throw _privateConstructorUsedError;
+  DateTime? get dueDate => throw _privateConstructorUsedError;
+  TodoPriority.Priority get priority => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $EditTodoStateCopyWith<EditTodoState> get copyWith =>
@@ -543,7 +926,10 @@ abstract class $EditTodoStateCopyWith<$Res> {
       {EditTodoStatus status,
       Todo? initialTodo,
       String title,
-      String description});
+      String description,
+      bool isNewTodo,
+      DateTime? dueDate,
+      TodoPriority.Priority priority});
 
   $TodoCopyWith<$Res>? get initialTodo;
 }
@@ -563,6 +949,9 @@ class _$EditTodoStateCopyWithImpl<$Res>
     Object? initialTodo = freezed,
     Object? title = freezed,
     Object? description = freezed,
+    Object? isNewTodo = freezed,
+    Object? dueDate = freezed,
+    Object? priority = freezed,
   }) {
     return _then(_value.copyWith(
       status: status == freezed
@@ -581,6 +970,18 @@ class _$EditTodoStateCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
+      isNewTodo: isNewTodo == freezed
+          ? _value.isNewTodo
+          : isNewTodo // ignore: cast_nullable_to_non_nullable
+              as bool,
+      dueDate: dueDate == freezed
+          ? _value.dueDate
+          : dueDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      priority: priority == freezed
+          ? _value.priority
+          : priority // ignore: cast_nullable_to_non_nullable
+              as TodoPriority.Priority,
     ));
   }
 
@@ -607,7 +1008,10 @@ abstract class _$EditTodoStateCopyWith<$Res>
       {EditTodoStatus status,
       Todo? initialTodo,
       String title,
-      String description});
+      String description,
+      bool isNewTodo,
+      DateTime? dueDate,
+      TodoPriority.Priority priority});
 
   @override
   $TodoCopyWith<$Res>? get initialTodo;
@@ -630,6 +1034,9 @@ class __$EditTodoStateCopyWithImpl<$Res>
     Object? initialTodo = freezed,
     Object? title = freezed,
     Object? description = freezed,
+    Object? isNewTodo = freezed,
+    Object? dueDate = freezed,
+    Object? priority = freezed,
   }) {
     return _then(_EditTodoState(
       status == freezed
@@ -648,6 +1055,18 @@ class __$EditTodoStateCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
+      isNewTodo == freezed
+          ? _value.isNewTodo
+          : isNewTodo // ignore: cast_nullable_to_non_nullable
+              as bool,
+      dueDate == freezed
+          ? _value.dueDate
+          : dueDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      priority == freezed
+          ? _value.priority
+          : priority // ignore: cast_nullable_to_non_nullable
+              as TodoPriority.Priority,
     ));
   }
 }
@@ -655,7 +1074,8 @@ class __$EditTodoStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_EditTodoState extends _EditTodoState {
-  _$_EditTodoState(this.status, this.initialTodo, this.title, this.description)
+  _$_EditTodoState(this.status, this.initialTodo, this.title, this.description,
+      this.isNewTodo, this.dueDate, this.priority)
       : super._();
 
   @override
@@ -666,10 +1086,16 @@ class _$_EditTodoState extends _EditTodoState {
   final String title;
   @override
   final String description;
+  @override
+  final bool isNewTodo;
+  @override
+  final DateTime? dueDate;
+  @override
+  final TodoPriority.Priority priority;
 
   @override
   String toString() {
-    return 'EditTodoState.__(status: $status, initialTodo: $initialTodo, title: $title, description: $description)';
+    return 'EditTodoState.__(status: $status, initialTodo: $initialTodo, title: $title, description: $description, isNewTodo: $isNewTodo, dueDate: $dueDate, priority: $priority)';
   }
 
   @override
@@ -682,7 +1108,10 @@ class _$_EditTodoState extends _EditTodoState {
                 .equals(other.initialTodo, initialTodo) &&
             const DeepCollectionEquality().equals(other.title, title) &&
             const DeepCollectionEquality()
-                .equals(other.description, description));
+                .equals(other.description, description) &&
+            const DeepCollectionEquality().equals(other.isNewTodo, isNewTodo) &&
+            const DeepCollectionEquality().equals(other.dueDate, dueDate) &&
+            const DeepCollectionEquality().equals(other.priority, priority));
   }
 
   @override
@@ -691,7 +1120,10 @@ class _$_EditTodoState extends _EditTodoState {
       const DeepCollectionEquality().hash(status),
       const DeepCollectionEquality().hash(initialTodo),
       const DeepCollectionEquality().hash(title),
-      const DeepCollectionEquality().hash(description));
+      const DeepCollectionEquality().hash(description),
+      const DeepCollectionEquality().hash(isNewTodo),
+      const DeepCollectionEquality().hash(dueDate),
+      const DeepCollectionEquality().hash(priority));
 
   @JsonKey(ignore: true)
   @override
@@ -700,8 +1132,14 @@ class _$_EditTodoState extends _EditTodoState {
 }
 
 abstract class _EditTodoState extends EditTodoState {
-  factory _EditTodoState(EditTodoStatus status, Todo? initialTodo, String title,
-      String description) = _$_EditTodoState;
+  factory _EditTodoState(
+      EditTodoStatus status,
+      Todo? initialTodo,
+      String title,
+      String description,
+      bool isNewTodo,
+      DateTime? dueDate,
+      TodoPriority.Priority priority) = _$_EditTodoState;
   _EditTodoState._() : super._();
 
   @override
@@ -712,6 +1150,12 @@ abstract class _EditTodoState extends EditTodoState {
   String get title;
   @override
   String get description;
+  @override
+  bool get isNewTodo;
+  @override
+  DateTime? get dueDate;
+  @override
+  TodoPriority.Priority get priority;
   @override
   @JsonKey(ignore: true)
   _$EditTodoStateCopyWith<_EditTodoState> get copyWith =>

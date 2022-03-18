@@ -1,24 +1,16 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
+import '../../domain/todo_repository.dart';
+import '../common/helpers/device.dart';
 import '../common/routes/app_routes.gr.dart';
-import '../helpers/device.dart';
+import 'bloc/home_bloc.dart';
 import 'widgets/app_menu.dart';
+import 'widgets/option_menu.dart';
 
-enum MenuOption {
-  settings,
-}
-
-extension on MenuOption {
-  String toText() {
-    switch (this) {
-      case MenuOption.settings:
-        return 'Settings';
-    }
-  }
-}
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -81,32 +73,16 @@ class _HomePageState extends State<HomePage> {
           title: const Text(
             'Buggy note',
           ),
-          actions: [
+          actions: const [
             ResponsiveVisibility(
-              visibleWhen: const [
+              visibleWhen: [
                 Condition.smallerThan(name: MOBILE),
                 Condition.equals(name: MOBILE),
               ],
-              hiddenWhen: const [
+              hiddenWhen: [
                 Condition.largerThan(name: MOBILE),
               ],
-              child: PopupMenuButton<MenuOption>(
-                itemBuilder: (context) => MenuOption.values
-                    .map(
-                      (e) => PopupMenuItem<MenuOption>(
-                        value: e,
-                        child: Text(e.toText()),
-                      ),
-                    )
-                    .toList(),
-                onSelected: (choice) {
-                  switch (choice) {
-                    case MenuOption.settings:
-                      context.router.push(const SettingsRoute());
-                      break;
-                  }
-                },
-              ),
+              child: OptionMenu(),
             ),
           ],
         ),
@@ -175,13 +151,18 @@ class _HomePageState extends State<HomePage> {
     if (isMenuExpanded) activeMenuWidth = menuWidth;
     if (isMobile) activeMenuWidth = 0;
 
-    return AnnotatedRegion(
-      value: FlexColorScheme.themedSystemNavigationBar(context),
-      child: Row(
-        children: [
-          buildSideMenu(context),
-          buildScaffold(context),
-        ],
+    return BlocProvider<HomeBloc>(
+      create: (context) => HomeBloc(
+        todoRepository: context.read<TodoRepository>(),
+      ),
+      child: AnnotatedRegion(
+        value: FlexColorScheme.themedSystemNavigationBar(context),
+        child: Row(
+          children: [
+            buildSideMenu(context),
+            buildScaffold(context),
+          ],
+        ),
       ),
     );
   }

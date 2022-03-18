@@ -55,9 +55,6 @@ class _AppMenuState extends State<AppMenu> {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints size) {
-        // The overflow box is not the prettiest approach, but has some
-        // convenient properties for this simple animated menu using just
-        // a single AnimatedContainer.
         return OverflowBox(
           alignment: AlignmentDirectional.topStart,
           minWidth: 0,
@@ -65,10 +62,6 @@ class _AppMenuState extends State<AppMenu> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // We use an AppBar element as header in the menu too, a custom
-              // Widget would be less restrictive, but for simplicity, the
-              // AppBar has so many nice things built in to handle text style,
-              // size and scaling for the title that are tedious to replicate
               AppBar(
                 title: widget.title,
                 titleSpacing: 0,
@@ -115,7 +108,6 @@ class _AppMenuState extends State<AppMenu> {
                               railWidth: widget.railWidth,
                               selectedIcon: _selectedIcons[i],
                             ),
-                          const Divider(thickness: 1, height: 1),
                         ],
                       ),
                     ),

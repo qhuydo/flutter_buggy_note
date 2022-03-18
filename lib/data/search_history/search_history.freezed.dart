@@ -104,7 +104,7 @@ class __$SearchHistoryCopyWithImpl<$Res>
 
 /// @nodoc
 
-@HiveType(typeId: 4, adapterName: 'SearchHistoryAdapter')
+@HiveType(typeId: typeIdSearchHistory, adapterName: 'SearchHistoryAdapter')
 class _$_SearchHistory implements _SearchHistory {
   const _$_SearchHistory({@HiveField(0) this.keyword = ''});
 

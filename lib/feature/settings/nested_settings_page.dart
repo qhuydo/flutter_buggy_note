@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-// import 'widgets/theme_colours_card.dart';
+import 'widgets/theme_colours_card.dart';
 
 class NestedSettingsPage extends StatelessWidget {
   const NestedSettingsPage({Key? key}) : super(key: key);
@@ -11,7 +11,8 @@ class NestedSettingsPage extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: const [
-            // ThemeColoursCard(),
+            ThemeColoursCard(),
+            SizedBox(height: 16),
           ],
         ),
       ),

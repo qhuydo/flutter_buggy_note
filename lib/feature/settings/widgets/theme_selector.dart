@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../common/theme/bloc/theme_cubit.dart';
 
 class ThemeSelector extends StatefulWidget {
-
   const ThemeSelector({
     Key? key,
   }) : super(key: key);
@@ -36,6 +35,8 @@ class _ThemeSelectorState extends State<ThemeSelector> {
         children: [
           Expanded(
             child: BlocBuilder<ThemeCubit, ThemeState>(
+              buildWhen: (previous, current) =>
+                  previous.scheme != current.scheme,
               builder: (context, state) {
                 final currentIndex = FlexScheme.values.indexOf(state.scheme);
                 scrollController.animateTo(

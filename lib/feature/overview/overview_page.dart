@@ -90,29 +90,29 @@ class TodoOverviewView extends StatelessWidget {
           }
 
           return Scrollbar(
-            child: ListView(
-              children: [
-                for (final todo in state.todos)
-                  TodoListTile(
-                    todo: todo,
-                    onCompleteButtonToggled: (value) {
-                      context.read<TodoOverviewBloc>().add(
-                            TodoOverviewEvent.todoCompletionToggled(
-                              todo: todo,
-                              isCompleted: value,
-                            ),
-                          );
-                    },
-                    onDismissed: (_) {
-                      context
-                          .read<TodoOverviewBloc>()
-                          .add(TodoOverviewEvent.undoDeletionRequested());
-                    },
-                    onTap: () {
-                      context.pushRoute(EditRoute(initialTodo: todo));
-                    },
-                  )
-              ],
+            child: ListView.separated(
+              padding: const EdgeInsets.symmetric(vertical: 16),
+              itemCount: state.todos.length,
+              separatorBuilder: (context, index) => const Divider(height: 16),
+              itemBuilder: (context, index) =>  TodoListTile(
+                todo: state.todos[index],
+                onCompleteButtonToggled: (value) {
+                  context.read<TodoOverviewBloc>().add(
+                    TodoOverviewEvent.todoCompletionToggled(
+                      todo: state.todos[index],
+                      isCompleted: value,
+                    ),
+                  );
+                },
+                onDismissed: (_) {
+                  context
+                      .read<TodoOverviewBloc>()
+                      .add(TodoOverviewEvent.undoDeletionRequested());
+                },
+                onTap: () {
+                  context.pushRoute(EditRoute(initialTodo: state.todos[index]));
+                },
+              ),
             ),
           );
         },

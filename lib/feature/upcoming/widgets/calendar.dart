@@ -44,24 +44,20 @@ class Calendar extends StatelessWidget {
               .add(UpcomingEvent.formatChanged(format: format));
         }
       },
-      calendarBuilders: CalendarBuilders(
-        markerBuilder: (
-          context,
-          day,
-          events,
-        ) {
-          return events.isEmpty
-              ? null
-              : Container(
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      color: Colors.grey.withOpacity(0.6),
-                      width: 1.25,
-                    ),
-                  ),
-                );
-        },
+      calendarStyle: CalendarStyle(
+        canMarkersOverflow: false,
+        markerDecoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.secondary,
+          shape: BoxShape.circle,
+        ),
+        selectedDecoration: BoxDecoration(
+          color: Theme.of(context).primaryColorDark,
+          shape: BoxShape.circle,
+        ),
+        todayDecoration: BoxDecoration(
+          color: Theme.of(context).primaryColorLight,
+          shape: BoxShape.circle,
+        ),
       ),
     );
   }

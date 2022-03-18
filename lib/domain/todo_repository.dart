@@ -25,7 +25,7 @@ class TodoRepository {
   Future<void> saveTodo(Todo todo, {bool overwrite = false}) =>
       _todoApi.saveTodo(
         todo,
-        overwrite: overwrite,
+        keepId: overwrite,
       );
 
   Future<void> deleteTodo(int id) => _todoApi.removeTodo(id);

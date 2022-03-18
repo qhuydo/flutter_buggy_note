@@ -15,6 +15,7 @@ class PriorityButton extends StatelessWidget {
         final iconColour = state.priority.getColour(Theme.of(context));
 
         return PopupMenuButton<Priority>(
+          initialValue: state.priority,
           padding: EdgeInsets.zero,
           onSelected: (value) => context.read<EditTodoBloc>().add(
             EditTodoEvent.priorityChanged(value),

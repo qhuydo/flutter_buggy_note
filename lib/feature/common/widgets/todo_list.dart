@@ -23,7 +23,7 @@ class TodoList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scrollbar(
       child: ListView.separated(
-        padding: const EdgeInsets.symmetric(vertical: 16),
+        padding: const EdgeInsets.fromLTRB(8, 16, 16, 72),
         physics: const BouncingScrollPhysics(),
         shrinkWrap: shrinkWrap ?? false,
         primary: primary ?? true,
@@ -42,7 +42,7 @@ class TodoList extends StatelessWidget {
           onDismissed: (_) {
             context
                 .read<HomeBloc>()
-                .add(HomeEvent.undoDeletionRequested());
+                .add(HomeEvent.todoRemoved(todo: todos[index]));
           },
           onTap: () {
             context.pushRoute(EditRoute(initialTodo: todos[index]));

@@ -1,10 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../data/models.dart';
 import '../../domain/todo_repository.dart';
+import '../home/bloc/home_bloc.dart';
 import 'bloc/edit_todo_bloc.dart';
 import 'widgets/action_button_row.dart';
 import 'widgets/description_text_field.dart';
@@ -50,19 +50,40 @@ class EditTodoView extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: Text(isNewTodo ? 'Add new todo' : 'Edit todo'),
-          actions: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: IconButton(
-                onPressed: () {
-                  context.read<EditTodoBloc>().add(
-                        EditTodoEvent.submitted(),
-                      );
-                },
-                icon: const Icon(Icons.done),
+          actions: !isNewTodo
+              ? [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Icons.share),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: IconButton(
+                      onPressed: () {
+                        context.read<HomeBloc>().add(
+                              HomeEvent.todoRemoved(
+                                  todo: context
+                                      .read<EditTodoBloc>()
+                                      .state
+                                      .initialTodo!),
+                            );
+                        context.router.pop();
+                      },
+                      icon: const Icon(Icons.delete_outline),
+                    ),
+                  )
+                ]
+              : null,
+        ),
+        floatingActionButton: FloatingActionButton.extended(
+          onPressed: () => context.read<EditTodoBloc>().add(
+                EditTodoEvent.submitted(),
               ),
-            ),
-          ],
+          icon: const Icon(Icons.save_outlined),
+          label: const Text('Save changes'),
         ),
         body: SingleChildScrollView(
           child: Padding(

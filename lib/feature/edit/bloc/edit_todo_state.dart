@@ -27,7 +27,7 @@ class EditTodoState with _$EditTodoState {
       initialTodo?.description ?? description,
       isNewTodo,
       initialTodo?.dueDate ?? dueDate,
-      priority,
+      initialTodo?.priority ?? priority,
     );
   }
 

@@ -27,7 +27,7 @@ class LocalTodoApi implements TodoApi {
 
   @override
   Future<void> removeTodo(int id) async {
-    await _box.deleteAt(id);
+    await _box.delete(id);
     _todoStreamController.add(_box.values.toList());
   }
 
@@ -37,28 +37,24 @@ class LocalTodoApi implements TodoApi {
     if (todo == null) {
       throw TodoFailure.notFound();
     }
-    await _box.putAt(id, todo.copyWith(status: TodoStatus.completed));
+    await _box.put(id, todo.copyWith(status: TodoStatus.completed));
     _todoStreamController.add(_box.values.toList());
   }
 
   Future<void> _addNewTodo(Todo todo) async {
     final nextId = await _box.add(todo);
     // final nextId = _box.length;
-    await _box.putAt(nextId, todo.copyWith(id: nextId));
+    await _box.put(nextId, todo.copyWith(id: nextId));
     _todoStreamController.add(_box.values.toList());
   }
 
   @override
-  Future<void> saveTodo(Todo todo, {bool overwrite = false}) async {
-    if (!overwrite) {
+  Future<void> saveTodo(Todo todo, {bool keepId = false}) async {
+    if (!keepId) {
       return await _addNewTodo(todo);
     } else {
-      if (_box.containsKey(todo.id)) {
-        await _box.putAt(todo.id, todo);
-        _todoStreamController.add(_box.values.toList());
-      } else {
-        return await _addNewTodo(todo);
-      }
+      await _box.put(todo.id, todo);
+      _todoStreamController.add(_box.values.toList());
     }
   }
 

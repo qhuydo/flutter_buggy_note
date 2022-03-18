@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../domain/todo_repository.dart';
 import '../common/widgets/todo_list.dart';
+import '../home/bloc/home_bloc.dart';
 import 'bloc/todo_overview_bloc.dart';
 
 class OverviewPage extends StatelessWidget {
@@ -44,7 +45,7 @@ class TodoOverviewView extends StatelessWidget {
             }
           },
         ),
-        BlocListener<TodoOverviewBloc, TodoOverviewState>(
+        BlocListener<HomeBloc, HomeState>(
           listenWhen: (previous, current) =>
               previous.recentlyRemovedTodo != current.recentlyRemovedTodo &&
               current.recentlyRemovedTodo != null,
@@ -61,8 +62,8 @@ class TodoOverviewView extends StatelessWidget {
                     onPressed: () {
                       messenger.hideCurrentSnackBar();
                       context
-                          .read<TodoOverviewBloc>()
-                          .add(TodoOverviewEvent.undoDeletionRequested());
+                          .read<HomeBloc>()
+                          .add(HomeEvent.undoDeletionRequested());
                     },
                   ),
                 ),

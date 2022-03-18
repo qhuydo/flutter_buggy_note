@@ -1,13 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
-import '../../domain/todo_repository.dart';
 import '../common/helpers/device.dart';
 import '../common/routes/app_routes.gr.dart';
-import 'bloc/home_bloc.dart';
 import 'widgets/app_menu.dart';
 import 'widgets/option_menu.dart';
 
@@ -131,15 +128,13 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
-        floatingActionButton: Tooltip(
-          message: 'Add new todo',
-          child: FloatingActionButton(
-            onPressed: () => context.router.push(EditRoute(
-              initialTodo: null,
-              isNewTodo: true,
-            )),
-            child: const Icon(Icons.add),
-          ),
+        floatingActionButton: FloatingActionButton.extended(
+          onPressed: () => context.router.push(EditRoute(
+            initialTodo: null,
+            isNewTodo: true,
+          )),
+          icon: const Icon(Icons.add),
+          label: const Text('Create todo'),
         ),
       ),
     );
@@ -153,18 +148,13 @@ class _HomePageState extends State<HomePage> {
     if (isMenuExpanded) activeMenuWidth = menuWidth;
     if (isMobile) activeMenuWidth = 0;
 
-    return BlocProvider<HomeBloc>(
-      create: (context) => HomeBloc(
-        todoRepository: context.read<TodoRepository>(),
-      ),
-      child: AnnotatedRegion(
-        value: FlexColorScheme.themedSystemNavigationBar(context),
-        child: Row(
-          children: [
-            buildSideMenu(context),
-            buildScaffold(context),
-          ],
-        ),
+    return AnnotatedRegion(
+      value: FlexColorScheme.themedSystemNavigationBar(context),
+      child: Row(
+        children: [
+          buildSideMenu(context),
+          buildScaffold(context),
+        ],
       ),
     );
   }

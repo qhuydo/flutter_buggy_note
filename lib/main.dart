@@ -11,6 +11,7 @@ import 'data/api/local_todo_api.dart';
 import 'domain/todo_repository.dart';
 import 'feature/common/routes/app_routes.gr.dart';
 import 'feature/common/theme/bloc/theme_cubit.dart';
+import 'feature/home/bloc/home_bloc.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -36,8 +37,13 @@ class BuggyNoteApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return RepositoryProvider.value(
       value: todoRepository,
-      child: BlocProvider<ThemeCubit>(
-        create: (context) => ThemeCubit(),
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider(create: (context) => ThemeCubit()),
+          BlocProvider(
+            create: (context) => HomeBloc(todoRepository: todoRepository),
+          ),
+        ],
         child: const _BuggyNoteAppView(),
       ),
     );

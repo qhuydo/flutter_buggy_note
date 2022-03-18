@@ -13,6 +13,7 @@ import '../../pages.dart';
         AutoRoute(page: TodayPage),
         AutoRoute(page: UpcomingPage),
         AutoRoute(page: SearchPage),
+        AutoRoute(page: NestedSettingsPage),
       ],
       initial: true,
     ),
@@ -21,6 +22,7 @@ import '../../pages.dart';
       path: '/edit/:id',
     ),
     RedirectRoute(path: '/add', redirectTo: '/edit/0'),
+    AutoRoute(page: SettingsPage),
   ],
 )
 class $AppRouter {}

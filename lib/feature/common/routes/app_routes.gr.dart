@@ -32,6 +32,10 @@ class AppRouter extends _i2.RootStackRouter {
           routeData: routeData,
           child: _i1.EditPage(key: args.key, initialTodo: args.initialTodo));
     },
+    SettingsRoute.name: (routeData) {
+      return _i2.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i1.SettingsPage());
+    },
     OverviewRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i1.OverviewPage());
@@ -47,6 +51,10 @@ class AppRouter extends _i2.RootStackRouter {
     SearchRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i1.SearchPage());
+    },
+    NestedSettingsRoute.name: (routeData) {
+      return _i2.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i1.NestedSettingsPage());
     }
   };
 
@@ -60,11 +68,14 @@ class AppRouter extends _i2.RootStackRouter {
           _i2.RouteConfig(UpcomingRoute.name,
               path: 'upcoming-page', parent: HomeRoute.name),
           _i2.RouteConfig(SearchRoute.name,
-              path: 'search-page', parent: HomeRoute.name)
+              path: 'search-page', parent: HomeRoute.name),
+          _i2.RouteConfig(NestedSettingsRoute.name,
+              path: 'nested-settings-page', parent: HomeRoute.name)
         ]),
         _i2.RouteConfig(EditRoute.name, path: '/edit/:id'),
         _i2.RouteConfig('/add#redirect',
-            path: '/add', redirectTo: '/edit/0', fullMatch: true)
+            path: '/add', redirectTo: '/edit/0', fullMatch: true),
+        _i2.RouteConfig(SettingsRoute.name, path: '/settings-page')
       ];
 }
 
@@ -102,6 +113,14 @@ class EditRouteArgs {
 }
 
 /// generated route for
+/// [_i1.SettingsPage]
+class SettingsRoute extends _i2.PageRouteInfo<void> {
+  const SettingsRoute() : super(SettingsRoute.name, path: '/settings-page');
+
+  static const String name = 'SettingsRoute';
+}
+
+/// generated route for
 /// [_i1.OverviewPage]
 class OverviewRoute extends _i2.PageRouteInfo<void> {
   const OverviewRoute() : super(OverviewRoute.name, path: 'overview-page');
@@ -131,4 +150,13 @@ class SearchRoute extends _i2.PageRouteInfo<void> {
   const SearchRoute() : super(SearchRoute.name, path: 'search-page');
 
   static const String name = 'SearchRoute';
+}
+
+/// generated route for
+/// [_i1.NestedSettingsPage]
+class NestedSettingsRoute extends _i2.PageRouteInfo<void> {
+  const NestedSettingsRoute()
+      : super(NestedSettingsRoute.name, path: 'nested-settings-page');
+
+  static const String name = 'NestedSettingsRoute';
 }

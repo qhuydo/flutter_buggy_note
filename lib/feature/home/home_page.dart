@@ -3,8 +3,8 @@ import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
-import '../helpers/device.dart';
 import '../common/routes/app_routes.gr.dart';
+import '../helpers/device.dart';
 import 'widgets/app_menu.dart';
 
 class HomePage extends StatefulWidget {
@@ -20,7 +20,9 @@ class _HomePageState extends State<HomePage> {
     TodayRoute(),
     UpcomingRoute(),
     SearchRoute(),
+    NestedSettingsRoute(),
   ];
+  static final int _nVisibleNavigationRoutes = _routes.length - 1;
 
   bool isMenuExpanded = false;
 
@@ -75,7 +77,9 @@ class _HomePageState extends State<HomePage> {
           ],
           child: NavigationBar(
             labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
-            selectedIndex: tabsRouter.activeIndex,
+            selectedIndex: tabsRouter.activeIndex >= _nVisibleNavigationRoutes
+                ? _nVisibleNavigationRoutes - 1
+                : tabsRouter.activeIndex,
             onDestinationSelected: tabsRouter.setActiveIndex,
             destinations: [
               NavigationDestination(

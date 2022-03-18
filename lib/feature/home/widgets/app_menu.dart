@@ -32,6 +32,7 @@ class _AppMenuState extends State<AppMenu> {
     Icons.calendar_today_outlined,
     Icons.calendar_month_outlined,
     Icons.search,
+    Icons.settings_outlined,
   ];
 
   static const List<IconData> _selectedIcons = [
@@ -39,6 +40,7 @@ class _AppMenuState extends State<AppMenu> {
     Icons.calendar_today,
     Icons.calendar_month,
     Icons.search,
+    Icons.settings,
   ];
 
   static const List<String> _labels = <String>[
@@ -46,6 +48,7 @@ class _AppMenuState extends State<AppMenu> {
     'Today',
     'Upcoming',
     'Search',
+    'Settings',
   ];
 
   @override

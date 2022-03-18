@@ -3,12 +3,13 @@ import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
 
 import '../data/api/todo_api.dart';
 import '../domain/todo_repository.dart';
 import '../main.dart';
 
-void bootstrap({required TodoApi todoApi}) {
+void bootstrap({required TodoApi todoApi, required HydratedStorage storage}) {
   FlutterError.onError = (details) {
     log(details.exceptionAsString(), stackTrace: details.stack);
   };
@@ -16,11 +17,12 @@ void bootstrap({required TodoApi todoApi}) {
   final todosRepository = TodoRepository(todoApi);
 
   runZonedGuarded(
-    () => BlocOverrides.runZoned(
+    () => HydratedBlocOverrides.runZoned(
       () async => runApp(
         BuggyNoteApp(todoRepository: todosRepository),
       ),
       blocObserver: AppBlocObserver(),
+      storage: storage,
     ),
     (error, stackTrace) => log(error.toString(), stackTrace: stackTrace),
   );

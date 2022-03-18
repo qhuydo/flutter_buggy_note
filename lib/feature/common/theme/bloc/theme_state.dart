@@ -1,10 +1,7 @@
-import 'package:flex_color_scheme/flex_color_scheme.dart';
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+part of 'theme_cubit.dart';
 
-class AppTheme {
-  final FlexScheme scheme;
-
+@freezed
+class ThemeState with _$ThemeState {
   static const _surfaceMode = FlexSurfaceMode.highScaffoldLowSurface;
   static const _blendLevel = 18;
   static const _defaultAppBarStyleLight = FlexAppBarStyle.primary;
@@ -38,7 +35,16 @@ class AppTheme {
     popupMenuOpacity: 0.95,
   );
 
-  AppTheme({this.scheme = FlexScheme.blueWhale});
+  const ThemeState._();
+
+  const factory ThemeState({
+    @Default(FlexScheme.mandyRed) FlexScheme scheme,
+    @Default(ThemeMode.system) ThemeMode mode,
+    @Default(true) bool useFlexColourTheme,
+  }) = _ThemeState;
+
+  factory ThemeState.fromJson(Map<String, dynamic> json) =>
+      _$ThemeStateFromJson(json);
 
   ThemeData get light => FlexThemeData.light(
     scheme: scheme,

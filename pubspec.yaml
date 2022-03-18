@@ -82,6 +82,7 @@ dependencies:
   # (c) MIT License. By Felix Angelov.
   bloc: ^8.0.3
   flutter_bloc: ^8.0.1
+  hydrated_bloc: ^8.1.0
 
   # A package to include fonts from fonts.google.com in your Flutter app.
   # (c) Apache-2.0 License.

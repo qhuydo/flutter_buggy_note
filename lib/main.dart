@@ -1,6 +1,7 @@
-import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 import 'app/bootstrap.dart';
@@ -9,17 +10,18 @@ import 'const/breakpoints.dart';
 import 'data/api/local_todo_api.dart';
 import 'domain/todo_repository.dart';
 import 'feature/common/routes/app_routes.gr.dart';
-import 'feature/common/theme/theme.dart';
+import 'feature/common/theme/bloc/theme_cubit.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initHive();
 
-  final todoApi = LocalTodoApi();
-  // final todosRepository = TodoRepository(todoApi);
+  final storage = await HydratedStorage.build(
+    storageDirectory: await getApplicationDocumentsDirectory(),
+  );
 
-  // runApp(BuggyNoteApp(todoRepository: todosRepository));
-  bootstrap(todoApi: todoApi);
+  final todoApi = LocalTodoApi();
+  bootstrap(todoApi: todoApi, storage: storage);
 }
 
 class BuggyNoteApp extends StatelessWidget {
@@ -34,7 +36,10 @@ class BuggyNoteApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return RepositoryProvider.value(
       value: todoRepository,
-      child: const _BuggyNoteAppView(),
+      child: BlocProvider<ThemeCubit>(
+        create: (context) => ThemeCubit(),
+        child: const _BuggyNoteAppView(),
+      ),
     );
   }
 }
@@ -48,29 +53,30 @@ class _BuggyNoteAppView extends StatefulWidget {
 
 class _BuggyNoteAppViewState extends State<_BuggyNoteAppView> {
   final _appRouter = AppRouter();
-  final _appTheme = AppTheme(scheme: FlexScheme.blue);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      title: 'Buggy note',
-      debugShowCheckedModeBanner: false,
-      routerDelegate: _appRouter.delegate(),
-      routeInformationParser: _appRouter.defaultRouteParser(),
-      builder: (context, child) => ResponsiveWrapper.builder(
-        child,
-        // maxWidth: 1200,
-        // minWidth: 600,
-        defaultScale: true,
-        breakpoints: const [
-          ResponsiveBreakpoint.autoScale(phoneBreakpoint, name: MOBILE),
-          ResponsiveBreakpoint.resize(tabletBreakpoint, name: TABLET),
-          ResponsiveBreakpoint.resize(desktopBreakpoint, name: DESKTOP),
-        ],
+    return BlocBuilder<ThemeCubit, ThemeState>(
+      builder: (context, state) => MaterialApp.router(
+        title: 'Buggy note',
+        debugShowCheckedModeBanner: false,
+        routerDelegate: _appRouter.delegate(),
+        routeInformationParser: _appRouter.defaultRouteParser(),
+        builder: (context, child) => ResponsiveWrapper.builder(
+          child,
+          // maxWidth: 1200,
+          // minWidth: 600,
+          defaultScale: true,
+          breakpoints: const [
+            ResponsiveBreakpoint.autoScale(phoneBreakpoint, name: MOBILE),
+            ResponsiveBreakpoint.resize(tabletBreakpoint, name: TABLET),
+            ResponsiveBreakpoint.resize(desktopBreakpoint, name: DESKTOP),
+          ],
+        ),
+        themeMode: state.mode,
+        theme: state.light,
+        darkTheme: state.dark,
       ),
-      themeMode: ThemeMode.system,
-      theme: _appTheme.light,
-      darkTheme: _appTheme.dark,
     );
   }
 }

@@ -39,8 +39,7 @@ class SearchTodoBloc extends Bloc<SearchTodoEvent, SearchTodoState> {
     await emit.forEach<List<Todo>>(
       _todoRepository.getTodos(),
       onData: (todos) {
-        if (state.searchOption.keyword.isNotEmpty ||
-            state.searchOption.filterApplied) {
+        if (state.status == SearchTodoStatus.success) {
           final result = todos
               .where(
                 (element) => state.searchOption.match(element),

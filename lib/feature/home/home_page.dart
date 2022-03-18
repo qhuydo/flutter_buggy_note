@@ -7,6 +7,19 @@ import '../common/routes/app_routes.gr.dart';
 import '../helpers/device.dart';
 import 'widgets/app_menu.dart';
 
+enum MenuOption {
+  settings,
+}
+
+extension on MenuOption {
+  String toText() {
+    switch (this) {
+      case MenuOption.settings:
+        return 'Settings';
+    }
+  }
+}
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -65,7 +78,37 @@ class _HomePageState extends State<HomePage> {
         extendBodyBehindAppBar: true,
         extendBody: true,
         appBarBuilder: (context, _) => AppBar(
-          title: const Text('Home'),
+          title: const Text(
+            'Buggy note',
+          ),
+          actions: [
+            ResponsiveVisibility(
+              visibleWhen: const [
+                Condition.smallerThan(name: MOBILE),
+                Condition.equals(name: MOBILE),
+              ],
+              hiddenWhen: const [
+                Condition.largerThan(name: MOBILE),
+              ],
+              child: PopupMenuButton<MenuOption>(
+                itemBuilder: (context) => MenuOption.values
+                    .map(
+                      (e) => PopupMenuItem<MenuOption>(
+                        value: e,
+                        child: Text(e.toText()),
+                      ),
+                    )
+                    .toList(),
+                onSelected: (choice) {
+                  switch (choice) {
+                    case MenuOption.settings:
+                      context.router.push(const SettingsRoute());
+                      break;
+                  }
+                },
+              ),
+            ),
+          ],
         ),
         bottomNavigationBuilder: (context, tabsRouter) => ResponsiveVisibility(
           visibleWhen: const [

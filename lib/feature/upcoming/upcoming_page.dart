@@ -50,65 +50,65 @@ class UpcomingView extends StatelessWidget {
           },
         ),
       ],
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          const Calendar(),
-          const SizedBox(height: 8),
-          BlocBuilder<UpcomingBloc, UpcomingState>(
-              // buildWhen: (previous, current) =>
-              //     previous.selectedDay != current.selectedDay ||
-              //     (previous.status != current.status &&
-              //         current.status != UpcomingStatus.failure),
-              builder: (context, state) {
-                if (state.currentTodos.isEmpty) {
-                  if (state.status == UpcomingStatus.loading) {
-                    return const Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  }
-                  if (state.status == UpcomingStatus.success) {
-                    return Center(
-                      child: Text(
-                        'No todo',
-                        style: Theme.of(context).textTheme.caption,
-                      ),
-                    );
-                  }
-
-                  // log('build empty');
-                  return const SizedBox();
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Calendar(),
+            const SizedBox(height: 8),
+            BlocBuilder<UpcomingBloc, UpcomingState>(
+                // buildWhen: (previous, current) =>
+                //     previous.selectedDay != current.selectedDay ||
+                //     (previous.status != current.status &&
+                //         current.status != UpcomingStatus.failure),
+                builder: (context, state) {
+              if (state.currentTodos.isEmpty) {
+                if (state.status == UpcomingStatus.loading) {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
                 }
-                // log('build');
-                return Expanded(
-                  child: ListView(
-                    padding: const EdgeInsets.all(0),
-                    children: [
-                      for (final todo in state.currentTodos)
-                        TodoListTile(
-                          todo: todo,
-                          onCompleteButtonToggled: (value) {
-                            // context.read<TodayTodoBloc>().add(
-                            //   TodayTodoEvent.todoCompletionToggled(
-                            //     todo: todo,
-                            //     isCompleted: value,
-                            //   ),
-                            // );
-                          },
-                          onDismissed: (_) {
-                            // context
-                            //     .read<TodayTodoBloc>()
-                            //     .add(TodoOverviewEvent.undoDeletionRequested());
-                          },
-                          onTap: () {
-                            context.pushRoute(EditRoute(initialTodo: todo));
-                          },
-                        )
-                    ],
-                  ),
-                );
-              }),
-        ],
+                if (state.status == UpcomingStatus.success) {
+                  return Center(
+                    child: Text(
+                      'No todo',
+                      style: Theme.of(context).textTheme.caption,
+                    ),
+                  );
+                }
+
+                return const SizedBox();
+              }
+              return ListView(
+                shrinkWrap: true,
+                primary: false,
+                padding: const EdgeInsets.all(0),
+                children: [
+                  for (final todo in state.currentTodos)
+                    TodoListTile(
+                      todo: todo,
+                      onCompleteButtonToggled: (value) {
+                        // context.read<TodayTodoBloc>().add(
+                        //   TodayTodoEvent.todoCompletionToggled(
+                        //     todo: todo,
+                        //     isCompleted: value,
+                        //   ),
+                        // );
+                      },
+                      onDismissed: (_) {
+                        // context
+                        //     .read<TodayTodoBloc>()
+                        //     .add(TodoOverviewEvent.undoDeletionRequested());
+                      },
+                      onTap: () {
+                        context.pushRoute(EditRoute(initialTodo: todo));
+                      },
+                    )
+                ],
+              );
+            }),
+          ],
+        ),
       ),
     );
   }

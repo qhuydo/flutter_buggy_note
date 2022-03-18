@@ -11,9 +11,7 @@ part 'theme_cubit.g.dart';
 part 'theme_state.dart';
 
 class ThemeCubit extends HydratedCubit<ThemeState> {
-  ThemeCubit() : super(const ThemeState()) {
-    hydrate();
-  }
+  ThemeCubit() : super(const ThemeState());
 
   void changeThemeMode({required ThemeMode themeMode}) => emit(
         state.copyWith(mode: themeMode),

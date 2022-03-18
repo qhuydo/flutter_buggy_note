@@ -9,7 +9,7 @@ part of 'theme_cubit.dart';
 _$_ThemeState _$$_ThemeStateFromJson(Map<String, dynamic> json) =>
     _$_ThemeState(
       scheme: $enumDecodeNullable(_$FlexSchemeEnumMap, json['scheme']) ??
-          FlexScheme.blueWhale,
+          FlexScheme.mandyRed,
       mode: $enumDecodeNullable(_$ThemeModeEnumMap, json['mode']) ??
           ThemeMode.system,
       useFlexColourTheme: json['useFlexColourTheme'] as bool? ?? true,

@@ -23,12 +23,10 @@ class ThemeMenu extends StatelessWidget {
 
         return PopupMenuButton<int>(
           padding: EdgeInsets.zero,
-          onSelected: (value) =>
-              context.read<ThemeCubit>().changeScheme(
+          onSelected: (value) => context.read<ThemeCubit>().changeScheme(
                 scheme: FlexScheme.values[value],
               ),
-          itemBuilder: (BuildContext context) =>
-          [
+          itemBuilder: (BuildContext context) => [
             for (int i = 0; i < FlexColor.schemesList.length; i++)
               PopupMenuItem<int>(
                 value: i,

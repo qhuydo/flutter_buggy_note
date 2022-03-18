@@ -36,7 +36,7 @@ class _$EditTodoEventTearOff {
     );
   }
 
-  _EditTodoPriorityChanged priorityChanged(TodoPriority.Priority priority) {
+  _EditTodoPriorityChanged priorityChanged(todo_model.Priority priority) {
     return _EditTodoPriorityChanged(
       priority,
     );
@@ -57,7 +57,7 @@ mixin _$EditTodoEvent {
     required TResult Function(String title) titleChanged,
     required TResult Function(String description) descriptionChanged,
     required TResult Function(DateTime? dueDate) dueDateChanged,
-    required TResult Function(TodoPriority.Priority priority) priorityChanged,
+    required TResult Function(todo_model.Priority priority) priorityChanged,
     required TResult Function() submitted,
   }) =>
       throw _privateConstructorUsedError;
@@ -66,7 +66,7 @@ mixin _$EditTodoEvent {
     TResult Function(String title)? titleChanged,
     TResult Function(String description)? descriptionChanged,
     TResult Function(DateTime? dueDate)? dueDateChanged,
-    TResult Function(TodoPriority.Priority priority)? priorityChanged,
+    TResult Function(todo_model.Priority priority)? priorityChanged,
     TResult Function()? submitted,
   }) =>
       throw _privateConstructorUsedError;
@@ -75,7 +75,7 @@ mixin _$EditTodoEvent {
     TResult Function(String title)? titleChanged,
     TResult Function(String description)? descriptionChanged,
     TResult Function(DateTime? dueDate)? dueDateChanged,
-    TResult Function(TodoPriority.Priority priority)? priorityChanged,
+    TResult Function(todo_model.Priority priority)? priorityChanged,
     TResult Function()? submitted,
     required TResult orElse(),
   }) =>
@@ -197,7 +197,7 @@ class _$_EditTodoTitleChanged implements _EditTodoTitleChanged {
     required TResult Function(String title) titleChanged,
     required TResult Function(String description) descriptionChanged,
     required TResult Function(DateTime? dueDate) dueDateChanged,
-    required TResult Function(TodoPriority.Priority priority) priorityChanged,
+    required TResult Function(todo_model.Priority priority) priorityChanged,
     required TResult Function() submitted,
   }) {
     return titleChanged(title);
@@ -209,7 +209,7 @@ class _$_EditTodoTitleChanged implements _EditTodoTitleChanged {
     TResult Function(String title)? titleChanged,
     TResult Function(String description)? descriptionChanged,
     TResult Function(DateTime? dueDate)? dueDateChanged,
-    TResult Function(TodoPriority.Priority priority)? priorityChanged,
+    TResult Function(todo_model.Priority priority)? priorityChanged,
     TResult Function()? submitted,
   }) {
     return titleChanged?.call(title);
@@ -221,7 +221,7 @@ class _$_EditTodoTitleChanged implements _EditTodoTitleChanged {
     TResult Function(String title)? titleChanged,
     TResult Function(String description)? descriptionChanged,
     TResult Function(DateTime? dueDate)? dueDateChanged,
-    TResult Function(TodoPriority.Priority priority)? priorityChanged,
+    TResult Function(todo_model.Priority priority)? priorityChanged,
     TResult Function()? submitted,
     required TResult orElse(),
   }) {
@@ -354,7 +354,7 @@ class _$_EditTodoDescriptionChanged implements _EditTodoDescriptionChanged {
     required TResult Function(String title) titleChanged,
     required TResult Function(String description) descriptionChanged,
     required TResult Function(DateTime? dueDate) dueDateChanged,
-    required TResult Function(TodoPriority.Priority priority) priorityChanged,
+    required TResult Function(todo_model.Priority priority) priorityChanged,
     required TResult Function() submitted,
   }) {
     return descriptionChanged(description);
@@ -366,7 +366,7 @@ class _$_EditTodoDescriptionChanged implements _EditTodoDescriptionChanged {
     TResult Function(String title)? titleChanged,
     TResult Function(String description)? descriptionChanged,
     TResult Function(DateTime? dueDate)? dueDateChanged,
-    TResult Function(TodoPriority.Priority priority)? priorityChanged,
+    TResult Function(todo_model.Priority priority)? priorityChanged,
     TResult Function()? submitted,
   }) {
     return descriptionChanged?.call(description);
@@ -378,7 +378,7 @@ class _$_EditTodoDescriptionChanged implements _EditTodoDescriptionChanged {
     TResult Function(String title)? titleChanged,
     TResult Function(String description)? descriptionChanged,
     TResult Function(DateTime? dueDate)? dueDateChanged,
-    TResult Function(TodoPriority.Priority priority)? priorityChanged,
+    TResult Function(todo_model.Priority priority)? priorityChanged,
     TResult Function()? submitted,
     required TResult orElse(),
   }) {
@@ -509,7 +509,7 @@ class _$_EditTodoDueDateChanged implements _EditTodoDueDateChanged {
     required TResult Function(String title) titleChanged,
     required TResult Function(String description) descriptionChanged,
     required TResult Function(DateTime? dueDate) dueDateChanged,
-    required TResult Function(TodoPriority.Priority priority) priorityChanged,
+    required TResult Function(todo_model.Priority priority) priorityChanged,
     required TResult Function() submitted,
   }) {
     return dueDateChanged(dueDate);
@@ -521,7 +521,7 @@ class _$_EditTodoDueDateChanged implements _EditTodoDueDateChanged {
     TResult Function(String title)? titleChanged,
     TResult Function(String description)? descriptionChanged,
     TResult Function(DateTime? dueDate)? dueDateChanged,
-    TResult Function(TodoPriority.Priority priority)? priorityChanged,
+    TResult Function(todo_model.Priority priority)? priorityChanged,
     TResult Function()? submitted,
   }) {
     return dueDateChanged?.call(dueDate);
@@ -533,7 +533,7 @@ class _$_EditTodoDueDateChanged implements _EditTodoDueDateChanged {
     TResult Function(String title)? titleChanged,
     TResult Function(String description)? descriptionChanged,
     TResult Function(DateTime? dueDate)? dueDateChanged,
-    TResult Function(TodoPriority.Priority priority)? priorityChanged,
+    TResult Function(todo_model.Priority priority)? priorityChanged,
     TResult Function()? submitted,
     required TResult orElse(),
   }) {
@@ -600,7 +600,7 @@ abstract class _$EditTodoPriorityChangedCopyWith<$Res> {
   factory _$EditTodoPriorityChangedCopyWith(_EditTodoPriorityChanged value,
           $Res Function(_EditTodoPriorityChanged) then) =
       __$EditTodoPriorityChangedCopyWithImpl<$Res>;
-  $Res call({TodoPriority.Priority priority});
+  $Res call({todo_model.Priority priority});
 }
 
 /// @nodoc
@@ -623,7 +623,7 @@ class __$EditTodoPriorityChangedCopyWithImpl<$Res>
       priority == freezed
           ? _value.priority
           : priority // ignore: cast_nullable_to_non_nullable
-              as TodoPriority.Priority,
+              as todo_model.Priority,
     ));
   }
 }
@@ -634,7 +634,7 @@ class _$_EditTodoPriorityChanged implements _EditTodoPriorityChanged {
   _$_EditTodoPriorityChanged(this.priority);
 
   @override
-  final TodoPriority.Priority priority;
+  final todo_model.Priority priority;
 
   @override
   String toString() {
@@ -665,7 +665,7 @@ class _$_EditTodoPriorityChanged implements _EditTodoPriorityChanged {
     required TResult Function(String title) titleChanged,
     required TResult Function(String description) descriptionChanged,
     required TResult Function(DateTime? dueDate) dueDateChanged,
-    required TResult Function(TodoPriority.Priority priority) priorityChanged,
+    required TResult Function(todo_model.Priority priority) priorityChanged,
     required TResult Function() submitted,
   }) {
     return priorityChanged(priority);
@@ -677,7 +677,7 @@ class _$_EditTodoPriorityChanged implements _EditTodoPriorityChanged {
     TResult Function(String title)? titleChanged,
     TResult Function(String description)? descriptionChanged,
     TResult Function(DateTime? dueDate)? dueDateChanged,
-    TResult Function(TodoPriority.Priority priority)? priorityChanged,
+    TResult Function(todo_model.Priority priority)? priorityChanged,
     TResult Function()? submitted,
   }) {
     return priorityChanged?.call(priority);
@@ -689,7 +689,7 @@ class _$_EditTodoPriorityChanged implements _EditTodoPriorityChanged {
     TResult Function(String title)? titleChanged,
     TResult Function(String description)? descriptionChanged,
     TResult Function(DateTime? dueDate)? dueDateChanged,
-    TResult Function(TodoPriority.Priority priority)? priorityChanged,
+    TResult Function(todo_model.Priority priority)? priorityChanged,
     TResult Function()? submitted,
     required TResult orElse(),
   }) {
@@ -742,10 +742,10 @@ class _$_EditTodoPriorityChanged implements _EditTodoPriorityChanged {
 }
 
 abstract class _EditTodoPriorityChanged implements EditTodoEvent {
-  factory _EditTodoPriorityChanged(TodoPriority.Priority priority) =
+  factory _EditTodoPriorityChanged(todo_model.Priority priority) =
       _$_EditTodoPriorityChanged;
 
-  TodoPriority.Priority get priority;
+  todo_model.Priority get priority;
   @JsonKey(ignore: true)
   _$EditTodoPriorityChangedCopyWith<_EditTodoPriorityChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -795,7 +795,7 @@ class _$_EditTodoSubmitted implements _EditTodoSubmitted {
     required TResult Function(String title) titleChanged,
     required TResult Function(String description) descriptionChanged,
     required TResult Function(DateTime? dueDate) dueDateChanged,
-    required TResult Function(TodoPriority.Priority priority) priorityChanged,
+    required TResult Function(todo_model.Priority priority) priorityChanged,
     required TResult Function() submitted,
   }) {
     return submitted();
@@ -807,7 +807,7 @@ class _$_EditTodoSubmitted implements _EditTodoSubmitted {
     TResult Function(String title)? titleChanged,
     TResult Function(String description)? descriptionChanged,
     TResult Function(DateTime? dueDate)? dueDateChanged,
-    TResult Function(TodoPriority.Priority priority)? priorityChanged,
+    TResult Function(todo_model.Priority priority)? priorityChanged,
     TResult Function()? submitted,
   }) {
     return submitted?.call();
@@ -819,7 +819,7 @@ class _$_EditTodoSubmitted implements _EditTodoSubmitted {
     TResult Function(String title)? titleChanged,
     TResult Function(String description)? descriptionChanged,
     TResult Function(DateTime? dueDate)? dueDateChanged,
-    TResult Function(TodoPriority.Priority priority)? priorityChanged,
+    TResult Function(todo_model.Priority priority)? priorityChanged,
     TResult Function()? submitted,
     required TResult orElse(),
   }) {
@@ -886,7 +886,7 @@ class _$EditTodoStateTearOff {
       String description,
       bool isNewTodo,
       DateTime? dueDate,
-      TodoPriority.Priority priority) {
+      todo_model.Priority priority) {
     return _EditTodoState(
       status,
       initialTodo,
@@ -910,7 +910,7 @@ mixin _$EditTodoState {
   String get description => throw _privateConstructorUsedError;
   bool get isNewTodo => throw _privateConstructorUsedError;
   DateTime? get dueDate => throw _privateConstructorUsedError;
-  TodoPriority.Priority get priority => throw _privateConstructorUsedError;
+  todo_model.Priority get priority => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $EditTodoStateCopyWith<EditTodoState> get copyWith =>
@@ -929,7 +929,7 @@ abstract class $EditTodoStateCopyWith<$Res> {
       String description,
       bool isNewTodo,
       DateTime? dueDate,
-      TodoPriority.Priority priority});
+      todo_model.Priority priority});
 
   $TodoCopyWith<$Res>? get initialTodo;
 }
@@ -981,7 +981,7 @@ class _$EditTodoStateCopyWithImpl<$Res>
       priority: priority == freezed
           ? _value.priority
           : priority // ignore: cast_nullable_to_non_nullable
-              as TodoPriority.Priority,
+              as todo_model.Priority,
     ));
   }
 
@@ -1011,7 +1011,7 @@ abstract class _$EditTodoStateCopyWith<$Res>
       String description,
       bool isNewTodo,
       DateTime? dueDate,
-      TodoPriority.Priority priority});
+      todo_model.Priority priority});
 
   @override
   $TodoCopyWith<$Res>? get initialTodo;
@@ -1066,7 +1066,7 @@ class __$EditTodoStateCopyWithImpl<$Res>
       priority == freezed
           ? _value.priority
           : priority // ignore: cast_nullable_to_non_nullable
-              as TodoPriority.Priority,
+              as todo_model.Priority,
     ));
   }
 }
@@ -1091,7 +1091,7 @@ class _$_EditTodoState extends _EditTodoState {
   @override
   final DateTime? dueDate;
   @override
-  final TodoPriority.Priority priority;
+  final todo_model.Priority priority;
 
   @override
   String toString() {
@@ -1139,7 +1139,7 @@ abstract class _EditTodoState extends EditTodoState {
       String description,
       bool isNewTodo,
       DateTime? dueDate,
-      TodoPriority.Priority priority) = _$_EditTodoState;
+      todo_model.Priority priority) = _$_EditTodoState;
   _EditTodoState._() : super._();
 
   @override
@@ -1155,7 +1155,7 @@ abstract class _EditTodoState extends EditTodoState {
   @override
   DateTime? get dueDate;
   @override
-  TodoPriority.Priority get priority;
+  todo_model.Priority get priority;
   @override
   @JsonKey(ignore: true)
   _$EditTodoStateCopyWith<_EditTodoState> get copyWith =>

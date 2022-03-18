@@ -271,8 +271,8 @@ class __$TodoCopyWithImpl<$Res> extends _$TodoCopyWithImpl<$Res>
 /// @nodoc
 
 @HiveType(typeId: typeIdTodo, adapterName: 'TodoAdapter')
-class _$_Todo with DiagnosticableTreeMixin implements _Todo {
-  _$_Todo(
+class _$_Todo extends _Todo with DiagnosticableTreeMixin {
+  const _$_Todo(
       {@HiveField(0) required this.id,
       @HiveField(1) this.title = '',
       @HiveField(2) this.colour,
@@ -284,7 +284,8 @@ class _$_Todo with DiagnosticableTreeMixin implements _Todo {
       @HiveField(8) this.isRemoved = false,
       @HiveField(9) this.order = 0,
       @HiveField(10) this.labels = const [],
-      @HiveField(11) this.description = ''});
+      @HiveField(11) this.description = ''})
+      : super._();
 
   @override
   @HiveField(0)
@@ -399,8 +400,8 @@ class _$_Todo with DiagnosticableTreeMixin implements _Todo {
       __$TodoCopyWithImpl<_Todo>(this, _$identity);
 }
 
-abstract class _Todo implements Todo {
-  factory _Todo(
+abstract class _Todo extends Todo {
+  const factory _Todo(
       {@HiveField(0) required int id,
       @HiveField(1) String title,
       @HiveField(2) int? colour,
@@ -413,6 +414,7 @@ abstract class _Todo implements Todo {
       @HiveField(9) int order,
       @HiveField(10) List<Label> labels,
       @HiveField(11) String description}) = _$_Todo;
+  const _Todo._() : super._();
 
   @override
   @HiveField(0)

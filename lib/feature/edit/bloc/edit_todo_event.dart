@@ -10,7 +10,7 @@ class EditTodoEvent with _$EditTodoEvent {
   factory EditTodoEvent.dueDateChanged(DateTime? dueDate) =
       _EditTodoDueDateChanged;
 
-  factory EditTodoEvent.priorityChanged(TodoPriority.Priority priority) =
+  factory EditTodoEvent.priorityChanged(todo_model.Priority priority) =
     _EditTodoPriorityChanged;
 
   factory EditTodoEvent.submitted() = _EditTodoSubmitted;

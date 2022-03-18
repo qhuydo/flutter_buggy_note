@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 import '../../../data/models.dart';
 
@@ -56,7 +55,7 @@ class TodoListTile extends StatelessWidget {
                   size: 12,
                 ),
                 Text(
-                  DateFormat.yMMMd().format(todo.dueDate!),
+                  todo.formattedDueDate!,
                   style: textTheme.caption,
                 ),
               ],
@@ -64,13 +63,6 @@ class TodoListTile extends StatelessWidget {
           ],
         ],
       ),
-      // subtitle: todo.description.isNotEmpty
-      //     ? Text(
-      //         todo.description,
-      //         maxLines: 1,
-      //         overflow: TextOverflow.ellipsis,
-      //       )
-      //     : null,
       leading: Transform.scale(
         scale: 1.25,
         child: Theme(

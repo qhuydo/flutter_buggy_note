@@ -2,18 +2,21 @@ import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive/hive.dart';
 
+import '../../common/date_utils.dart';
 import '../helpers/hive_type_id_map.dart';
 import '../label/label.dart';
 import 'priority.dart';
 import 'todo_status.dart';
 
-part 'todo.g.dart';
 part 'todo.freezed.dart';
+part 'todo.g.dart';
 
 @freezed
 class Todo with _$Todo {
+  const Todo._();
+
   @HiveType(typeId: typeIdTodo, adapterName: 'TodoAdapter')
-  factory Todo({
+  const factory Todo({
     @HiveField(0) required int id,
     @HiveField(1) @Default('') String title,
     @HiveField(2) int? colour,
@@ -29,4 +32,9 @@ class Todo with _$Todo {
   }) = _Todo;
 
 // factory Todo.fromJson(Map<String, dynamic> json) => _$TodoFromJson(json);
+
+  String? get formattedDueDate {
+    if (dueDate == null) return null;
+    return dueDate!.getFormattedDueDate();
+  }
 }

@@ -18,7 +18,7 @@ class EditTodoState with _$EditTodoState {
     String description = '',
     bool isNewTodo = false,
     DateTime? dueDate,
-    TodoPriority.Priority priority = TodoPriority.Priority.priority4,
+    todo_model.Priority priority = todo_model.Priority.priority4,
   }) {
     return EditTodoState.__(
       status,
@@ -38,6 +38,6 @@ class EditTodoState with _$EditTodoState {
     String description,
     bool isNewTodo,
     DateTime? dueDate,
-    TodoPriority.Priority priority,
+    todo_model.Priority priority,
   ) = _EditTodoState;
 }

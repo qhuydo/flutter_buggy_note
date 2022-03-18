@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../data/models.dart';
-import '../../../data/todo/priority.dart' as TodoPriority;
+import '../../../data/todo/priority.dart' as todo_model;
 import '../../../domain/todo_repository.dart';
 
 part 'edit_todo_bloc.freezed.dart';
@@ -65,11 +65,12 @@ class EditTodoBloc extends Bloc<EditTodoEvent, EditTodoState> {
             Todo(
               id: 0,
               title: state.title,
-              dueDate: DateTime.now(),
             ))
         .copyWith(
       title: state.title,
       description: state.description,
+      dueDate: state.dueDate,
+      priority: state.priority,
     );
 
     try {
@@ -87,7 +88,7 @@ class EditTodoBloc extends Bloc<EditTodoEvent, EditTodoState> {
 
 
   Future<void> _onPriorityChanged(
-    TodoPriority.Priority priority,
+    todo_model.Priority priority,
     Emitter<EditTodoState> emit,
   ) async => emit(state.copyWith(priority: priority));
 }

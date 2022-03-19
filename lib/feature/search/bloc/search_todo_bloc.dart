@@ -1,14 +1,19 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
 
 import '../../../data/models.dart';
 import '../../../domain/todo_repository.dart';
 
 part 'search_todo_bloc.freezed.dart';
+
+part 'search_todo_bloc.g.dart';
+
 part 'search_todo_event.dart';
+
 part 'search_todo_state.dart';
 
-class SearchTodoBloc extends Bloc<SearchTodoEvent, SearchTodoState> {
+class SearchTodoBloc extends HydratedBloc<SearchTodoEvent, SearchTodoState> {
   final TodoRepository _todoRepository;
 
   SearchTodoBloc({
@@ -58,9 +63,19 @@ class SearchTodoBloc extends Bloc<SearchTodoEvent, SearchTodoState> {
     emit(state.copyWith(status: SearchTodoStatus.loading));
     try {
       final result = await _todoRepository.search(state.searchOption);
+      var history = state.history;
+      if (state.searchOption.keyword.isNotEmpty) {
+        history = {
+          SearchHistory(
+            keyword: state.searchOption.keyword,
+          ),
+          ...state.history,
+        };
+      }
       emit(state.copyWith(
         status: SearchTodoStatus.success,
         result: result,
+        history: history,
       ));
     } catch (e) {
       emit(state.copyWith(status: SearchTodoStatus.failure));
@@ -89,16 +104,35 @@ class SearchTodoBloc extends Bloc<SearchTodoEvent, SearchTodoState> {
     ));
   }
 
-  // TODO
-  _onHistoryCleared(SearchHistory history, Emitter<SearchTodoState> emit) {}
+  Future<void> _onHistoryCleared(
+    SearchHistory history,
+    Emitter<SearchTodoState> emit,
+  ) async {
+    emit(
+      state.copyWith(
+        history: state.history.where((element) => element != history).toSet(),
+      ),
+    );
+  }
 
   Future<void> _onHistorySelected(
     SearchHistory history,
     Emitter<SearchTodoState> emit,
   ) async {
     await _onKeywordChanged(history.keyword, emit);
+    add(const SearchTodoEvent.submitted());
   }
 
   // TODO
   _onLabelSubscriptionRequested(Emitter<SearchTodoState> emit) {}
+
+  @override
+  SearchTodoState? fromJson(Map<String, dynamic> json) {
+    return SearchTodoState.fromJson(json);
+  }
+
+  @override
+  Map<String, dynamic>? toJson(SearchTodoState state) {
+    return state.toJson();
+  }
 }

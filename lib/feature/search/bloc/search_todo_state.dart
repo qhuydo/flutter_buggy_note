@@ -12,10 +12,17 @@ class SearchTodoState with _$SearchTodoState {
   const SearchTodoState._();
 
   const factory SearchTodoState({
-    @Default(SearchTodoStatus.initial) SearchTodoStatus status,
-    @Default(SearchTodoStatus.initial) SearchTodoStatus labelListStatus,
-    @Default(SearchOption()) SearchOption searchOption,
-    @Default([]) List<SearchHistory> history,
-    @Default([]) Iterable<Todo> result,
+    @JsonKey(ignore: true)
+    @Default(SearchTodoStatus.initial)
+        SearchTodoStatus status,
+    @JsonKey(ignore: true)
+    @Default(SearchTodoStatus.initial)
+        SearchTodoStatus labelListStatus,
+    @JsonKey(ignore: true) @Default(SearchOption()) SearchOption searchOption,
+    @Default({}) Set<SearchHistory> history,
+    @JsonKey(ignore: true) @Default([]) Iterable<Todo> result,
   }) = _SearchTodoState;
+
+  factory SearchTodoState.fromJson(Map<String, dynamic> json) =>
+      _$SearchTodoStateFromJson(json);
 }

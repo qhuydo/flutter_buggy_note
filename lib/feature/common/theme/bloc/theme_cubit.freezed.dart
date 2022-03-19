@@ -23,7 +23,7 @@ class _$ThemeStateTearOff {
   const _$ThemeStateTearOff();
 
   _ThemeState call(
-      {FlexScheme scheme = FlexScheme.mandyRed,
+      {FlexScheme scheme = FlexScheme.blue,
       ThemeMode mode = ThemeMode.system,
       bool useFlexColourTheme = true}) {
     return _ThemeState(
@@ -138,7 +138,7 @@ class __$ThemeStateCopyWithImpl<$Res> extends _$ThemeStateCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ThemeState extends _ThemeState {
   const _$_ThemeState(
-      {this.scheme = FlexScheme.mandyRed,
+      {this.scheme = FlexScheme.blue,
       this.mode = ThemeMode.system,
       this.useFlexColourTheme = true})
       : super._();

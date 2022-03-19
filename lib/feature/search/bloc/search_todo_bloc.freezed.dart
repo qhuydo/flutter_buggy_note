@@ -1572,16 +1572,24 @@ abstract class _SeachTodoEventLabelSubscriptionRequested
       _$_SeachTodoEventLabelSubscriptionRequested;
 }
 
+SearchTodoState _$SearchTodoStateFromJson(Map<String, dynamic> json) {
+  return _SearchTodoState.fromJson(json);
+}
+
 /// @nodoc
 class _$SearchTodoStateTearOff {
   const _$SearchTodoStateTearOff();
 
   _SearchTodoState call(
-      {SearchTodoStatus status = SearchTodoStatus.initial,
-      SearchTodoStatus labelListStatus = SearchTodoStatus.initial,
-      SearchOption searchOption = const SearchOption(),
-      List<SearchHistory> history = const [],
-      Iterable<Todo> result = const []}) {
+      {@JsonKey(ignore: true)
+          SearchTodoStatus status = SearchTodoStatus.initial,
+      @JsonKey(ignore: true)
+          SearchTodoStatus labelListStatus = SearchTodoStatus.initial,
+      @JsonKey(ignore: true)
+          SearchOption searchOption = const SearchOption(),
+      Set<SearchHistory> history = const {},
+      @JsonKey(ignore: true)
+          Iterable<Todo> result = const []}) {
     return _SearchTodoState(
       status: status,
       labelListStatus: labelListStatus,
@@ -1590,6 +1598,10 @@ class _$SearchTodoStateTearOff {
       result: result,
     );
   }
+
+  SearchTodoState fromJson(Map<String, Object?> json) {
+    return SearchTodoState.fromJson(json);
+  }
 }
 
 /// @nodoc
@@ -1597,12 +1609,17 @@ const $SearchTodoState = _$SearchTodoStateTearOff();
 
 /// @nodoc
 mixin _$SearchTodoState {
+  @JsonKey(ignore: true)
   SearchTodoStatus get status => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
   SearchTodoStatus get labelListStatus => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
   SearchOption get searchOption => throw _privateConstructorUsedError;
-  List<SearchHistory> get history => throw _privateConstructorUsedError;
+  Set<SearchHistory> get history => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
   Iterable<Todo> get result => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SearchTodoStateCopyWith<SearchTodoState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1614,11 +1631,11 @@ abstract class $SearchTodoStateCopyWith<$Res> {
           SearchTodoState value, $Res Function(SearchTodoState) then) =
       _$SearchTodoStateCopyWithImpl<$Res>;
   $Res call(
-      {SearchTodoStatus status,
-      SearchTodoStatus labelListStatus,
-      SearchOption searchOption,
-      List<SearchHistory> history,
-      Iterable<Todo> result});
+      {@JsonKey(ignore: true) SearchTodoStatus status,
+      @JsonKey(ignore: true) SearchTodoStatus labelListStatus,
+      @JsonKey(ignore: true) SearchOption searchOption,
+      Set<SearchHistory> history,
+      @JsonKey(ignore: true) Iterable<Todo> result});
 
   $SearchOptionCopyWith<$Res> get searchOption;
 }
@@ -1656,7 +1673,7 @@ class _$SearchTodoStateCopyWithImpl<$Res>
       history: history == freezed
           ? _value.history
           : history // ignore: cast_nullable_to_non_nullable
-              as List<SearchHistory>,
+              as Set<SearchHistory>,
       result: result == freezed
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
@@ -1680,11 +1697,11 @@ abstract class _$SearchTodoStateCopyWith<$Res>
       __$SearchTodoStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {SearchTodoStatus status,
-      SearchTodoStatus labelListStatus,
-      SearchOption searchOption,
-      List<SearchHistory> history,
-      Iterable<Todo> result});
+      {@JsonKey(ignore: true) SearchTodoStatus status,
+      @JsonKey(ignore: true) SearchTodoStatus labelListStatus,
+      @JsonKey(ignore: true) SearchOption searchOption,
+      Set<SearchHistory> history,
+      @JsonKey(ignore: true) Iterable<Todo> result});
 
   @override
   $SearchOptionCopyWith<$Res> get searchOption;
@@ -1725,7 +1742,7 @@ class __$SearchTodoStateCopyWithImpl<$Res>
       history: history == freezed
           ? _value.history
           : history // ignore: cast_nullable_to_non_nullable
-              as List<SearchHistory>,
+              as Set<SearchHistory>,
       result: result == freezed
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
@@ -1735,30 +1752,33 @@ class __$SearchTodoStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_SearchTodoState extends _SearchTodoState {
   const _$_SearchTodoState(
-      {this.status = SearchTodoStatus.initial,
-      this.labelListStatus = SearchTodoStatus.initial,
-      this.searchOption = const SearchOption(),
-      this.history = const [],
-      this.result = const []})
+      {@JsonKey(ignore: true) this.status = SearchTodoStatus.initial,
+      @JsonKey(ignore: true) this.labelListStatus = SearchTodoStatus.initial,
+      @JsonKey(ignore: true) this.searchOption = const SearchOption(),
+      this.history = const {},
+      @JsonKey(ignore: true) this.result = const []})
       : super._();
 
-  @JsonKey()
+  factory _$_SearchTodoState.fromJson(Map<String, dynamic> json) =>
+      _$$_SearchTodoStateFromJson(json);
+
   @override
+  @JsonKey(ignore: true)
   final SearchTodoStatus status;
-  @JsonKey()
   @override
+  @JsonKey(ignore: true)
   final SearchTodoStatus labelListStatus;
-  @JsonKey()
   @override
+  @JsonKey(ignore: true)
   final SearchOption searchOption;
   @JsonKey()
   @override
-  final List<SearchHistory> history;
-  @JsonKey()
+  final Set<SearchHistory> history;
   @override
+  @JsonKey(ignore: true)
   final Iterable<Todo> result;
 
   @override
@@ -1793,26 +1813,38 @@ class _$_SearchTodoState extends _SearchTodoState {
   @override
   _$SearchTodoStateCopyWith<_SearchTodoState> get copyWith =>
       __$SearchTodoStateCopyWithImpl<_SearchTodoState>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_SearchTodoStateToJson(this);
+  }
 }
 
 abstract class _SearchTodoState extends SearchTodoState {
   const factory _SearchTodoState(
-      {SearchTodoStatus status,
-      SearchTodoStatus labelListStatus,
-      SearchOption searchOption,
-      List<SearchHistory> history,
-      Iterable<Todo> result}) = _$_SearchTodoState;
+      {@JsonKey(ignore: true) SearchTodoStatus status,
+      @JsonKey(ignore: true) SearchTodoStatus labelListStatus,
+      @JsonKey(ignore: true) SearchOption searchOption,
+      Set<SearchHistory> history,
+      @JsonKey(ignore: true) Iterable<Todo> result}) = _$_SearchTodoState;
   const _SearchTodoState._() : super._();
 
+  factory _SearchTodoState.fromJson(Map<String, dynamic> json) =
+      _$_SearchTodoState.fromJson;
+
   @override
+  @JsonKey(ignore: true)
   SearchTodoStatus get status;
   @override
+  @JsonKey(ignore: true)
   SearchTodoStatus get labelListStatus;
   @override
+  @JsonKey(ignore: true)
   SearchOption get searchOption;
   @override
-  List<SearchHistory> get history;
+  Set<SearchHistory> get history;
   @override
+  @JsonKey(ignore: true)
   Iterable<Todo> get result;
   @override
   @JsonKey(ignore: true)

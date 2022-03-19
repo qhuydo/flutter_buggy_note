@@ -9,6 +9,7 @@ import 'priority.dart';
 import 'todo_status.dart';
 
 part 'todo.freezed.dart';
+
 part 'todo.g.dart';
 
 @freezed
@@ -31,10 +32,12 @@ class Todo with _$Todo {
     @HiveField(11) @Default('') String description,
   }) = _Todo;
 
-// factory Todo.fromJson(Map<String, dynamic> json) => _$TodoFromJson(json);
-
   String? get formattedDueDate {
     if (dueDate == null) return null;
     return dueDate!.getFormattedDueDateWithTime();
   }
+
+  bool get isOverdue =>
+      (dueDate?.isBefore(DateTime.now()) == true) &&
+      status == TodoStatus.pending;
 }

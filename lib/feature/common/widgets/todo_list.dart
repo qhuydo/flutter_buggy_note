@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 import '../../../data/models.dart';
 import '../../home/bloc/home_bloc.dart';
@@ -39,13 +40,17 @@ class TodoList extends StatelessWidget {
           displayTodos = todos;
         }
         return Scrollbar(
-          child: ListView.separated(
+          child: MasonryGridView.extent(
             padding: const EdgeInsets.fromLTRB(8, 16, 16, 72),
             physics: const BouncingScrollPhysics(),
+            crossAxisSpacing: 4,
+            mainAxisSpacing: 4,
+            maxCrossAxisExtent: 600,
             shrinkWrap: shrinkWrap,
             primary: primary,
             itemCount: displayTodos.length,
-            separatorBuilder: (context, index) => const Divider(height: 16),
+            // separatorBuilder: (context, index) => const Divider(height: 16),
+            // separatorBuilder: (context, index) => const SizedBox(height: 4),
             itemBuilder: (context, index) => TodoListTile(
               todo: displayTodos[index],
               onCompleteButtonToggled: (value) {

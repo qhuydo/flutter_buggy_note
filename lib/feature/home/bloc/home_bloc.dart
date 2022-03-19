@@ -1,8 +1,10 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../app/notification/schedule_todo.dart';
 import '../../../data/models.dart';
 import '../../../domain/todo_repository.dart';
 
@@ -14,10 +16,13 @@ part 'home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   final TodoRepository _todoRepository;
+  final FlutterLocalNotificationsPlugin _plugin;
 
   HomeBloc({
     required TodoRepository todoRepository,
+    required FlutterLocalNotificationsPlugin plugin,
   })  : _todoRepository = todoRepository,
+        _plugin = plugin,
         super(HomeState()) {
     on<HomeEvent>((event, emit) async {
       await event.when(
@@ -52,6 +57,15 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       ),
       overwrite: true,
     );
+    if (isCompleted) {
+      await _plugin.cancel(todo.id);
+    }
+    else {
+      await _plugin.scheduleTodo(
+        todo.copyWith(id: todo.id),
+        reschedule: true,
+      );
+    }
   }
 
   Future<void> _onUndoDeletionRequested(
@@ -60,7 +74,12 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     if (state.recentlyRemovedTodo != null) {
       final Todo todo = state.recentlyRemovedTodo!;
       emit(state.copyWith(recentlyRemovedTodo: null));
-      await _todoRepository.saveTodo(todo, overwrite: true);
+      final id = await _todoRepository.saveTodo(todo, overwrite: true);
+      if (todo.status != TodoStatus.completed) {
+        await _plugin.scheduleTodo(
+          todo.copyWith(id: id),
+        );
+      }
     }
   }
 }

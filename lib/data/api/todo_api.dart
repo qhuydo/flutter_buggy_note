@@ -6,7 +6,7 @@ abstract class TodoApi {
 
   Stream<List<Todo>> getTodos();
 
-  Future<void> saveTodo(Todo todo, {bool keepId = false});
+  Future<int> saveTodo(Todo todo, {bool keepId = false});
 
   Future<void> removeTodo(int id);
 

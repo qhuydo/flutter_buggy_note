@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 import '../../data/models.dart';
 import '../../domain/todo_repository.dart';
@@ -25,6 +26,7 @@ class EditPage extends StatelessWidget {
     return BlocProvider(
       create: (context) => EditTodoBloc(
         todoRepository: context.read<TodoRepository>(),
+        plugin: context.read<FlutterLocalNotificationsPlugin>(),
         initialTodo: initialTodo,
         isNewTodo: isNewTodo,
       ),

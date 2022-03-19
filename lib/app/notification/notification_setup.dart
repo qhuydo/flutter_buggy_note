@@ -8,8 +8,8 @@ import 'package:rxdart/rxdart.dart';
 import 'package:timezone/data/latest_all.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
 
-import '../feature/common/routes/app_routes.gr.dart';
-import 'notification/received_notification.dart';
+import '../../feature/common/routes/app_routes.gr.dart';
+import 'received_notification.dart';
 
 final flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
 
@@ -38,7 +38,7 @@ Future<void> initNotification() async {
   }
 
   const initializationSettingsAndroid = AndroidInitializationSettings(
-    'app_icon',
+    'ic_baseline_mode_edit_24',
   );
 
   final initializationSettingsIOS = IOSInitializationSettings(

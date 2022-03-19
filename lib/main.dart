@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:provider/provider.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 import 'app/bootstrap.dart';
 import 'app/hive_setup.dart';
-import 'app/notification_setup.dart';
+import 'app/notification/notification_setup.dart';
 import 'const/breakpoints.dart';
 import 'data/api/local_todo_api.dart';
 import 'domain/todo_repository.dart';
@@ -37,16 +38,22 @@ class BuggyNoteApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RepositoryProvider.value(
-      value: todoRepository,
-      child: MultiBlocProvider(
-        providers: [
-          BlocProvider(create: (context) => ThemeCubit()),
-          BlocProvider(
-            create: (context) => HomeBloc(todoRepository: todoRepository),
-          ),
-        ],
-        child: const _BuggyNoteAppView(),
+    return Provider.value(
+      value: flutterLocalNotificationsPlugin,
+      child: RepositoryProvider.value(
+        value: todoRepository,
+        child: MultiBlocProvider(
+          providers: [
+            BlocProvider(create: (context) => ThemeCubit()),
+            BlocProvider(
+              create: (context) => HomeBloc(
+                todoRepository: todoRepository,
+                plugin: flutterLocalNotificationsPlugin,
+              ),
+            ),
+          ],
+          child: const _BuggyNoteAppView(),
+        ),
       ),
     );
   }

@@ -22,7 +22,7 @@ class TodoRepository {
   Future<Iterable<Todo>> search(SearchOption searchOption) =>
       _todoApi.search(searchOption);
 
-  Future<void> saveTodo(Todo todo, {bool overwrite = false}) =>
+  Future<int> saveTodo(Todo todo, {bool overwrite = false}) =>
       _todoApi.saveTodo(
         todo,
         keepId: overwrite,

@@ -35,6 +35,6 @@ class Todo with _$Todo {
 
   String? get formattedDueDate {
     if (dueDate == null) return null;
-    return dueDate!.getFormattedDueDate();
+    return dueDate!.getFormattedDueDateWithTime();
   }
 }

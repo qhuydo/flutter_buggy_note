@@ -9,8 +9,10 @@ extension DateTimeX on DateTime {
     return DateTime(year, month, day);
   }
 
-  String getFormattedDueDate() {
+  String getFormattedDueDateWithTime() {
     return "${DateFormat.yMMMd().format(this)}"
         " ${DateFormat.jm().format(this)}";
   }
+
+  String getFormattedDueDate() => DateFormat.yMMMd().format(this);
 }

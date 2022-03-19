@@ -57,6 +57,28 @@ class _$SearchTodoEventTearOff {
   _SeachTodoEventLabelSubscriptionRequested labelSubscriptionRequested() {
     return const _SeachTodoEventLabelSubscriptionRequested();
   }
+
+  _SearchTodoEventPrioritiesSelected prioritiesSelected(
+      List<Priority> priorities) {
+    return _SearchTodoEventPrioritiesSelected(
+      priorities,
+    );
+  }
+
+  _SearchTodoEventSearchTodoStatusOptionSelected searchTodoStatusOptionSelected(
+      SearchTodoStatusOption? option) {
+    return _SearchTodoEventSearchTodoStatusOptionSelected(
+      option,
+    );
+  }
+
+  _SearchTodoEventDateRangeSelected dateRangeSelected(
+      DateTime? from, DateTime? to) {
+    return _SearchTodoEventDateRangeSelected(
+      from,
+      to,
+    );
+  }
 }
 
 /// @nodoc
@@ -74,6 +96,10 @@ mixin _$SearchTodoEvent {
     required TResult Function(SearchHistory history) historyCleared,
     required TResult Function(SearchHistory history) historySelected,
     required TResult Function() labelSubscriptionRequested,
+    required TResult Function(List<Priority> priorities) prioritiesSelected,
+    required TResult Function(SearchTodoStatusOption? option)
+        searchTodoStatusOptionSelected,
+    required TResult Function(DateTime? from, DateTime? to) dateRangeSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -86,6 +112,10 @@ mixin _$SearchTodoEvent {
     TResult Function(SearchHistory history)? historyCleared,
     TResult Function(SearchHistory history)? historySelected,
     TResult Function()? labelSubscriptionRequested,
+    TResult Function(List<Priority> priorities)? prioritiesSelected,
+    TResult Function(SearchTodoStatusOption? option)?
+        searchTodoStatusOptionSelected,
+    TResult Function(DateTime? from, DateTime? to)? dateRangeSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -98,6 +128,10 @@ mixin _$SearchTodoEvent {
     TResult Function(SearchHistory history)? historyCleared,
     TResult Function(SearchHistory history)? historySelected,
     TResult Function()? labelSubscriptionRequested,
+    TResult Function(List<Priority> priorities)? prioritiesSelected,
+    TResult Function(SearchTodoStatusOption? option)?
+        searchTodoStatusOptionSelected,
+    TResult Function(DateTime? from, DateTime? to)? dateRangeSelected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -118,6 +152,13 @@ mixin _$SearchTodoEvent {
         historySelected,
     required TResult Function(_SeachTodoEventLabelSubscriptionRequested value)
         labelSubscriptionRequested,
+    required TResult Function(_SearchTodoEventPrioritiesSelected value)
+        prioritiesSelected,
+    required TResult Function(
+            _SearchTodoEventSearchTodoStatusOptionSelected value)
+        searchTodoStatusOptionSelected,
+    required TResult Function(_SearchTodoEventDateRangeSelected value)
+        dateRangeSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -134,6 +175,12 @@ mixin _$SearchTodoEvent {
     TResult Function(_SearchTodoEventHistorySelected value)? historySelected,
     TResult Function(_SeachTodoEventLabelSubscriptionRequested value)?
         labelSubscriptionRequested,
+    TResult Function(_SearchTodoEventPrioritiesSelected value)?
+        prioritiesSelected,
+    TResult Function(_SearchTodoEventSearchTodoStatusOptionSelected value)?
+        searchTodoStatusOptionSelected,
+    TResult Function(_SearchTodoEventDateRangeSelected value)?
+        dateRangeSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -150,6 +197,12 @@ mixin _$SearchTodoEvent {
     TResult Function(_SearchTodoEventHistorySelected value)? historySelected,
     TResult Function(_SeachTodoEventLabelSubscriptionRequested value)?
         labelSubscriptionRequested,
+    TResult Function(_SearchTodoEventPrioritiesSelected value)?
+        prioritiesSelected,
+    TResult Function(_SearchTodoEventSearchTodoStatusOptionSelected value)?
+        searchTodoStatusOptionSelected,
+    TResult Function(_SearchTodoEventDateRangeSelected value)?
+        dateRangeSelected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -226,6 +279,10 @@ class _$_SearchTodoEventSubscriptionRequested
     required TResult Function(SearchHistory history) historyCleared,
     required TResult Function(SearchHistory history) historySelected,
     required TResult Function() labelSubscriptionRequested,
+    required TResult Function(List<Priority> priorities) prioritiesSelected,
+    required TResult Function(SearchTodoStatusOption? option)
+        searchTodoStatusOptionSelected,
+    required TResult Function(DateTime? from, DateTime? to) dateRangeSelected,
   }) {
     return subscriptionRequested();
   }
@@ -241,6 +298,10 @@ class _$_SearchTodoEventSubscriptionRequested
     TResult Function(SearchHistory history)? historyCleared,
     TResult Function(SearchHistory history)? historySelected,
     TResult Function()? labelSubscriptionRequested,
+    TResult Function(List<Priority> priorities)? prioritiesSelected,
+    TResult Function(SearchTodoStatusOption? option)?
+        searchTodoStatusOptionSelected,
+    TResult Function(DateTime? from, DateTime? to)? dateRangeSelected,
   }) {
     return subscriptionRequested?.call();
   }
@@ -256,6 +317,10 @@ class _$_SearchTodoEventSubscriptionRequested
     TResult Function(SearchHistory history)? historyCleared,
     TResult Function(SearchHistory history)? historySelected,
     TResult Function()? labelSubscriptionRequested,
+    TResult Function(List<Priority> priorities)? prioritiesSelected,
+    TResult Function(SearchTodoStatusOption? option)?
+        searchTodoStatusOptionSelected,
+    TResult Function(DateTime? from, DateTime? to)? dateRangeSelected,
     required TResult orElse(),
   }) {
     if (subscriptionRequested != null) {
@@ -282,6 +347,13 @@ class _$_SearchTodoEventSubscriptionRequested
         historySelected,
     required TResult Function(_SeachTodoEventLabelSubscriptionRequested value)
         labelSubscriptionRequested,
+    required TResult Function(_SearchTodoEventPrioritiesSelected value)
+        prioritiesSelected,
+    required TResult Function(
+            _SearchTodoEventSearchTodoStatusOptionSelected value)
+        searchTodoStatusOptionSelected,
+    required TResult Function(_SearchTodoEventDateRangeSelected value)
+        dateRangeSelected,
   }) {
     return subscriptionRequested(this);
   }
@@ -301,6 +373,12 @@ class _$_SearchTodoEventSubscriptionRequested
     TResult Function(_SearchTodoEventHistorySelected value)? historySelected,
     TResult Function(_SeachTodoEventLabelSubscriptionRequested value)?
         labelSubscriptionRequested,
+    TResult Function(_SearchTodoEventPrioritiesSelected value)?
+        prioritiesSelected,
+    TResult Function(_SearchTodoEventSearchTodoStatusOptionSelected value)?
+        searchTodoStatusOptionSelected,
+    TResult Function(_SearchTodoEventDateRangeSelected value)?
+        dateRangeSelected,
   }) {
     return subscriptionRequested?.call(this);
   }
@@ -320,6 +398,12 @@ class _$_SearchTodoEventSubscriptionRequested
     TResult Function(_SearchTodoEventHistorySelected value)? historySelected,
     TResult Function(_SeachTodoEventLabelSubscriptionRequested value)?
         labelSubscriptionRequested,
+    TResult Function(_SearchTodoEventPrioritiesSelected value)?
+        prioritiesSelected,
+    TResult Function(_SearchTodoEventSearchTodoStatusOptionSelected value)?
+        searchTodoStatusOptionSelected,
+    TResult Function(_SearchTodoEventDateRangeSelected value)?
+        dateRangeSelected,
     required TResult orElse(),
   }) {
     if (subscriptionRequested != null) {
@@ -386,6 +470,10 @@ class _$_SearchTodoEventSubmitted implements _SearchTodoEventSubmitted {
     required TResult Function(SearchHistory history) historyCleared,
     required TResult Function(SearchHistory history) historySelected,
     required TResult Function() labelSubscriptionRequested,
+    required TResult Function(List<Priority> priorities) prioritiesSelected,
+    required TResult Function(SearchTodoStatusOption? option)
+        searchTodoStatusOptionSelected,
+    required TResult Function(DateTime? from, DateTime? to) dateRangeSelected,
   }) {
     return submitted();
   }
@@ -401,6 +489,10 @@ class _$_SearchTodoEventSubmitted implements _SearchTodoEventSubmitted {
     TResult Function(SearchHistory history)? historyCleared,
     TResult Function(SearchHistory history)? historySelected,
     TResult Function()? labelSubscriptionRequested,
+    TResult Function(List<Priority> priorities)? prioritiesSelected,
+    TResult Function(SearchTodoStatusOption? option)?
+        searchTodoStatusOptionSelected,
+    TResult Function(DateTime? from, DateTime? to)? dateRangeSelected,
   }) {
     return submitted?.call();
   }
@@ -416,6 +508,10 @@ class _$_SearchTodoEventSubmitted implements _SearchTodoEventSubmitted {
     TResult Function(SearchHistory history)? historyCleared,
     TResult Function(SearchHistory history)? historySelected,
     TResult Function()? labelSubscriptionRequested,
+    TResult Function(List<Priority> priorities)? prioritiesSelected,
+    TResult Function(SearchTodoStatusOption? option)?
+        searchTodoStatusOptionSelected,
+    TResult Function(DateTime? from, DateTime? to)? dateRangeSelected,
     required TResult orElse(),
   }) {
     if (submitted != null) {
@@ -442,6 +538,13 @@ class _$_SearchTodoEventSubmitted implements _SearchTodoEventSubmitted {
         historySelected,
     required TResult Function(_SeachTodoEventLabelSubscriptionRequested value)
         labelSubscriptionRequested,
+    required TResult Function(_SearchTodoEventPrioritiesSelected value)
+        prioritiesSelected,
+    required TResult Function(
+            _SearchTodoEventSearchTodoStatusOptionSelected value)
+        searchTodoStatusOptionSelected,
+    required TResult Function(_SearchTodoEventDateRangeSelected value)
+        dateRangeSelected,
   }) {
     return submitted(this);
   }
@@ -461,6 +564,12 @@ class _$_SearchTodoEventSubmitted implements _SearchTodoEventSubmitted {
     TResult Function(_SearchTodoEventHistorySelected value)? historySelected,
     TResult Function(_SeachTodoEventLabelSubscriptionRequested value)?
         labelSubscriptionRequested,
+    TResult Function(_SearchTodoEventPrioritiesSelected value)?
+        prioritiesSelected,
+    TResult Function(_SearchTodoEventSearchTodoStatusOptionSelected value)?
+        searchTodoStatusOptionSelected,
+    TResult Function(_SearchTodoEventDateRangeSelected value)?
+        dateRangeSelected,
   }) {
     return submitted?.call(this);
   }
@@ -480,6 +589,12 @@ class _$_SearchTodoEventSubmitted implements _SearchTodoEventSubmitted {
     TResult Function(_SearchTodoEventHistorySelected value)? historySelected,
     TResult Function(_SeachTodoEventLabelSubscriptionRequested value)?
         labelSubscriptionRequested,
+    TResult Function(_SearchTodoEventPrioritiesSelected value)?
+        prioritiesSelected,
+    TResult Function(_SearchTodoEventSearchTodoStatusOptionSelected value)?
+        searchTodoStatusOptionSelected,
+    TResult Function(_SearchTodoEventDateRangeSelected value)?
+        dateRangeSelected,
     required TResult orElse(),
   }) {
     if (submitted != null) {
@@ -571,6 +686,10 @@ class _$_SearchTodoEventKeywordChanged
     required TResult Function(SearchHistory history) historyCleared,
     required TResult Function(SearchHistory history) historySelected,
     required TResult Function() labelSubscriptionRequested,
+    required TResult Function(List<Priority> priorities) prioritiesSelected,
+    required TResult Function(SearchTodoStatusOption? option)
+        searchTodoStatusOptionSelected,
+    required TResult Function(DateTime? from, DateTime? to) dateRangeSelected,
   }) {
     return keywordChanged(keyword);
   }
@@ -586,6 +705,10 @@ class _$_SearchTodoEventKeywordChanged
     TResult Function(SearchHistory history)? historyCleared,
     TResult Function(SearchHistory history)? historySelected,
     TResult Function()? labelSubscriptionRequested,
+    TResult Function(List<Priority> priorities)? prioritiesSelected,
+    TResult Function(SearchTodoStatusOption? option)?
+        searchTodoStatusOptionSelected,
+    TResult Function(DateTime? from, DateTime? to)? dateRangeSelected,
   }) {
     return keywordChanged?.call(keyword);
   }
@@ -601,6 +724,10 @@ class _$_SearchTodoEventKeywordChanged
     TResult Function(SearchHistory history)? historyCleared,
     TResult Function(SearchHistory history)? historySelected,
     TResult Function()? labelSubscriptionRequested,
+    TResult Function(List<Priority> priorities)? prioritiesSelected,
+    TResult Function(SearchTodoStatusOption? option)?
+        searchTodoStatusOptionSelected,
+    TResult Function(DateTime? from, DateTime? to)? dateRangeSelected,
     required TResult orElse(),
   }) {
     if (keywordChanged != null) {
@@ -627,6 +754,13 @@ class _$_SearchTodoEventKeywordChanged
         historySelected,
     required TResult Function(_SeachTodoEventLabelSubscriptionRequested value)
         labelSubscriptionRequested,
+    required TResult Function(_SearchTodoEventPrioritiesSelected value)
+        prioritiesSelected,
+    required TResult Function(
+            _SearchTodoEventSearchTodoStatusOptionSelected value)
+        searchTodoStatusOptionSelected,
+    required TResult Function(_SearchTodoEventDateRangeSelected value)
+        dateRangeSelected,
   }) {
     return keywordChanged(this);
   }
@@ -646,6 +780,12 @@ class _$_SearchTodoEventKeywordChanged
     TResult Function(_SearchTodoEventHistorySelected value)? historySelected,
     TResult Function(_SeachTodoEventLabelSubscriptionRequested value)?
         labelSubscriptionRequested,
+    TResult Function(_SearchTodoEventPrioritiesSelected value)?
+        prioritiesSelected,
+    TResult Function(_SearchTodoEventSearchTodoStatusOptionSelected value)?
+        searchTodoStatusOptionSelected,
+    TResult Function(_SearchTodoEventDateRangeSelected value)?
+        dateRangeSelected,
   }) {
     return keywordChanged?.call(this);
   }
@@ -665,6 +805,12 @@ class _$_SearchTodoEventKeywordChanged
     TResult Function(_SearchTodoEventHistorySelected value)? historySelected,
     TResult Function(_SeachTodoEventLabelSubscriptionRequested value)?
         labelSubscriptionRequested,
+    TResult Function(_SearchTodoEventPrioritiesSelected value)?
+        prioritiesSelected,
+    TResult Function(_SearchTodoEventSearchTodoStatusOptionSelected value)?
+        searchTodoStatusOptionSelected,
+    TResult Function(_SearchTodoEventDateRangeSelected value)?
+        dateRangeSelected,
     required TResult orElse(),
   }) {
     if (keywordChanged != null) {
@@ -738,6 +884,10 @@ class _$_SearchTodoEventSearchOptionCleared
     required TResult Function(SearchHistory history) historyCleared,
     required TResult Function(SearchHistory history) historySelected,
     required TResult Function() labelSubscriptionRequested,
+    required TResult Function(List<Priority> priorities) prioritiesSelected,
+    required TResult Function(SearchTodoStatusOption? option)
+        searchTodoStatusOptionSelected,
+    required TResult Function(DateTime? from, DateTime? to) dateRangeSelected,
   }) {
     return searchOptionCleared();
   }
@@ -753,6 +903,10 @@ class _$_SearchTodoEventSearchOptionCleared
     TResult Function(SearchHistory history)? historyCleared,
     TResult Function(SearchHistory history)? historySelected,
     TResult Function()? labelSubscriptionRequested,
+    TResult Function(List<Priority> priorities)? prioritiesSelected,
+    TResult Function(SearchTodoStatusOption? option)?
+        searchTodoStatusOptionSelected,
+    TResult Function(DateTime? from, DateTime? to)? dateRangeSelected,
   }) {
     return searchOptionCleared?.call();
   }
@@ -768,6 +922,10 @@ class _$_SearchTodoEventSearchOptionCleared
     TResult Function(SearchHistory history)? historyCleared,
     TResult Function(SearchHistory history)? historySelected,
     TResult Function()? labelSubscriptionRequested,
+    TResult Function(List<Priority> priorities)? prioritiesSelected,
+    TResult Function(SearchTodoStatusOption? option)?
+        searchTodoStatusOptionSelected,
+    TResult Function(DateTime? from, DateTime? to)? dateRangeSelected,
     required TResult orElse(),
   }) {
     if (searchOptionCleared != null) {
@@ -794,6 +952,13 @@ class _$_SearchTodoEventSearchOptionCleared
         historySelected,
     required TResult Function(_SeachTodoEventLabelSubscriptionRequested value)
         labelSubscriptionRequested,
+    required TResult Function(_SearchTodoEventPrioritiesSelected value)
+        prioritiesSelected,
+    required TResult Function(
+            _SearchTodoEventSearchTodoStatusOptionSelected value)
+        searchTodoStatusOptionSelected,
+    required TResult Function(_SearchTodoEventDateRangeSelected value)
+        dateRangeSelected,
   }) {
     return searchOptionCleared(this);
   }
@@ -813,6 +978,12 @@ class _$_SearchTodoEventSearchOptionCleared
     TResult Function(_SearchTodoEventHistorySelected value)? historySelected,
     TResult Function(_SeachTodoEventLabelSubscriptionRequested value)?
         labelSubscriptionRequested,
+    TResult Function(_SearchTodoEventPrioritiesSelected value)?
+        prioritiesSelected,
+    TResult Function(_SearchTodoEventSearchTodoStatusOptionSelected value)?
+        searchTodoStatusOptionSelected,
+    TResult Function(_SearchTodoEventDateRangeSelected value)?
+        dateRangeSelected,
   }) {
     return searchOptionCleared?.call(this);
   }
@@ -832,6 +1003,12 @@ class _$_SearchTodoEventSearchOptionCleared
     TResult Function(_SearchTodoEventHistorySelected value)? historySelected,
     TResult Function(_SeachTodoEventLabelSubscriptionRequested value)?
         labelSubscriptionRequested,
+    TResult Function(_SearchTodoEventPrioritiesSelected value)?
+        prioritiesSelected,
+    TResult Function(_SearchTodoEventSearchTodoStatusOptionSelected value)?
+        searchTodoStatusOptionSelected,
+    TResult Function(_SearchTodoEventDateRangeSelected value)?
+        dateRangeSelected,
     required TResult orElse(),
   }) {
     if (searchOptionCleared != null) {
@@ -900,6 +1077,10 @@ class _$_SearchTodoEventFilterOptionCleared
     required TResult Function(SearchHistory history) historyCleared,
     required TResult Function(SearchHistory history) historySelected,
     required TResult Function() labelSubscriptionRequested,
+    required TResult Function(List<Priority> priorities) prioritiesSelected,
+    required TResult Function(SearchTodoStatusOption? option)
+        searchTodoStatusOptionSelected,
+    required TResult Function(DateTime? from, DateTime? to) dateRangeSelected,
   }) {
     return filterOptionCleared();
   }
@@ -915,6 +1096,10 @@ class _$_SearchTodoEventFilterOptionCleared
     TResult Function(SearchHistory history)? historyCleared,
     TResult Function(SearchHistory history)? historySelected,
     TResult Function()? labelSubscriptionRequested,
+    TResult Function(List<Priority> priorities)? prioritiesSelected,
+    TResult Function(SearchTodoStatusOption? option)?
+        searchTodoStatusOptionSelected,
+    TResult Function(DateTime? from, DateTime? to)? dateRangeSelected,
   }) {
     return filterOptionCleared?.call();
   }
@@ -930,6 +1115,10 @@ class _$_SearchTodoEventFilterOptionCleared
     TResult Function(SearchHistory history)? historyCleared,
     TResult Function(SearchHistory history)? historySelected,
     TResult Function()? labelSubscriptionRequested,
+    TResult Function(List<Priority> priorities)? prioritiesSelected,
+    TResult Function(SearchTodoStatusOption? option)?
+        searchTodoStatusOptionSelected,
+    TResult Function(DateTime? from, DateTime? to)? dateRangeSelected,
     required TResult orElse(),
   }) {
     if (filterOptionCleared != null) {
@@ -956,6 +1145,13 @@ class _$_SearchTodoEventFilterOptionCleared
         historySelected,
     required TResult Function(_SeachTodoEventLabelSubscriptionRequested value)
         labelSubscriptionRequested,
+    required TResult Function(_SearchTodoEventPrioritiesSelected value)
+        prioritiesSelected,
+    required TResult Function(
+            _SearchTodoEventSearchTodoStatusOptionSelected value)
+        searchTodoStatusOptionSelected,
+    required TResult Function(_SearchTodoEventDateRangeSelected value)
+        dateRangeSelected,
   }) {
     return filterOptionCleared(this);
   }
@@ -975,6 +1171,12 @@ class _$_SearchTodoEventFilterOptionCleared
     TResult Function(_SearchTodoEventHistorySelected value)? historySelected,
     TResult Function(_SeachTodoEventLabelSubscriptionRequested value)?
         labelSubscriptionRequested,
+    TResult Function(_SearchTodoEventPrioritiesSelected value)?
+        prioritiesSelected,
+    TResult Function(_SearchTodoEventSearchTodoStatusOptionSelected value)?
+        searchTodoStatusOptionSelected,
+    TResult Function(_SearchTodoEventDateRangeSelected value)?
+        dateRangeSelected,
   }) {
     return filterOptionCleared?.call(this);
   }
@@ -994,6 +1196,12 @@ class _$_SearchTodoEventFilterOptionCleared
     TResult Function(_SearchTodoEventHistorySelected value)? historySelected,
     TResult Function(_SeachTodoEventLabelSubscriptionRequested value)?
         labelSubscriptionRequested,
+    TResult Function(_SearchTodoEventPrioritiesSelected value)?
+        prioritiesSelected,
+    TResult Function(_SearchTodoEventSearchTodoStatusOptionSelected value)?
+        searchTodoStatusOptionSelected,
+    TResult Function(_SearchTodoEventDateRangeSelected value)?
+        dateRangeSelected,
     required TResult orElse(),
   }) {
     if (filterOptionCleared != null) {
@@ -1095,6 +1303,10 @@ class _$_SearchTodoEventHistoryCleared
     required TResult Function(SearchHistory history) historyCleared,
     required TResult Function(SearchHistory history) historySelected,
     required TResult Function() labelSubscriptionRequested,
+    required TResult Function(List<Priority> priorities) prioritiesSelected,
+    required TResult Function(SearchTodoStatusOption? option)
+        searchTodoStatusOptionSelected,
+    required TResult Function(DateTime? from, DateTime? to) dateRangeSelected,
   }) {
     return historyCleared(history);
   }
@@ -1110,6 +1322,10 @@ class _$_SearchTodoEventHistoryCleared
     TResult Function(SearchHistory history)? historyCleared,
     TResult Function(SearchHistory history)? historySelected,
     TResult Function()? labelSubscriptionRequested,
+    TResult Function(List<Priority> priorities)? prioritiesSelected,
+    TResult Function(SearchTodoStatusOption? option)?
+        searchTodoStatusOptionSelected,
+    TResult Function(DateTime? from, DateTime? to)? dateRangeSelected,
   }) {
     return historyCleared?.call(history);
   }
@@ -1125,6 +1341,10 @@ class _$_SearchTodoEventHistoryCleared
     TResult Function(SearchHistory history)? historyCleared,
     TResult Function(SearchHistory history)? historySelected,
     TResult Function()? labelSubscriptionRequested,
+    TResult Function(List<Priority> priorities)? prioritiesSelected,
+    TResult Function(SearchTodoStatusOption? option)?
+        searchTodoStatusOptionSelected,
+    TResult Function(DateTime? from, DateTime? to)? dateRangeSelected,
     required TResult orElse(),
   }) {
     if (historyCleared != null) {
@@ -1151,6 +1371,13 @@ class _$_SearchTodoEventHistoryCleared
         historySelected,
     required TResult Function(_SeachTodoEventLabelSubscriptionRequested value)
         labelSubscriptionRequested,
+    required TResult Function(_SearchTodoEventPrioritiesSelected value)
+        prioritiesSelected,
+    required TResult Function(
+            _SearchTodoEventSearchTodoStatusOptionSelected value)
+        searchTodoStatusOptionSelected,
+    required TResult Function(_SearchTodoEventDateRangeSelected value)
+        dateRangeSelected,
   }) {
     return historyCleared(this);
   }
@@ -1170,6 +1397,12 @@ class _$_SearchTodoEventHistoryCleared
     TResult Function(_SearchTodoEventHistorySelected value)? historySelected,
     TResult Function(_SeachTodoEventLabelSubscriptionRequested value)?
         labelSubscriptionRequested,
+    TResult Function(_SearchTodoEventPrioritiesSelected value)?
+        prioritiesSelected,
+    TResult Function(_SearchTodoEventSearchTodoStatusOptionSelected value)?
+        searchTodoStatusOptionSelected,
+    TResult Function(_SearchTodoEventDateRangeSelected value)?
+        dateRangeSelected,
   }) {
     return historyCleared?.call(this);
   }
@@ -1189,6 +1422,12 @@ class _$_SearchTodoEventHistoryCleared
     TResult Function(_SearchTodoEventHistorySelected value)? historySelected,
     TResult Function(_SeachTodoEventLabelSubscriptionRequested value)?
         labelSubscriptionRequested,
+    TResult Function(_SearchTodoEventPrioritiesSelected value)?
+        prioritiesSelected,
+    TResult Function(_SearchTodoEventSearchTodoStatusOptionSelected value)?
+        searchTodoStatusOptionSelected,
+    TResult Function(_SearchTodoEventDateRangeSelected value)?
+        dateRangeSelected,
     required TResult orElse(),
   }) {
     if (historyCleared != null) {
@@ -1295,6 +1534,10 @@ class _$_SearchTodoEventHistorySelected
     required TResult Function(SearchHistory history) historyCleared,
     required TResult Function(SearchHistory history) historySelected,
     required TResult Function() labelSubscriptionRequested,
+    required TResult Function(List<Priority> priorities) prioritiesSelected,
+    required TResult Function(SearchTodoStatusOption? option)
+        searchTodoStatusOptionSelected,
+    required TResult Function(DateTime? from, DateTime? to) dateRangeSelected,
   }) {
     return historySelected(history);
   }
@@ -1310,6 +1553,10 @@ class _$_SearchTodoEventHistorySelected
     TResult Function(SearchHistory history)? historyCleared,
     TResult Function(SearchHistory history)? historySelected,
     TResult Function()? labelSubscriptionRequested,
+    TResult Function(List<Priority> priorities)? prioritiesSelected,
+    TResult Function(SearchTodoStatusOption? option)?
+        searchTodoStatusOptionSelected,
+    TResult Function(DateTime? from, DateTime? to)? dateRangeSelected,
   }) {
     return historySelected?.call(history);
   }
@@ -1325,6 +1572,10 @@ class _$_SearchTodoEventHistorySelected
     TResult Function(SearchHistory history)? historyCleared,
     TResult Function(SearchHistory history)? historySelected,
     TResult Function()? labelSubscriptionRequested,
+    TResult Function(List<Priority> priorities)? prioritiesSelected,
+    TResult Function(SearchTodoStatusOption? option)?
+        searchTodoStatusOptionSelected,
+    TResult Function(DateTime? from, DateTime? to)? dateRangeSelected,
     required TResult orElse(),
   }) {
     if (historySelected != null) {
@@ -1351,6 +1602,13 @@ class _$_SearchTodoEventHistorySelected
         historySelected,
     required TResult Function(_SeachTodoEventLabelSubscriptionRequested value)
         labelSubscriptionRequested,
+    required TResult Function(_SearchTodoEventPrioritiesSelected value)
+        prioritiesSelected,
+    required TResult Function(
+            _SearchTodoEventSearchTodoStatusOptionSelected value)
+        searchTodoStatusOptionSelected,
+    required TResult Function(_SearchTodoEventDateRangeSelected value)
+        dateRangeSelected,
   }) {
     return historySelected(this);
   }
@@ -1370,6 +1628,12 @@ class _$_SearchTodoEventHistorySelected
     TResult Function(_SearchTodoEventHistorySelected value)? historySelected,
     TResult Function(_SeachTodoEventLabelSubscriptionRequested value)?
         labelSubscriptionRequested,
+    TResult Function(_SearchTodoEventPrioritiesSelected value)?
+        prioritiesSelected,
+    TResult Function(_SearchTodoEventSearchTodoStatusOptionSelected value)?
+        searchTodoStatusOptionSelected,
+    TResult Function(_SearchTodoEventDateRangeSelected value)?
+        dateRangeSelected,
   }) {
     return historySelected?.call(this);
   }
@@ -1389,6 +1653,12 @@ class _$_SearchTodoEventHistorySelected
     TResult Function(_SearchTodoEventHistorySelected value)? historySelected,
     TResult Function(_SeachTodoEventLabelSubscriptionRequested value)?
         labelSubscriptionRequested,
+    TResult Function(_SearchTodoEventPrioritiesSelected value)?
+        prioritiesSelected,
+    TResult Function(_SearchTodoEventSearchTodoStatusOptionSelected value)?
+        searchTodoStatusOptionSelected,
+    TResult Function(_SearchTodoEventDateRangeSelected value)?
+        dateRangeSelected,
     required TResult orElse(),
   }) {
     if (historySelected != null) {
@@ -1463,6 +1733,10 @@ class _$_SeachTodoEventLabelSubscriptionRequested
     required TResult Function(SearchHistory history) historyCleared,
     required TResult Function(SearchHistory history) historySelected,
     required TResult Function() labelSubscriptionRequested,
+    required TResult Function(List<Priority> priorities) prioritiesSelected,
+    required TResult Function(SearchTodoStatusOption? option)
+        searchTodoStatusOptionSelected,
+    required TResult Function(DateTime? from, DateTime? to) dateRangeSelected,
   }) {
     return labelSubscriptionRequested();
   }
@@ -1478,6 +1752,10 @@ class _$_SeachTodoEventLabelSubscriptionRequested
     TResult Function(SearchHistory history)? historyCleared,
     TResult Function(SearchHistory history)? historySelected,
     TResult Function()? labelSubscriptionRequested,
+    TResult Function(List<Priority> priorities)? prioritiesSelected,
+    TResult Function(SearchTodoStatusOption? option)?
+        searchTodoStatusOptionSelected,
+    TResult Function(DateTime? from, DateTime? to)? dateRangeSelected,
   }) {
     return labelSubscriptionRequested?.call();
   }
@@ -1493,6 +1771,10 @@ class _$_SeachTodoEventLabelSubscriptionRequested
     TResult Function(SearchHistory history)? historyCleared,
     TResult Function(SearchHistory history)? historySelected,
     TResult Function()? labelSubscriptionRequested,
+    TResult Function(List<Priority> priorities)? prioritiesSelected,
+    TResult Function(SearchTodoStatusOption? option)?
+        searchTodoStatusOptionSelected,
+    TResult Function(DateTime? from, DateTime? to)? dateRangeSelected,
     required TResult orElse(),
   }) {
     if (labelSubscriptionRequested != null) {
@@ -1519,6 +1801,13 @@ class _$_SeachTodoEventLabelSubscriptionRequested
         historySelected,
     required TResult Function(_SeachTodoEventLabelSubscriptionRequested value)
         labelSubscriptionRequested,
+    required TResult Function(_SearchTodoEventPrioritiesSelected value)
+        prioritiesSelected,
+    required TResult Function(
+            _SearchTodoEventSearchTodoStatusOptionSelected value)
+        searchTodoStatusOptionSelected,
+    required TResult Function(_SearchTodoEventDateRangeSelected value)
+        dateRangeSelected,
   }) {
     return labelSubscriptionRequested(this);
   }
@@ -1538,6 +1827,12 @@ class _$_SeachTodoEventLabelSubscriptionRequested
     TResult Function(_SearchTodoEventHistorySelected value)? historySelected,
     TResult Function(_SeachTodoEventLabelSubscriptionRequested value)?
         labelSubscriptionRequested,
+    TResult Function(_SearchTodoEventPrioritiesSelected value)?
+        prioritiesSelected,
+    TResult Function(_SearchTodoEventSearchTodoStatusOptionSelected value)?
+        searchTodoStatusOptionSelected,
+    TResult Function(_SearchTodoEventDateRangeSelected value)?
+        dateRangeSelected,
   }) {
     return labelSubscriptionRequested?.call(this);
   }
@@ -1557,6 +1852,12 @@ class _$_SeachTodoEventLabelSubscriptionRequested
     TResult Function(_SearchTodoEventHistorySelected value)? historySelected,
     TResult Function(_SeachTodoEventLabelSubscriptionRequested value)?
         labelSubscriptionRequested,
+    TResult Function(_SearchTodoEventPrioritiesSelected value)?
+        prioritiesSelected,
+    TResult Function(_SearchTodoEventSearchTodoStatusOptionSelected value)?
+        searchTodoStatusOptionSelected,
+    TResult Function(_SearchTodoEventDateRangeSelected value)?
+        dateRangeSelected,
     required TResult orElse(),
   }) {
     if (labelSubscriptionRequested != null) {
@@ -1570,6 +1871,692 @@ abstract class _SeachTodoEventLabelSubscriptionRequested
     implements SearchTodoEvent {
   const factory _SeachTodoEventLabelSubscriptionRequested() =
       _$_SeachTodoEventLabelSubscriptionRequested;
+}
+
+/// @nodoc
+abstract class _$SearchTodoEventPrioritiesSelectedCopyWith<$Res> {
+  factory _$SearchTodoEventPrioritiesSelectedCopyWith(
+          _SearchTodoEventPrioritiesSelected value,
+          $Res Function(_SearchTodoEventPrioritiesSelected) then) =
+      __$SearchTodoEventPrioritiesSelectedCopyWithImpl<$Res>;
+  $Res call({List<Priority> priorities});
+}
+
+/// @nodoc
+class __$SearchTodoEventPrioritiesSelectedCopyWithImpl<$Res>
+    extends _$SearchTodoEventCopyWithImpl<$Res>
+    implements _$SearchTodoEventPrioritiesSelectedCopyWith<$Res> {
+  __$SearchTodoEventPrioritiesSelectedCopyWithImpl(
+      _SearchTodoEventPrioritiesSelected _value,
+      $Res Function(_SearchTodoEventPrioritiesSelected) _then)
+      : super(_value, (v) => _then(v as _SearchTodoEventPrioritiesSelected));
+
+  @override
+  _SearchTodoEventPrioritiesSelected get _value =>
+      super._value as _SearchTodoEventPrioritiesSelected;
+
+  @override
+  $Res call({
+    Object? priorities = freezed,
+  }) {
+    return _then(_SearchTodoEventPrioritiesSelected(
+      priorities == freezed
+          ? _value.priorities
+          : priorities // ignore: cast_nullable_to_non_nullable
+              as List<Priority>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SearchTodoEventPrioritiesSelected
+    implements _SearchTodoEventPrioritiesSelected {
+  const _$_SearchTodoEventPrioritiesSelected(this.priorities);
+
+  @override
+  final List<Priority> priorities;
+
+  @override
+  String toString() {
+    return 'SearchTodoEvent.prioritiesSelected(priorities: $priorities)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _SearchTodoEventPrioritiesSelected &&
+            const DeepCollectionEquality()
+                .equals(other.priorities, priorities));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(priorities));
+
+  @JsonKey(ignore: true)
+  @override
+  _$SearchTodoEventPrioritiesSelectedCopyWith<
+          _SearchTodoEventPrioritiesSelected>
+      get copyWith => __$SearchTodoEventPrioritiesSelectedCopyWithImpl<
+          _SearchTodoEventPrioritiesSelected>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() subscriptionRequested,
+    required TResult Function() submitted,
+    required TResult Function(String keyword) keywordChanged,
+    required TResult Function() searchOptionCleared,
+    required TResult Function() filterOptionCleared,
+    required TResult Function(SearchHistory history) historyCleared,
+    required TResult Function(SearchHistory history) historySelected,
+    required TResult Function() labelSubscriptionRequested,
+    required TResult Function(List<Priority> priorities) prioritiesSelected,
+    required TResult Function(SearchTodoStatusOption? option)
+        searchTodoStatusOptionSelected,
+    required TResult Function(DateTime? from, DateTime? to) dateRangeSelected,
+  }) {
+    return prioritiesSelected(priorities);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? subscriptionRequested,
+    TResult Function()? submitted,
+    TResult Function(String keyword)? keywordChanged,
+    TResult Function()? searchOptionCleared,
+    TResult Function()? filterOptionCleared,
+    TResult Function(SearchHistory history)? historyCleared,
+    TResult Function(SearchHistory history)? historySelected,
+    TResult Function()? labelSubscriptionRequested,
+    TResult Function(List<Priority> priorities)? prioritiesSelected,
+    TResult Function(SearchTodoStatusOption? option)?
+        searchTodoStatusOptionSelected,
+    TResult Function(DateTime? from, DateTime? to)? dateRangeSelected,
+  }) {
+    return prioritiesSelected?.call(priorities);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? subscriptionRequested,
+    TResult Function()? submitted,
+    TResult Function(String keyword)? keywordChanged,
+    TResult Function()? searchOptionCleared,
+    TResult Function()? filterOptionCleared,
+    TResult Function(SearchHistory history)? historyCleared,
+    TResult Function(SearchHistory history)? historySelected,
+    TResult Function()? labelSubscriptionRequested,
+    TResult Function(List<Priority> priorities)? prioritiesSelected,
+    TResult Function(SearchTodoStatusOption? option)?
+        searchTodoStatusOptionSelected,
+    TResult Function(DateTime? from, DateTime? to)? dateRangeSelected,
+    required TResult orElse(),
+  }) {
+    if (prioritiesSelected != null) {
+      return prioritiesSelected(priorities);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SearchTodoEventSubscriptionRequested value)
+        subscriptionRequested,
+    required TResult Function(_SearchTodoEventSubmitted value) submitted,
+    required TResult Function(_SearchTodoEventKeywordChanged value)
+        keywordChanged,
+    required TResult Function(_SearchTodoEventSearchOptionCleared value)
+        searchOptionCleared,
+    required TResult Function(_SearchTodoEventFilterOptionCleared value)
+        filterOptionCleared,
+    required TResult Function(_SearchTodoEventHistoryCleared value)
+        historyCleared,
+    required TResult Function(_SearchTodoEventHistorySelected value)
+        historySelected,
+    required TResult Function(_SeachTodoEventLabelSubscriptionRequested value)
+        labelSubscriptionRequested,
+    required TResult Function(_SearchTodoEventPrioritiesSelected value)
+        prioritiesSelected,
+    required TResult Function(
+            _SearchTodoEventSearchTodoStatusOptionSelected value)
+        searchTodoStatusOptionSelected,
+    required TResult Function(_SearchTodoEventDateRangeSelected value)
+        dateRangeSelected,
+  }) {
+    return prioritiesSelected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_SearchTodoEventSubscriptionRequested value)?
+        subscriptionRequested,
+    TResult Function(_SearchTodoEventSubmitted value)? submitted,
+    TResult Function(_SearchTodoEventKeywordChanged value)? keywordChanged,
+    TResult Function(_SearchTodoEventSearchOptionCleared value)?
+        searchOptionCleared,
+    TResult Function(_SearchTodoEventFilterOptionCleared value)?
+        filterOptionCleared,
+    TResult Function(_SearchTodoEventHistoryCleared value)? historyCleared,
+    TResult Function(_SearchTodoEventHistorySelected value)? historySelected,
+    TResult Function(_SeachTodoEventLabelSubscriptionRequested value)?
+        labelSubscriptionRequested,
+    TResult Function(_SearchTodoEventPrioritiesSelected value)?
+        prioritiesSelected,
+    TResult Function(_SearchTodoEventSearchTodoStatusOptionSelected value)?
+        searchTodoStatusOptionSelected,
+    TResult Function(_SearchTodoEventDateRangeSelected value)?
+        dateRangeSelected,
+  }) {
+    return prioritiesSelected?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SearchTodoEventSubscriptionRequested value)?
+        subscriptionRequested,
+    TResult Function(_SearchTodoEventSubmitted value)? submitted,
+    TResult Function(_SearchTodoEventKeywordChanged value)? keywordChanged,
+    TResult Function(_SearchTodoEventSearchOptionCleared value)?
+        searchOptionCleared,
+    TResult Function(_SearchTodoEventFilterOptionCleared value)?
+        filterOptionCleared,
+    TResult Function(_SearchTodoEventHistoryCleared value)? historyCleared,
+    TResult Function(_SearchTodoEventHistorySelected value)? historySelected,
+    TResult Function(_SeachTodoEventLabelSubscriptionRequested value)?
+        labelSubscriptionRequested,
+    TResult Function(_SearchTodoEventPrioritiesSelected value)?
+        prioritiesSelected,
+    TResult Function(_SearchTodoEventSearchTodoStatusOptionSelected value)?
+        searchTodoStatusOptionSelected,
+    TResult Function(_SearchTodoEventDateRangeSelected value)?
+        dateRangeSelected,
+    required TResult orElse(),
+  }) {
+    if (prioritiesSelected != null) {
+      return prioritiesSelected(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SearchTodoEventPrioritiesSelected implements SearchTodoEvent {
+  const factory _SearchTodoEventPrioritiesSelected(List<Priority> priorities) =
+      _$_SearchTodoEventPrioritiesSelected;
+
+  List<Priority> get priorities;
+  @JsonKey(ignore: true)
+  _$SearchTodoEventPrioritiesSelectedCopyWith<
+          _SearchTodoEventPrioritiesSelected>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$SearchTodoEventSearchTodoStatusOptionSelectedCopyWith<$Res> {
+  factory _$SearchTodoEventSearchTodoStatusOptionSelectedCopyWith(
+          _SearchTodoEventSearchTodoStatusOptionSelected value,
+          $Res Function(_SearchTodoEventSearchTodoStatusOptionSelected) then) =
+      __$SearchTodoEventSearchTodoStatusOptionSelectedCopyWithImpl<$Res>;
+  $Res call({SearchTodoStatusOption? option});
+}
+
+/// @nodoc
+class __$SearchTodoEventSearchTodoStatusOptionSelectedCopyWithImpl<$Res>
+    extends _$SearchTodoEventCopyWithImpl<$Res>
+    implements _$SearchTodoEventSearchTodoStatusOptionSelectedCopyWith<$Res> {
+  __$SearchTodoEventSearchTodoStatusOptionSelectedCopyWithImpl(
+      _SearchTodoEventSearchTodoStatusOptionSelected _value,
+      $Res Function(_SearchTodoEventSearchTodoStatusOptionSelected) _then)
+      : super(_value,
+            (v) => _then(v as _SearchTodoEventSearchTodoStatusOptionSelected));
+
+  @override
+  _SearchTodoEventSearchTodoStatusOptionSelected get _value =>
+      super._value as _SearchTodoEventSearchTodoStatusOptionSelected;
+
+  @override
+  $Res call({
+    Object? option = freezed,
+  }) {
+    return _then(_SearchTodoEventSearchTodoStatusOptionSelected(
+      option == freezed
+          ? _value.option
+          : option // ignore: cast_nullable_to_non_nullable
+              as SearchTodoStatusOption?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SearchTodoEventSearchTodoStatusOptionSelected
+    implements _SearchTodoEventSearchTodoStatusOptionSelected {
+  const _$_SearchTodoEventSearchTodoStatusOptionSelected(this.option);
+
+  @override
+  final SearchTodoStatusOption? option;
+
+  @override
+  String toString() {
+    return 'SearchTodoEvent.searchTodoStatusOptionSelected(option: $option)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _SearchTodoEventSearchTodoStatusOptionSelected &&
+            const DeepCollectionEquality().equals(other.option, option));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(option));
+
+  @JsonKey(ignore: true)
+  @override
+  _$SearchTodoEventSearchTodoStatusOptionSelectedCopyWith<
+          _SearchTodoEventSearchTodoStatusOptionSelected>
+      get copyWith =>
+          __$SearchTodoEventSearchTodoStatusOptionSelectedCopyWithImpl<
+              _SearchTodoEventSearchTodoStatusOptionSelected>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() subscriptionRequested,
+    required TResult Function() submitted,
+    required TResult Function(String keyword) keywordChanged,
+    required TResult Function() searchOptionCleared,
+    required TResult Function() filterOptionCleared,
+    required TResult Function(SearchHistory history) historyCleared,
+    required TResult Function(SearchHistory history) historySelected,
+    required TResult Function() labelSubscriptionRequested,
+    required TResult Function(List<Priority> priorities) prioritiesSelected,
+    required TResult Function(SearchTodoStatusOption? option)
+        searchTodoStatusOptionSelected,
+    required TResult Function(DateTime? from, DateTime? to) dateRangeSelected,
+  }) {
+    return searchTodoStatusOptionSelected(option);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? subscriptionRequested,
+    TResult Function()? submitted,
+    TResult Function(String keyword)? keywordChanged,
+    TResult Function()? searchOptionCleared,
+    TResult Function()? filterOptionCleared,
+    TResult Function(SearchHistory history)? historyCleared,
+    TResult Function(SearchHistory history)? historySelected,
+    TResult Function()? labelSubscriptionRequested,
+    TResult Function(List<Priority> priorities)? prioritiesSelected,
+    TResult Function(SearchTodoStatusOption? option)?
+        searchTodoStatusOptionSelected,
+    TResult Function(DateTime? from, DateTime? to)? dateRangeSelected,
+  }) {
+    return searchTodoStatusOptionSelected?.call(option);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? subscriptionRequested,
+    TResult Function()? submitted,
+    TResult Function(String keyword)? keywordChanged,
+    TResult Function()? searchOptionCleared,
+    TResult Function()? filterOptionCleared,
+    TResult Function(SearchHistory history)? historyCleared,
+    TResult Function(SearchHistory history)? historySelected,
+    TResult Function()? labelSubscriptionRequested,
+    TResult Function(List<Priority> priorities)? prioritiesSelected,
+    TResult Function(SearchTodoStatusOption? option)?
+        searchTodoStatusOptionSelected,
+    TResult Function(DateTime? from, DateTime? to)? dateRangeSelected,
+    required TResult orElse(),
+  }) {
+    if (searchTodoStatusOptionSelected != null) {
+      return searchTodoStatusOptionSelected(option);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SearchTodoEventSubscriptionRequested value)
+        subscriptionRequested,
+    required TResult Function(_SearchTodoEventSubmitted value) submitted,
+    required TResult Function(_SearchTodoEventKeywordChanged value)
+        keywordChanged,
+    required TResult Function(_SearchTodoEventSearchOptionCleared value)
+        searchOptionCleared,
+    required TResult Function(_SearchTodoEventFilterOptionCleared value)
+        filterOptionCleared,
+    required TResult Function(_SearchTodoEventHistoryCleared value)
+        historyCleared,
+    required TResult Function(_SearchTodoEventHistorySelected value)
+        historySelected,
+    required TResult Function(_SeachTodoEventLabelSubscriptionRequested value)
+        labelSubscriptionRequested,
+    required TResult Function(_SearchTodoEventPrioritiesSelected value)
+        prioritiesSelected,
+    required TResult Function(
+            _SearchTodoEventSearchTodoStatusOptionSelected value)
+        searchTodoStatusOptionSelected,
+    required TResult Function(_SearchTodoEventDateRangeSelected value)
+        dateRangeSelected,
+  }) {
+    return searchTodoStatusOptionSelected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_SearchTodoEventSubscriptionRequested value)?
+        subscriptionRequested,
+    TResult Function(_SearchTodoEventSubmitted value)? submitted,
+    TResult Function(_SearchTodoEventKeywordChanged value)? keywordChanged,
+    TResult Function(_SearchTodoEventSearchOptionCleared value)?
+        searchOptionCleared,
+    TResult Function(_SearchTodoEventFilterOptionCleared value)?
+        filterOptionCleared,
+    TResult Function(_SearchTodoEventHistoryCleared value)? historyCleared,
+    TResult Function(_SearchTodoEventHistorySelected value)? historySelected,
+    TResult Function(_SeachTodoEventLabelSubscriptionRequested value)?
+        labelSubscriptionRequested,
+    TResult Function(_SearchTodoEventPrioritiesSelected value)?
+        prioritiesSelected,
+    TResult Function(_SearchTodoEventSearchTodoStatusOptionSelected value)?
+        searchTodoStatusOptionSelected,
+    TResult Function(_SearchTodoEventDateRangeSelected value)?
+        dateRangeSelected,
+  }) {
+    return searchTodoStatusOptionSelected?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SearchTodoEventSubscriptionRequested value)?
+        subscriptionRequested,
+    TResult Function(_SearchTodoEventSubmitted value)? submitted,
+    TResult Function(_SearchTodoEventKeywordChanged value)? keywordChanged,
+    TResult Function(_SearchTodoEventSearchOptionCleared value)?
+        searchOptionCleared,
+    TResult Function(_SearchTodoEventFilterOptionCleared value)?
+        filterOptionCleared,
+    TResult Function(_SearchTodoEventHistoryCleared value)? historyCleared,
+    TResult Function(_SearchTodoEventHistorySelected value)? historySelected,
+    TResult Function(_SeachTodoEventLabelSubscriptionRequested value)?
+        labelSubscriptionRequested,
+    TResult Function(_SearchTodoEventPrioritiesSelected value)?
+        prioritiesSelected,
+    TResult Function(_SearchTodoEventSearchTodoStatusOptionSelected value)?
+        searchTodoStatusOptionSelected,
+    TResult Function(_SearchTodoEventDateRangeSelected value)?
+        dateRangeSelected,
+    required TResult orElse(),
+  }) {
+    if (searchTodoStatusOptionSelected != null) {
+      return searchTodoStatusOptionSelected(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SearchTodoEventSearchTodoStatusOptionSelected
+    implements SearchTodoEvent {
+  const factory _SearchTodoEventSearchTodoStatusOptionSelected(
+          SearchTodoStatusOption? option) =
+      _$_SearchTodoEventSearchTodoStatusOptionSelected;
+
+  SearchTodoStatusOption? get option;
+  @JsonKey(ignore: true)
+  _$SearchTodoEventSearchTodoStatusOptionSelectedCopyWith<
+          _SearchTodoEventSearchTodoStatusOptionSelected>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$SearchTodoEventDateRangeSelectedCopyWith<$Res> {
+  factory _$SearchTodoEventDateRangeSelectedCopyWith(
+          _SearchTodoEventDateRangeSelected value,
+          $Res Function(_SearchTodoEventDateRangeSelected) then) =
+      __$SearchTodoEventDateRangeSelectedCopyWithImpl<$Res>;
+  $Res call({DateTime? from, DateTime? to});
+}
+
+/// @nodoc
+class __$SearchTodoEventDateRangeSelectedCopyWithImpl<$Res>
+    extends _$SearchTodoEventCopyWithImpl<$Res>
+    implements _$SearchTodoEventDateRangeSelectedCopyWith<$Res> {
+  __$SearchTodoEventDateRangeSelectedCopyWithImpl(
+      _SearchTodoEventDateRangeSelected _value,
+      $Res Function(_SearchTodoEventDateRangeSelected) _then)
+      : super(_value, (v) => _then(v as _SearchTodoEventDateRangeSelected));
+
+  @override
+  _SearchTodoEventDateRangeSelected get _value =>
+      super._value as _SearchTodoEventDateRangeSelected;
+
+  @override
+  $Res call({
+    Object? from = freezed,
+    Object? to = freezed,
+  }) {
+    return _then(_SearchTodoEventDateRangeSelected(
+      from == freezed
+          ? _value.from
+          : from // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      to == freezed
+          ? _value.to
+          : to // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SearchTodoEventDateRangeSelected
+    implements _SearchTodoEventDateRangeSelected {
+  const _$_SearchTodoEventDateRangeSelected(this.from, this.to);
+
+  @override
+  final DateTime? from;
+  @override
+  final DateTime? to;
+
+  @override
+  String toString() {
+    return 'SearchTodoEvent.dateRangeSelected(from: $from, to: $to)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _SearchTodoEventDateRangeSelected &&
+            const DeepCollectionEquality().equals(other.from, from) &&
+            const DeepCollectionEquality().equals(other.to, to));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(from),
+      const DeepCollectionEquality().hash(to));
+
+  @JsonKey(ignore: true)
+  @override
+  _$SearchTodoEventDateRangeSelectedCopyWith<_SearchTodoEventDateRangeSelected>
+      get copyWith => __$SearchTodoEventDateRangeSelectedCopyWithImpl<
+          _SearchTodoEventDateRangeSelected>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() subscriptionRequested,
+    required TResult Function() submitted,
+    required TResult Function(String keyword) keywordChanged,
+    required TResult Function() searchOptionCleared,
+    required TResult Function() filterOptionCleared,
+    required TResult Function(SearchHistory history) historyCleared,
+    required TResult Function(SearchHistory history) historySelected,
+    required TResult Function() labelSubscriptionRequested,
+    required TResult Function(List<Priority> priorities) prioritiesSelected,
+    required TResult Function(SearchTodoStatusOption? option)
+        searchTodoStatusOptionSelected,
+    required TResult Function(DateTime? from, DateTime? to) dateRangeSelected,
+  }) {
+    return dateRangeSelected(from, to);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? subscriptionRequested,
+    TResult Function()? submitted,
+    TResult Function(String keyword)? keywordChanged,
+    TResult Function()? searchOptionCleared,
+    TResult Function()? filterOptionCleared,
+    TResult Function(SearchHistory history)? historyCleared,
+    TResult Function(SearchHistory history)? historySelected,
+    TResult Function()? labelSubscriptionRequested,
+    TResult Function(List<Priority> priorities)? prioritiesSelected,
+    TResult Function(SearchTodoStatusOption? option)?
+        searchTodoStatusOptionSelected,
+    TResult Function(DateTime? from, DateTime? to)? dateRangeSelected,
+  }) {
+    return dateRangeSelected?.call(from, to);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? subscriptionRequested,
+    TResult Function()? submitted,
+    TResult Function(String keyword)? keywordChanged,
+    TResult Function()? searchOptionCleared,
+    TResult Function()? filterOptionCleared,
+    TResult Function(SearchHistory history)? historyCleared,
+    TResult Function(SearchHistory history)? historySelected,
+    TResult Function()? labelSubscriptionRequested,
+    TResult Function(List<Priority> priorities)? prioritiesSelected,
+    TResult Function(SearchTodoStatusOption? option)?
+        searchTodoStatusOptionSelected,
+    TResult Function(DateTime? from, DateTime? to)? dateRangeSelected,
+    required TResult orElse(),
+  }) {
+    if (dateRangeSelected != null) {
+      return dateRangeSelected(from, to);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SearchTodoEventSubscriptionRequested value)
+        subscriptionRequested,
+    required TResult Function(_SearchTodoEventSubmitted value) submitted,
+    required TResult Function(_SearchTodoEventKeywordChanged value)
+        keywordChanged,
+    required TResult Function(_SearchTodoEventSearchOptionCleared value)
+        searchOptionCleared,
+    required TResult Function(_SearchTodoEventFilterOptionCleared value)
+        filterOptionCleared,
+    required TResult Function(_SearchTodoEventHistoryCleared value)
+        historyCleared,
+    required TResult Function(_SearchTodoEventHistorySelected value)
+        historySelected,
+    required TResult Function(_SeachTodoEventLabelSubscriptionRequested value)
+        labelSubscriptionRequested,
+    required TResult Function(_SearchTodoEventPrioritiesSelected value)
+        prioritiesSelected,
+    required TResult Function(
+            _SearchTodoEventSearchTodoStatusOptionSelected value)
+        searchTodoStatusOptionSelected,
+    required TResult Function(_SearchTodoEventDateRangeSelected value)
+        dateRangeSelected,
+  }) {
+    return dateRangeSelected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_SearchTodoEventSubscriptionRequested value)?
+        subscriptionRequested,
+    TResult Function(_SearchTodoEventSubmitted value)? submitted,
+    TResult Function(_SearchTodoEventKeywordChanged value)? keywordChanged,
+    TResult Function(_SearchTodoEventSearchOptionCleared value)?
+        searchOptionCleared,
+    TResult Function(_SearchTodoEventFilterOptionCleared value)?
+        filterOptionCleared,
+    TResult Function(_SearchTodoEventHistoryCleared value)? historyCleared,
+    TResult Function(_SearchTodoEventHistorySelected value)? historySelected,
+    TResult Function(_SeachTodoEventLabelSubscriptionRequested value)?
+        labelSubscriptionRequested,
+    TResult Function(_SearchTodoEventPrioritiesSelected value)?
+        prioritiesSelected,
+    TResult Function(_SearchTodoEventSearchTodoStatusOptionSelected value)?
+        searchTodoStatusOptionSelected,
+    TResult Function(_SearchTodoEventDateRangeSelected value)?
+        dateRangeSelected,
+  }) {
+    return dateRangeSelected?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SearchTodoEventSubscriptionRequested value)?
+        subscriptionRequested,
+    TResult Function(_SearchTodoEventSubmitted value)? submitted,
+    TResult Function(_SearchTodoEventKeywordChanged value)? keywordChanged,
+    TResult Function(_SearchTodoEventSearchOptionCleared value)?
+        searchOptionCleared,
+    TResult Function(_SearchTodoEventFilterOptionCleared value)?
+        filterOptionCleared,
+    TResult Function(_SearchTodoEventHistoryCleared value)? historyCleared,
+    TResult Function(_SearchTodoEventHistorySelected value)? historySelected,
+    TResult Function(_SeachTodoEventLabelSubscriptionRequested value)?
+        labelSubscriptionRequested,
+    TResult Function(_SearchTodoEventPrioritiesSelected value)?
+        prioritiesSelected,
+    TResult Function(_SearchTodoEventSearchTodoStatusOptionSelected value)?
+        searchTodoStatusOptionSelected,
+    TResult Function(_SearchTodoEventDateRangeSelected value)?
+        dateRangeSelected,
+    required TResult orElse(),
+  }) {
+    if (dateRangeSelected != null) {
+      return dateRangeSelected(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SearchTodoEventDateRangeSelected implements SearchTodoEvent {
+  const factory _SearchTodoEventDateRangeSelected(
+      DateTime? from, DateTime? to) = _$_SearchTodoEventDateRangeSelected;
+
+  DateTime? get from;
+  DateTime? get to;
+  @JsonKey(ignore: true)
+  _$SearchTodoEventDateRangeSelectedCopyWith<_SearchTodoEventDateRangeSelected>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 SearchTodoState _$SearchTodoStateFromJson(Map<String, dynamic> json) {

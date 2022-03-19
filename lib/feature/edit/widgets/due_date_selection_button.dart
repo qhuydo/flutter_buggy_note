@@ -19,7 +19,7 @@ class DueDateSelectionButton extends StatelessWidget {
           label: Text(
             state.dueDate == null
                 ? 'No due date set'
-                : state.dueDate!.getFormattedDueDate(),
+                : state.dueDate!.getFormattedDueDateWithTime(),
           ),
           onPressed: state.initialTodo?.status == TodoStatus.completed
               ? null

@@ -10,14 +10,27 @@ enum SearchTodoStatusOption {
   pendingOnly,
 }
 
+extension SearchTodoStatusOptionX on SearchTodoStatusOption {
+  String getText() {
+    switch(this) {
+      case SearchTodoStatusOption.all:
+        return "All";
+      case SearchTodoStatusOption.completedOnly:
+        return "Completed only";
+      case SearchTodoStatusOption.pendingOnly:
+        return "Pending only";
+    }
+  }
+}
+
 @freezed
 class SearchOption with _$SearchOption {
   const SearchOption._();
 
   const factory SearchOption({
     @Default('') String keyword,
-    @Default({}) Set<Priority> priorities,
-    @Default({}) Set<Label> labels,
+    @Default([]) List<Priority> priorities,
+    @Default([]) List<Label> labels,
     int? colour,
     DateTime? dueDateFrom,
     DateTime? dueDateTo,
@@ -28,7 +41,7 @@ class SearchOption with _$SearchOption {
       dueDateTo != null ||
       priorities.isNotEmpty ||
       labels.isNotEmpty ||
-      statusOption != null ||
+      (statusOption != null && statusOption != SearchTodoStatusOption.all) ||
       colour != null);
 
   bool match(Todo todo) =>
@@ -37,7 +50,8 @@ class SearchOption with _$SearchOption {
       _containsAtLeastOneLabel(todo) &&
       _matchColour(todo) &&
       _matchDueDateLowerBound(todo) &&
-      _matchDueDateUpperBound(todo);
+      _matchDueDateUpperBound(todo) &&
+      _matchTodoStatusOption(todo);
 
   bool _matchKeyword(Todo todo) =>
       todo.title.toLowerCase().contains(keyword.toLowerCase()) ||
@@ -58,4 +72,15 @@ class SearchOption with _$SearchOption {
   bool _matchDueDateUpperBound(Todo todo) =>
       dueDateTo == null ||
       (todo.dueDate != null && todo.dueDate!.compareTo(dueDateTo!) != 1);
+
+  bool _matchTodoStatusOption(Todo todo) {
+    if (statusOption == null || statusOption == SearchTodoStatusOption.all) {
+      return true;
+    }
+    if (statusOption == SearchTodoStatusOption.completedOnly) {
+      return todo.status == TodoStatus.completed;
+    }
+    // pending only
+    return todo.status == TodoStatus.pending;
+  }
 }

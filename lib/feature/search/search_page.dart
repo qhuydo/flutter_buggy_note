@@ -6,6 +6,7 @@ import '../../domain/todo_repository.dart';
 import '../common/widgets/scaffold_with_search_bar.dart';
 import '../common/widgets/todo_list.dart';
 import 'bloc/search_todo_bloc.dart';
+import 'widgets/filter_dialog.dart';
 import 'widgets/todo_history_row.dart';
 
 class SearchPage extends StatelessWidget {
@@ -36,59 +37,73 @@ class _SearchPageViewState extends State<SearchPageView> {
 
   @override
   Widget build(BuildContext context) {
-    final actions = [
-      FloatingSearchBarAction.searchToClear(),
-      FloatingSearchBarAction(
-        showIfOpened: true,
-        child: CircularButton(
-          icon: const Icon(Icons.filter_list),
-          onPressed: () {
-            // showDialog(context: context, builder: (context) {
-            //   return const ();
-            // });
-          },
-        ),
-      ),
-    ];
-
     return BlocBuilder<SearchTodoBloc, SearchTodoState>(
-      builder: (context, state) => ScaffoldWithSearchBar(
-        title: Text(
-          state.searchOption.keyword.isNotEmpty
-              ? state.searchOption.keyword
-              : 'Search todo',
-        ),
-        hint: 'Search todo',
-        actions: actions,
-        controller: controller,
-        builder: (context, _) => TodoHistoryRow.buildExpandableBody(
-          state.history,
-        ),
-        onSubmitted: (keyword) {
-          context
-              .read<SearchTodoBloc>()
-              .add(SearchTodoEvent.keywordChanged(keyword));
-          context.read<SearchTodoBloc>().add(const SearchTodoEvent.submitted());
-          controller.close();
-        },
-        body: FloatingSearchBarScrollNotifier(
-          child: SingleChildScrollView(
-            primary: true,
-            child: Padding(
-              padding: const EdgeInsets.only(
-                top: searchBarHeight + 12,
-                left: 8,
-                right: 8,
+      builder: (context, state) {
+        final bloc = context.read<SearchTodoBloc>();
+        final actions = [
+          FloatingSearchBarAction.searchToClear(),
+          FloatingSearchBarAction(
+            showIfOpened: true,
+            child: CircularButton(
+              icon: Icon(
+                Icons.filter_list,
+                color: state.searchOption.filterApplied
+                    ? Theme.of(context).colorScheme.secondary
+                    : null,
               ),
-              child: TodoList(
-                todos: state.result.toList(),
-                shrinkWrap: true,
-                primary: false,
+              onPressed: () {
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      return BlocProvider.value(
+                        value: bloc,
+                        child: const FilterDialog(),
+                      );
+                    });
+              },
+            ),
+          ),
+        ];
+        return ScaffoldWithSearchBar(
+          title: Text(
+            state.searchOption.keyword.isNotEmpty
+                ? state.searchOption.keyword
+                : 'Search todo',
+          ),
+          hint: 'Search todo',
+          actions: actions,
+          controller: controller,
+          builder: (context, _) => TodoHistoryRow.buildExpandableBody(
+            state.history,
+          ),
+          onSubmitted: (keyword) {
+            context
+                .read<SearchTodoBloc>()
+                .add(SearchTodoEvent.keywordChanged(keyword));
+            context
+                .read<SearchTodoBloc>()
+                .add(const SearchTodoEvent.submitted());
+            controller.close();
+          },
+          body: FloatingSearchBarScrollNotifier(
+            child: SingleChildScrollView(
+              primary: true,
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  top: searchBarHeight + 12,
+                  left: 8,
+                  right: 8,
+                ),
+                child: TodoList(
+                  todos: state.result.toList(),
+                  shrinkWrap: true,
+                  primary: false,
+                ),
               ),
             ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 

@@ -20,8 +20,8 @@ class _$SearchOptionTearOff {
 
   _SearchOption call(
       {String keyword = '',
-      Set<Priority> priorities = const {},
-      Set<Label> labels = const {},
+      List<Priority> priorities = const [],
+      List<Label> labels = const [],
       int? colour,
       DateTime? dueDateFrom,
       DateTime? dueDateTo,
@@ -44,8 +44,8 @@ const $SearchOption = _$SearchOptionTearOff();
 /// @nodoc
 mixin _$SearchOption {
   String get keyword => throw _privateConstructorUsedError;
-  Set<Priority> get priorities => throw _privateConstructorUsedError;
-  Set<Label> get labels => throw _privateConstructorUsedError;
+  List<Priority> get priorities => throw _privateConstructorUsedError;
+  List<Label> get labels => throw _privateConstructorUsedError;
   int? get colour => throw _privateConstructorUsedError;
   DateTime? get dueDateFrom => throw _privateConstructorUsedError;
   DateTime? get dueDateTo => throw _privateConstructorUsedError;
@@ -64,8 +64,8 @@ abstract class $SearchOptionCopyWith<$Res> {
       _$SearchOptionCopyWithImpl<$Res>;
   $Res call(
       {String keyword,
-      Set<Priority> priorities,
-      Set<Label> labels,
+      List<Priority> priorities,
+      List<Label> labels,
       int? colour,
       DateTime? dueDateFrom,
       DateTime? dueDateTo,
@@ -98,11 +98,11 @@ class _$SearchOptionCopyWithImpl<$Res> implements $SearchOptionCopyWith<$Res> {
       priorities: priorities == freezed
           ? _value.priorities
           : priorities // ignore: cast_nullable_to_non_nullable
-              as Set<Priority>,
+              as List<Priority>,
       labels: labels == freezed
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as Set<Label>,
+              as List<Label>,
       colour: colour == freezed
           ? _value.colour
           : colour // ignore: cast_nullable_to_non_nullable
@@ -132,8 +132,8 @@ abstract class _$SearchOptionCopyWith<$Res>
   @override
   $Res call(
       {String keyword,
-      Set<Priority> priorities,
-      Set<Label> labels,
+      List<Priority> priorities,
+      List<Label> labels,
       int? colour,
       DateTime? dueDateFrom,
       DateTime? dueDateTo,
@@ -168,11 +168,11 @@ class __$SearchOptionCopyWithImpl<$Res> extends _$SearchOptionCopyWithImpl<$Res>
       priorities: priorities == freezed
           ? _value.priorities
           : priorities // ignore: cast_nullable_to_non_nullable
-              as Set<Priority>,
+              as List<Priority>,
       labels: labels == freezed
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as Set<Label>,
+              as List<Label>,
       colour: colour == freezed
           ? _value.colour
           : colour // ignore: cast_nullable_to_non_nullable
@@ -198,8 +198,8 @@ class __$SearchOptionCopyWithImpl<$Res> extends _$SearchOptionCopyWithImpl<$Res>
 class _$_SearchOption extends _SearchOption {
   const _$_SearchOption(
       {this.keyword = '',
-      this.priorities = const {},
-      this.labels = const {},
+      this.priorities = const [],
+      this.labels = const [],
       this.colour,
       this.dueDateFrom,
       this.dueDateTo,
@@ -211,10 +211,10 @@ class _$_SearchOption extends _SearchOption {
   final String keyword;
   @JsonKey()
   @override
-  final Set<Priority> priorities;
+  final List<Priority> priorities;
   @JsonKey()
   @override
-  final Set<Label> labels;
+  final List<Label> labels;
   @override
   final int? colour;
   @override
@@ -266,8 +266,8 @@ class _$_SearchOption extends _SearchOption {
 abstract class _SearchOption extends SearchOption {
   const factory _SearchOption(
       {String keyword,
-      Set<Priority> priorities,
-      Set<Label> labels,
+      List<Priority> priorities,
+      List<Label> labels,
       int? colour,
       DateTime? dueDateFrom,
       DateTime? dueDateTo,
@@ -277,9 +277,9 @@ abstract class _SearchOption extends SearchOption {
   @override
   String get keyword;
   @override
-  Set<Priority> get priorities;
+  List<Priority> get priorities;
   @override
-  Set<Label> get labels;
+  List<Label> get labels;
   @override
   int? get colour;
   @override

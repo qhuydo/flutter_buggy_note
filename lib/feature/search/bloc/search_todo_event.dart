@@ -11,7 +11,7 @@ class SearchTodoEvent with _$SearchTodoEvent {
       _SearchTodoEventKeywordChanged;
 
   const factory SearchTodoEvent.searchOptionCleared() =
-    _SearchTodoEventSearchOptionCleared;
+      _SearchTodoEventSearchOptionCleared;
 
   const factory SearchTodoEvent.filterOptionCleared() =
       _SearchTodoEventFilterOptionCleared;
@@ -24,4 +24,16 @@ class SearchTodoEvent with _$SearchTodoEvent {
 
   const factory SearchTodoEvent.labelSubscriptionRequested() =
       _SeachTodoEventLabelSubscriptionRequested;
+
+  const factory SearchTodoEvent.prioritiesSelected(List<Priority> priorities) =
+      _SearchTodoEventPrioritiesSelected;
+
+  const factory SearchTodoEvent.searchTodoStatusOptionSelected(
+    SearchTodoStatusOption? option,
+  ) = _SearchTodoEventSearchTodoStatusOptionSelected;
+
+  const factory SearchTodoEvent.dateRangeSelected(
+    DateTime? from,
+    DateTime? to,
+  ) = _SearchTodoEventDateRangeSelected;
 }

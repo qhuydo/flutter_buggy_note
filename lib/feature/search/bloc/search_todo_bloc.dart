@@ -34,6 +34,20 @@ class SearchTodoBloc extends HydratedBloc<SearchTodoEvent, SearchTodoState> {
             await _onHistorySelected(history, emit),
         labelSubscriptionRequested: () async =>
             await _onLabelSubscriptionRequested(emit),
+        prioritiesSelected: (priorities) async => await _onPrioritiesSelected(
+          priorities,
+          emit,
+        ),
+        searchTodoStatusOptionSelected: (option) async =>
+            await _onSearchTodoStatusOptionSelected(
+          option,
+          emit,
+        ),
+        dateRangeSelected: (from, to) async => await _onDateRangeSelected(
+          from,
+          to,
+          emit,
+        ),
       );
     });
   }
@@ -134,5 +148,40 @@ class SearchTodoBloc extends HydratedBloc<SearchTodoEvent, SearchTodoState> {
   @override
   Map<String, dynamic>? toJson(SearchTodoState state) {
     return state.toJson();
+  }
+
+  Future<void> _onPrioritiesSelected(
+    List<Priority> priorities,
+    Emitter<SearchTodoState> emit,
+  ) async {
+    emit(state.copyWith(
+      searchOption: state.searchOption.copyWith(
+        priorities: priorities,
+      ),
+    ));
+  }
+
+  Future<void> _onSearchTodoStatusOptionSelected(
+    SearchTodoStatusOption? option,
+    Emitter<SearchTodoState> emit,
+  ) async {
+    emit(state.copyWith(
+      searchOption: state.searchOption.copyWith(
+        statusOption: option,
+      ),
+    ));
+  }
+
+  Future<void> _onDateRangeSelected(
+    DateTime? from,
+    DateTime? to,
+    Emitter<SearchTodoState> emit,
+  ) async {
+    emit(state.copyWith(
+      searchOption: state.searchOption.copyWith(
+        dueDateFrom: from,
+        dueDateTo: to,
+      ),
+    ));
   }
 }

@@ -32,7 +32,7 @@ class TodoList extends StatelessWidget {
           !showCompletedTodos,
       builder: (context, state) {
         final List<Todo> displayTodos;
-        if (!state.showCompletedTodo) {
+        if (!state.showCompletedTodo && !showCompletedTodos) {
           displayTodos = todos
               .where(
                 (element) => element.status == TodoStatus.pending,

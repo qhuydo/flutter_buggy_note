@@ -98,6 +98,7 @@ class _SearchPageViewState extends State<SearchPageView> {
                   todos: state.result.toList(),
                   shrinkWrap: true,
                   primary: false,
+                  showCompletedTodos: true,
                 ),
               ),
             ),

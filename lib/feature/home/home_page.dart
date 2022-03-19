@@ -70,16 +70,7 @@ class _HomePageState extends State<HomePage> {
             'Buggy note',
           ),
           actions: const [
-            ResponsiveVisibility(
-              visibleWhen: [
-                Condition.smallerThan(name: MOBILE),
-                Condition.equals(name: MOBILE),
-              ],
-              hiddenWhen: [
-                Condition.largerThan(name: MOBILE),
-              ],
-              child: OptionMenu(),
-            ),
+            OptionMenu(),
           ],
         ),
         bottomNavigationBuilder: (context, tabsRouter) => ResponsiveVisibility(

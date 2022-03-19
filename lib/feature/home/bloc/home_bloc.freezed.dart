@@ -35,6 +35,19 @@ class _$HomeEventTearOff {
   HomeEventUndoDeletionRequested undoDeletionRequested() {
     return HomeEventUndoDeletionRequested();
   }
+
+  _HomeEventViewModeChanged viewModeChanged(ViewMode viewMode) {
+    return _HomeEventViewModeChanged(
+      viewMode,
+    );
+  }
+
+  _HomeEventFilterCompletedTodoOptionChanged filterCompletedTodoOptionChanged(
+      bool showCompletedNote) {
+    return _HomeEventFilterCompletedTodoOptionChanged(
+      showCompletedNote,
+    );
+  }
 }
 
 /// @nodoc
@@ -48,6 +61,9 @@ mixin _$HomeEvent {
     required TResult Function(Todo todo, bool isCompleted)
         todoCompletionToggled,
     required TResult Function() undoDeletionRequested,
+    required TResult Function(ViewMode viewMode) viewModeChanged,
+    required TResult Function(bool showCompletedNote)
+        filterCompletedTodoOptionChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +71,8 @@ mixin _$HomeEvent {
     TResult Function(Todo todo)? todoRemoved,
     TResult Function(Todo todo, bool isCompleted)? todoCompletionToggled,
     TResult Function()? undoDeletionRequested,
+    TResult Function(ViewMode viewMode)? viewModeChanged,
+    TResult Function(bool showCompletedNote)? filterCompletedTodoOptionChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -62,6 +80,8 @@ mixin _$HomeEvent {
     TResult Function(Todo todo)? todoRemoved,
     TResult Function(Todo todo, bool isCompleted)? todoCompletionToggled,
     TResult Function()? undoDeletionRequested,
+    TResult Function(ViewMode viewMode)? viewModeChanged,
+    TResult Function(bool showCompletedNote)? filterCompletedTodoOptionChanged,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -72,6 +92,9 @@ mixin _$HomeEvent {
         todoCompletionToggled,
     required TResult Function(HomeEventUndoDeletionRequested value)
         undoDeletionRequested,
+    required TResult Function(_HomeEventViewModeChanged value) viewModeChanged,
+    required TResult Function(_HomeEventFilterCompletedTodoOptionChanged value)
+        filterCompletedTodoOptionChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -81,6 +104,9 @@ mixin _$HomeEvent {
         todoCompletionToggled,
     TResult Function(HomeEventUndoDeletionRequested value)?
         undoDeletionRequested,
+    TResult Function(_HomeEventViewModeChanged value)? viewModeChanged,
+    TResult Function(_HomeEventFilterCompletedTodoOptionChanged value)?
+        filterCompletedTodoOptionChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -90,6 +116,9 @@ mixin _$HomeEvent {
         todoCompletionToggled,
     TResult Function(HomeEventUndoDeletionRequested value)?
         undoDeletionRequested,
+    TResult Function(_HomeEventViewModeChanged value)? viewModeChanged,
+    TResult Function(_HomeEventFilterCompletedTodoOptionChanged value)?
+        filterCompletedTodoOptionChanged,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -189,6 +218,9 @@ class _$HomeEventTodoRemoved implements HomeEventTodoRemoved {
     required TResult Function(Todo todo, bool isCompleted)
         todoCompletionToggled,
     required TResult Function() undoDeletionRequested,
+    required TResult Function(ViewMode viewMode) viewModeChanged,
+    required TResult Function(bool showCompletedNote)
+        filterCompletedTodoOptionChanged,
   }) {
     return todoRemoved(todo);
   }
@@ -199,6 +231,8 @@ class _$HomeEventTodoRemoved implements HomeEventTodoRemoved {
     TResult Function(Todo todo)? todoRemoved,
     TResult Function(Todo todo, bool isCompleted)? todoCompletionToggled,
     TResult Function()? undoDeletionRequested,
+    TResult Function(ViewMode viewMode)? viewModeChanged,
+    TResult Function(bool showCompletedNote)? filterCompletedTodoOptionChanged,
   }) {
     return todoRemoved?.call(todo);
   }
@@ -209,6 +243,8 @@ class _$HomeEventTodoRemoved implements HomeEventTodoRemoved {
     TResult Function(Todo todo)? todoRemoved,
     TResult Function(Todo todo, bool isCompleted)? todoCompletionToggled,
     TResult Function()? undoDeletionRequested,
+    TResult Function(ViewMode viewMode)? viewModeChanged,
+    TResult Function(bool showCompletedNote)? filterCompletedTodoOptionChanged,
     required TResult orElse(),
   }) {
     if (todoRemoved != null) {
@@ -225,6 +261,9 @@ class _$HomeEventTodoRemoved implements HomeEventTodoRemoved {
         todoCompletionToggled,
     required TResult Function(HomeEventUndoDeletionRequested value)
         undoDeletionRequested,
+    required TResult Function(_HomeEventViewModeChanged value) viewModeChanged,
+    required TResult Function(_HomeEventFilterCompletedTodoOptionChanged value)
+        filterCompletedTodoOptionChanged,
   }) {
     return todoRemoved(this);
   }
@@ -237,6 +276,9 @@ class _$HomeEventTodoRemoved implements HomeEventTodoRemoved {
         todoCompletionToggled,
     TResult Function(HomeEventUndoDeletionRequested value)?
         undoDeletionRequested,
+    TResult Function(_HomeEventViewModeChanged value)? viewModeChanged,
+    TResult Function(_HomeEventFilterCompletedTodoOptionChanged value)?
+        filterCompletedTodoOptionChanged,
   }) {
     return todoRemoved?.call(this);
   }
@@ -249,6 +291,9 @@ class _$HomeEventTodoRemoved implements HomeEventTodoRemoved {
         todoCompletionToggled,
     TResult Function(HomeEventUndoDeletionRequested value)?
         undoDeletionRequested,
+    TResult Function(_HomeEventViewModeChanged value)? viewModeChanged,
+    TResult Function(_HomeEventFilterCompletedTodoOptionChanged value)?
+        filterCompletedTodoOptionChanged,
     required TResult orElse(),
   }) {
     if (todoRemoved != null) {
@@ -362,6 +407,9 @@ class _$HomeEventTodoCompletionToggled
     required TResult Function(Todo todo, bool isCompleted)
         todoCompletionToggled,
     required TResult Function() undoDeletionRequested,
+    required TResult Function(ViewMode viewMode) viewModeChanged,
+    required TResult Function(bool showCompletedNote)
+        filterCompletedTodoOptionChanged,
   }) {
     return todoCompletionToggled(todo, isCompleted);
   }
@@ -372,6 +420,8 @@ class _$HomeEventTodoCompletionToggled
     TResult Function(Todo todo)? todoRemoved,
     TResult Function(Todo todo, bool isCompleted)? todoCompletionToggled,
     TResult Function()? undoDeletionRequested,
+    TResult Function(ViewMode viewMode)? viewModeChanged,
+    TResult Function(bool showCompletedNote)? filterCompletedTodoOptionChanged,
   }) {
     return todoCompletionToggled?.call(todo, isCompleted);
   }
@@ -382,6 +432,8 @@ class _$HomeEventTodoCompletionToggled
     TResult Function(Todo todo)? todoRemoved,
     TResult Function(Todo todo, bool isCompleted)? todoCompletionToggled,
     TResult Function()? undoDeletionRequested,
+    TResult Function(ViewMode viewMode)? viewModeChanged,
+    TResult Function(bool showCompletedNote)? filterCompletedTodoOptionChanged,
     required TResult orElse(),
   }) {
     if (todoCompletionToggled != null) {
@@ -398,6 +450,9 @@ class _$HomeEventTodoCompletionToggled
         todoCompletionToggled,
     required TResult Function(HomeEventUndoDeletionRequested value)
         undoDeletionRequested,
+    required TResult Function(_HomeEventViewModeChanged value) viewModeChanged,
+    required TResult Function(_HomeEventFilterCompletedTodoOptionChanged value)
+        filterCompletedTodoOptionChanged,
   }) {
     return todoCompletionToggled(this);
   }
@@ -410,6 +465,9 @@ class _$HomeEventTodoCompletionToggled
         todoCompletionToggled,
     TResult Function(HomeEventUndoDeletionRequested value)?
         undoDeletionRequested,
+    TResult Function(_HomeEventViewModeChanged value)? viewModeChanged,
+    TResult Function(_HomeEventFilterCompletedTodoOptionChanged value)?
+        filterCompletedTodoOptionChanged,
   }) {
     return todoCompletionToggled?.call(this);
   }
@@ -422,6 +480,9 @@ class _$HomeEventTodoCompletionToggled
         todoCompletionToggled,
     TResult Function(HomeEventUndoDeletionRequested value)?
         undoDeletionRequested,
+    TResult Function(_HomeEventViewModeChanged value)? viewModeChanged,
+    TResult Function(_HomeEventFilterCompletedTodoOptionChanged value)?
+        filterCompletedTodoOptionChanged,
     required TResult orElse(),
   }) {
     if (todoCompletionToggled != null) {
@@ -493,6 +554,9 @@ class _$HomeEventUndoDeletionRequested
     required TResult Function(Todo todo, bool isCompleted)
         todoCompletionToggled,
     required TResult Function() undoDeletionRequested,
+    required TResult Function(ViewMode viewMode) viewModeChanged,
+    required TResult Function(bool showCompletedNote)
+        filterCompletedTodoOptionChanged,
   }) {
     return undoDeletionRequested();
   }
@@ -503,6 +567,8 @@ class _$HomeEventUndoDeletionRequested
     TResult Function(Todo todo)? todoRemoved,
     TResult Function(Todo todo, bool isCompleted)? todoCompletionToggled,
     TResult Function()? undoDeletionRequested,
+    TResult Function(ViewMode viewMode)? viewModeChanged,
+    TResult Function(bool showCompletedNote)? filterCompletedTodoOptionChanged,
   }) {
     return undoDeletionRequested?.call();
   }
@@ -513,6 +579,8 @@ class _$HomeEventUndoDeletionRequested
     TResult Function(Todo todo)? todoRemoved,
     TResult Function(Todo todo, bool isCompleted)? todoCompletionToggled,
     TResult Function()? undoDeletionRequested,
+    TResult Function(ViewMode viewMode)? viewModeChanged,
+    TResult Function(bool showCompletedNote)? filterCompletedTodoOptionChanged,
     required TResult orElse(),
   }) {
     if (undoDeletionRequested != null) {
@@ -529,6 +597,9 @@ class _$HomeEventUndoDeletionRequested
         todoCompletionToggled,
     required TResult Function(HomeEventUndoDeletionRequested value)
         undoDeletionRequested,
+    required TResult Function(_HomeEventViewModeChanged value) viewModeChanged,
+    required TResult Function(_HomeEventFilterCompletedTodoOptionChanged value)
+        filterCompletedTodoOptionChanged,
   }) {
     return undoDeletionRequested(this);
   }
@@ -541,6 +612,9 @@ class _$HomeEventUndoDeletionRequested
         todoCompletionToggled,
     TResult Function(HomeEventUndoDeletionRequested value)?
         undoDeletionRequested,
+    TResult Function(_HomeEventViewModeChanged value)? viewModeChanged,
+    TResult Function(_HomeEventFilterCompletedTodoOptionChanged value)?
+        filterCompletedTodoOptionChanged,
   }) {
     return undoDeletionRequested?.call(this);
   }
@@ -553,6 +627,9 @@ class _$HomeEventUndoDeletionRequested
         todoCompletionToggled,
     TResult Function(HomeEventUndoDeletionRequested value)?
         undoDeletionRequested,
+    TResult Function(_HomeEventViewModeChanged value)? viewModeChanged,
+    TResult Function(_HomeEventFilterCompletedTodoOptionChanged value)?
+        filterCompletedTodoOptionChanged,
     required TResult orElse(),
   }) {
     if (undoDeletionRequested != null) {
@@ -567,15 +644,367 @@ abstract class HomeEventUndoDeletionRequested implements HomeEvent {
 }
 
 /// @nodoc
+abstract class _$HomeEventViewModeChangedCopyWith<$Res> {
+  factory _$HomeEventViewModeChangedCopyWith(_HomeEventViewModeChanged value,
+          $Res Function(_HomeEventViewModeChanged) then) =
+      __$HomeEventViewModeChangedCopyWithImpl<$Res>;
+  $Res call({ViewMode viewMode});
+}
+
+/// @nodoc
+class __$HomeEventViewModeChangedCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res>
+    implements _$HomeEventViewModeChangedCopyWith<$Res> {
+  __$HomeEventViewModeChangedCopyWithImpl(_HomeEventViewModeChanged _value,
+      $Res Function(_HomeEventViewModeChanged) _then)
+      : super(_value, (v) => _then(v as _HomeEventViewModeChanged));
+
+  @override
+  _HomeEventViewModeChanged get _value =>
+      super._value as _HomeEventViewModeChanged;
+
+  @override
+  $Res call({
+    Object? viewMode = freezed,
+  }) {
+    return _then(_HomeEventViewModeChanged(
+      viewMode == freezed
+          ? _value.viewMode
+          : viewMode // ignore: cast_nullable_to_non_nullable
+              as ViewMode,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_HomeEventViewModeChanged implements _HomeEventViewModeChanged {
+  _$_HomeEventViewModeChanged(this.viewMode);
+
+  @override
+  final ViewMode viewMode;
+
+  @override
+  String toString() {
+    return 'HomeEvent.viewModeChanged(viewMode: $viewMode)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _HomeEventViewModeChanged &&
+            const DeepCollectionEquality().equals(other.viewMode, viewMode));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(viewMode));
+
+  @JsonKey(ignore: true)
+  @override
+  _$HomeEventViewModeChangedCopyWith<_HomeEventViewModeChanged> get copyWith =>
+      __$HomeEventViewModeChangedCopyWithImpl<_HomeEventViewModeChanged>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Todo todo) todoRemoved,
+    required TResult Function(Todo todo, bool isCompleted)
+        todoCompletionToggled,
+    required TResult Function() undoDeletionRequested,
+    required TResult Function(ViewMode viewMode) viewModeChanged,
+    required TResult Function(bool showCompletedNote)
+        filterCompletedTodoOptionChanged,
+  }) {
+    return viewModeChanged(viewMode);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Todo todo)? todoRemoved,
+    TResult Function(Todo todo, bool isCompleted)? todoCompletionToggled,
+    TResult Function()? undoDeletionRequested,
+    TResult Function(ViewMode viewMode)? viewModeChanged,
+    TResult Function(bool showCompletedNote)? filterCompletedTodoOptionChanged,
+  }) {
+    return viewModeChanged?.call(viewMode);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Todo todo)? todoRemoved,
+    TResult Function(Todo todo, bool isCompleted)? todoCompletionToggled,
+    TResult Function()? undoDeletionRequested,
+    TResult Function(ViewMode viewMode)? viewModeChanged,
+    TResult Function(bool showCompletedNote)? filterCompletedTodoOptionChanged,
+    required TResult orElse(),
+  }) {
+    if (viewModeChanged != null) {
+      return viewModeChanged(viewMode);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(HomeEventTodoRemoved value) todoRemoved,
+    required TResult Function(HomeEventTodoCompletionToggled value)
+        todoCompletionToggled,
+    required TResult Function(HomeEventUndoDeletionRequested value)
+        undoDeletionRequested,
+    required TResult Function(_HomeEventViewModeChanged value) viewModeChanged,
+    required TResult Function(_HomeEventFilterCompletedTodoOptionChanged value)
+        filterCompletedTodoOptionChanged,
+  }) {
+    return viewModeChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(HomeEventTodoRemoved value)? todoRemoved,
+    TResult Function(HomeEventTodoCompletionToggled value)?
+        todoCompletionToggled,
+    TResult Function(HomeEventUndoDeletionRequested value)?
+        undoDeletionRequested,
+    TResult Function(_HomeEventViewModeChanged value)? viewModeChanged,
+    TResult Function(_HomeEventFilterCompletedTodoOptionChanged value)?
+        filterCompletedTodoOptionChanged,
+  }) {
+    return viewModeChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(HomeEventTodoRemoved value)? todoRemoved,
+    TResult Function(HomeEventTodoCompletionToggled value)?
+        todoCompletionToggled,
+    TResult Function(HomeEventUndoDeletionRequested value)?
+        undoDeletionRequested,
+    TResult Function(_HomeEventViewModeChanged value)? viewModeChanged,
+    TResult Function(_HomeEventFilterCompletedTodoOptionChanged value)?
+        filterCompletedTodoOptionChanged,
+    required TResult orElse(),
+  }) {
+    if (viewModeChanged != null) {
+      return viewModeChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _HomeEventViewModeChanged implements HomeEvent {
+  factory _HomeEventViewModeChanged(ViewMode viewMode) =
+      _$_HomeEventViewModeChanged;
+
+  ViewMode get viewMode;
+  @JsonKey(ignore: true)
+  _$HomeEventViewModeChangedCopyWith<_HomeEventViewModeChanged> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$HomeEventFilterCompletedTodoOptionChangedCopyWith<$Res> {
+  factory _$HomeEventFilterCompletedTodoOptionChangedCopyWith(
+          _HomeEventFilterCompletedTodoOptionChanged value,
+          $Res Function(_HomeEventFilterCompletedTodoOptionChanged) then) =
+      __$HomeEventFilterCompletedTodoOptionChangedCopyWithImpl<$Res>;
+  $Res call({bool showCompletedNote});
+}
+
+/// @nodoc
+class __$HomeEventFilterCompletedTodoOptionChangedCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res>
+    implements _$HomeEventFilterCompletedTodoOptionChangedCopyWith<$Res> {
+  __$HomeEventFilterCompletedTodoOptionChangedCopyWithImpl(
+      _HomeEventFilterCompletedTodoOptionChanged _value,
+      $Res Function(_HomeEventFilterCompletedTodoOptionChanged) _then)
+      : super(_value,
+            (v) => _then(v as _HomeEventFilterCompletedTodoOptionChanged));
+
+  @override
+  _HomeEventFilterCompletedTodoOptionChanged get _value =>
+      super._value as _HomeEventFilterCompletedTodoOptionChanged;
+
+  @override
+  $Res call({
+    Object? showCompletedNote = freezed,
+  }) {
+    return _then(_HomeEventFilterCompletedTodoOptionChanged(
+      showCompletedNote == freezed
+          ? _value.showCompletedNote
+          : showCompletedNote // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_HomeEventFilterCompletedTodoOptionChanged
+    implements _HomeEventFilterCompletedTodoOptionChanged {
+  _$_HomeEventFilterCompletedTodoOptionChanged(this.showCompletedNote);
+
+  @override
+  final bool showCompletedNote;
+
+  @override
+  String toString() {
+    return 'HomeEvent.filterCompletedTodoOptionChanged(showCompletedNote: $showCompletedNote)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _HomeEventFilterCompletedTodoOptionChanged &&
+            const DeepCollectionEquality()
+                .equals(other.showCompletedNote, showCompletedNote));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(showCompletedNote));
+
+  @JsonKey(ignore: true)
+  @override
+  _$HomeEventFilterCompletedTodoOptionChangedCopyWith<
+          _HomeEventFilterCompletedTodoOptionChanged>
+      get copyWith => __$HomeEventFilterCompletedTodoOptionChangedCopyWithImpl<
+          _HomeEventFilterCompletedTodoOptionChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Todo todo) todoRemoved,
+    required TResult Function(Todo todo, bool isCompleted)
+        todoCompletionToggled,
+    required TResult Function() undoDeletionRequested,
+    required TResult Function(ViewMode viewMode) viewModeChanged,
+    required TResult Function(bool showCompletedNote)
+        filterCompletedTodoOptionChanged,
+  }) {
+    return filterCompletedTodoOptionChanged(showCompletedNote);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Todo todo)? todoRemoved,
+    TResult Function(Todo todo, bool isCompleted)? todoCompletionToggled,
+    TResult Function()? undoDeletionRequested,
+    TResult Function(ViewMode viewMode)? viewModeChanged,
+    TResult Function(bool showCompletedNote)? filterCompletedTodoOptionChanged,
+  }) {
+    return filterCompletedTodoOptionChanged?.call(showCompletedNote);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Todo todo)? todoRemoved,
+    TResult Function(Todo todo, bool isCompleted)? todoCompletionToggled,
+    TResult Function()? undoDeletionRequested,
+    TResult Function(ViewMode viewMode)? viewModeChanged,
+    TResult Function(bool showCompletedNote)? filterCompletedTodoOptionChanged,
+    required TResult orElse(),
+  }) {
+    if (filterCompletedTodoOptionChanged != null) {
+      return filterCompletedTodoOptionChanged(showCompletedNote);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(HomeEventTodoRemoved value) todoRemoved,
+    required TResult Function(HomeEventTodoCompletionToggled value)
+        todoCompletionToggled,
+    required TResult Function(HomeEventUndoDeletionRequested value)
+        undoDeletionRequested,
+    required TResult Function(_HomeEventViewModeChanged value) viewModeChanged,
+    required TResult Function(_HomeEventFilterCompletedTodoOptionChanged value)
+        filterCompletedTodoOptionChanged,
+  }) {
+    return filterCompletedTodoOptionChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(HomeEventTodoRemoved value)? todoRemoved,
+    TResult Function(HomeEventTodoCompletionToggled value)?
+        todoCompletionToggled,
+    TResult Function(HomeEventUndoDeletionRequested value)?
+        undoDeletionRequested,
+    TResult Function(_HomeEventViewModeChanged value)? viewModeChanged,
+    TResult Function(_HomeEventFilterCompletedTodoOptionChanged value)?
+        filterCompletedTodoOptionChanged,
+  }) {
+    return filterCompletedTodoOptionChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(HomeEventTodoRemoved value)? todoRemoved,
+    TResult Function(HomeEventTodoCompletionToggled value)?
+        todoCompletionToggled,
+    TResult Function(HomeEventUndoDeletionRequested value)?
+        undoDeletionRequested,
+    TResult Function(_HomeEventViewModeChanged value)? viewModeChanged,
+    TResult Function(_HomeEventFilterCompletedTodoOptionChanged value)?
+        filterCompletedTodoOptionChanged,
+    required TResult orElse(),
+  }) {
+    if (filterCompletedTodoOptionChanged != null) {
+      return filterCompletedTodoOptionChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _HomeEventFilterCompletedTodoOptionChanged implements HomeEvent {
+  factory _HomeEventFilterCompletedTodoOptionChanged(bool showCompletedNote) =
+      _$_HomeEventFilterCompletedTodoOptionChanged;
+
+  bool get showCompletedNote;
+  @JsonKey(ignore: true)
+  _$HomeEventFilterCompletedTodoOptionChangedCopyWith<
+          _HomeEventFilterCompletedTodoOptionChanged>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+HomeState _$HomeStateFromJson(Map<String, dynamic> json) {
+  return _HomeState.fromJson(json);
+}
+
+/// @nodoc
 class _$HomeStateTearOff {
   const _$HomeStateTearOff();
 
   _HomeState call(
-      {HomeStatus status = HomeStatus.initial, Todo? recentlyRemovedTodo}) {
+      {@JsonKey(ignore: true) HomeStatus status = HomeStatus.initial,
+      @JsonKey(ignore: true) Todo? recentlyRemovedTodo,
+      bool showCompletedTodo = true,
+      ViewMode todoViewMode = ViewMode.compact}) {
     return _HomeState(
       status: status,
       recentlyRemovedTodo: recentlyRemovedTodo,
+      showCompletedTodo: showCompletedTodo,
+      todoViewMode: todoViewMode,
     );
+  }
+
+  HomeState fromJson(Map<String, Object?> json) {
+    return HomeState.fromJson(json);
   }
 }
 
@@ -584,9 +1013,14 @@ const $HomeState = _$HomeStateTearOff();
 
 /// @nodoc
 mixin _$HomeState {
+  @JsonKey(ignore: true)
   HomeStatus get status => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
   Todo? get recentlyRemovedTodo => throw _privateConstructorUsedError;
+  bool get showCompletedTodo => throw _privateConstructorUsedError;
+  ViewMode get todoViewMode => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $HomeStateCopyWith<HomeState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -596,7 +1030,11 @@ mixin _$HomeState {
 abstract class $HomeStateCopyWith<$Res> {
   factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) =
       _$HomeStateCopyWithImpl<$Res>;
-  $Res call({HomeStatus status, Todo? recentlyRemovedTodo});
+  $Res call(
+      {@JsonKey(ignore: true) HomeStatus status,
+      @JsonKey(ignore: true) Todo? recentlyRemovedTodo,
+      bool showCompletedTodo,
+      ViewMode todoViewMode});
 
   $TodoCopyWith<$Res>? get recentlyRemovedTodo;
 }
@@ -613,6 +1051,8 @@ class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
   $Res call({
     Object? status = freezed,
     Object? recentlyRemovedTodo = freezed,
+    Object? showCompletedTodo = freezed,
+    Object? todoViewMode = freezed,
   }) {
     return _then(_value.copyWith(
       status: status == freezed
@@ -623,6 +1063,14 @@ class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
           ? _value.recentlyRemovedTodo
           : recentlyRemovedTodo // ignore: cast_nullable_to_non_nullable
               as Todo?,
+      showCompletedTodo: showCompletedTodo == freezed
+          ? _value.showCompletedTodo
+          : showCompletedTodo // ignore: cast_nullable_to_non_nullable
+              as bool,
+      todoViewMode: todoViewMode == freezed
+          ? _value.todoViewMode
+          : todoViewMode // ignore: cast_nullable_to_non_nullable
+              as ViewMode,
     ));
   }
 
@@ -644,7 +1092,11 @@ abstract class _$HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
           _HomeState value, $Res Function(_HomeState) then) =
       __$HomeStateCopyWithImpl<$Res>;
   @override
-  $Res call({HomeStatus status, Todo? recentlyRemovedTodo});
+  $Res call(
+      {@JsonKey(ignore: true) HomeStatus status,
+      @JsonKey(ignore: true) Todo? recentlyRemovedTodo,
+      bool showCompletedTodo,
+      ViewMode todoViewMode});
 
   @override
   $TodoCopyWith<$Res>? get recentlyRemovedTodo;
@@ -663,6 +1115,8 @@ class __$HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
   $Res call({
     Object? status = freezed,
     Object? recentlyRemovedTodo = freezed,
+    Object? showCompletedTodo = freezed,
+    Object? todoViewMode = freezed,
   }) {
     return _then(_HomeState(
       status: status == freezed
@@ -673,25 +1127,47 @@ class __$HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
           ? _value.recentlyRemovedTodo
           : recentlyRemovedTodo // ignore: cast_nullable_to_non_nullable
               as Todo?,
+      showCompletedTodo: showCompletedTodo == freezed
+          ? _value.showCompletedTodo
+          : showCompletedTodo // ignore: cast_nullable_to_non_nullable
+              as bool,
+      todoViewMode: todoViewMode == freezed
+          ? _value.todoViewMode
+          : todoViewMode // ignore: cast_nullable_to_non_nullable
+              as ViewMode,
     ));
   }
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_HomeState extends _HomeState {
-  _$_HomeState({this.status = HomeStatus.initial, this.recentlyRemovedTodo})
+  const _$_HomeState(
+      {@JsonKey(ignore: true) this.status = HomeStatus.initial,
+      @JsonKey(ignore: true) this.recentlyRemovedTodo,
+      this.showCompletedTodo = true,
+      this.todoViewMode = ViewMode.compact})
       : super._();
 
-  @JsonKey()
+  factory _$_HomeState.fromJson(Map<String, dynamic> json) =>
+      _$$_HomeStateFromJson(json);
+
   @override
+  @JsonKey(ignore: true)
   final HomeStatus status;
   @override
+  @JsonKey(ignore: true)
   final Todo? recentlyRemovedTodo;
+  @JsonKey()
+  @override
+  final bool showCompletedTodo;
+  @JsonKey()
+  @override
+  final ViewMode todoViewMode;
 
   @override
   String toString() {
-    return 'HomeState(status: $status, recentlyRemovedTodo: $recentlyRemovedTodo)';
+    return 'HomeState(status: $status, recentlyRemovedTodo: $recentlyRemovedTodo, showCompletedTodo: $showCompletedTodo, todoViewMode: $todoViewMode)';
   }
 
   @override
@@ -701,30 +1177,53 @@ class _$_HomeState extends _HomeState {
             other is _HomeState &&
             const DeepCollectionEquality().equals(other.status, status) &&
             const DeepCollectionEquality()
-                .equals(other.recentlyRemovedTodo, recentlyRemovedTodo));
+                .equals(other.recentlyRemovedTodo, recentlyRemovedTodo) &&
+            const DeepCollectionEquality()
+                .equals(other.showCompletedTodo, showCompletedTodo) &&
+            const DeepCollectionEquality()
+                .equals(other.todoViewMode, todoViewMode));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(status),
-      const DeepCollectionEquality().hash(recentlyRemovedTodo));
+      const DeepCollectionEquality().hash(recentlyRemovedTodo),
+      const DeepCollectionEquality().hash(showCompletedTodo),
+      const DeepCollectionEquality().hash(todoViewMode));
 
   @JsonKey(ignore: true)
   @override
   _$HomeStateCopyWith<_HomeState> get copyWith =>
       __$HomeStateCopyWithImpl<_HomeState>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_HomeStateToJson(this);
+  }
 }
 
 abstract class _HomeState extends HomeState {
-  factory _HomeState({HomeStatus status, Todo? recentlyRemovedTodo}) =
-      _$_HomeState;
-  _HomeState._() : super._();
+  const factory _HomeState(
+      {@JsonKey(ignore: true) HomeStatus status,
+      @JsonKey(ignore: true) Todo? recentlyRemovedTodo,
+      bool showCompletedTodo,
+      ViewMode todoViewMode}) = _$_HomeState;
+  const _HomeState._() : super._();
+
+  factory _HomeState.fromJson(Map<String, dynamic> json) =
+      _$_HomeState.fromJson;
 
   @override
+  @JsonKey(ignore: true)
   HomeStatus get status;
   @override
+  @JsonKey(ignore: true)
   Todo? get recentlyRemovedTodo;
+  @override
+  bool get showCompletedTodo;
+  @override
+  ViewMode get todoViewMode;
   @override
   @JsonKey(ignore: true)
   _$HomeStateCopyWith<_HomeState> get copyWith =>

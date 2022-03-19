@@ -11,9 +11,14 @@ enum HomeStatus {
 class HomeState with _$HomeState {
   const HomeState._();
 
-  factory HomeState({
-    @Default(HomeStatus.initial) HomeStatus status,
-    Todo? recentlyRemovedTodo,
+  const factory HomeState({
+    @JsonKey(ignore: true) @Default(HomeStatus.initial) HomeStatus status,
+    @JsonKey(ignore: true) Todo? recentlyRemovedTodo,
+    @Default(true) bool showCompletedTodo,
+    @Default(ViewMode.compact) ViewMode todoViewMode,
   }) = _HomeState;
+
+  factory HomeState.fromJson(Map<String, dynamic> json) =>
+      _$HomeStateFromJson(json);
 
 }

@@ -11,4 +11,6 @@ class HomeEvent with _$HomeEvent {
   }) = HomeEventTodoCompletionToggled;
 
   factory HomeEvent.undoDeletionRequested() = HomeEventUndoDeletionRequested;
+  factory HomeEvent.viewModeChanged(ViewMode viewMode) = _HomeEventViewModeChanged;
+  factory HomeEvent.filterCompletedTodoOptionChanged(bool showCompletedNote) = _HomeEventFilterCompletedTodoOptionChanged;
 }

@@ -1,20 +1,23 @@
 import 'dart:async';
 
-import 'package:bloc/bloc.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
 
 import '../../../app/notification/schedule_todo.dart';
 import '../../../data/models.dart';
 import '../../../domain/todo_repository.dart';
+import '../../common/helpers/view_mode.dart';
 
 part 'home_bloc.freezed.dart';
+
+part 'home_bloc.g.dart';
 
 part 'home_event.dart';
 
 part 'home_state.dart';
 
-class HomeBloc extends Bloc<HomeEvent, HomeState> {
+class HomeBloc extends HydratedBloc<HomeEvent, HomeState> {
   final TodoRepository _todoRepository;
   final FlutterLocalNotificationsPlugin _plugin;
 
@@ -23,7 +26,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     required FlutterLocalNotificationsPlugin plugin,
   })  : _todoRepository = todoRepository,
         _plugin = plugin,
-        super(HomeState()) {
+        super(const HomeState()) {
     on<HomeEvent>((event, emit) async {
       await event.when(
         todoRemoved: (todo) async => await _onTodoRemoved(todo, emit),
@@ -34,6 +37,15 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
           emit,
         ),
         undoDeletionRequested: () async => await _onUndoDeletionRequested(emit),
+        viewModeChanged: (ViewMode viewMode) async => await _onViewModeChanged(
+          viewMode,
+          emit,
+        ),
+        filterCompletedTodoOptionChanged: (showCompletedNote) async =>
+            await _onFilterCompletedTodoOptionChanged(
+          showCompletedNote,
+          emit,
+        ),
       );
     });
   }
@@ -59,8 +71,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     );
     if (isCompleted) {
       await _plugin.cancel(todo.id);
-    }
-    else {
+    } else {
       await _plugin.scheduleTodo(
         todo.copyWith(id: todo.id),
         reschedule: true,
@@ -82,4 +93,24 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       }
     }
   }
+
+  Future<void> _onFilterCompletedTodoOptionChanged(
+    bool showCompletedNote,
+    Emitter<HomeState> emit,
+  ) async {
+    emit(state.copyWith(showCompletedTodo: showCompletedNote));
+  }
+
+  Future<void> _onViewModeChanged(
+    ViewMode viewMode,
+    Emitter<HomeState> emit,
+  ) async {
+    emit(state.copyWith(todoViewMode: viewMode));
+  }
+
+  @override
+  HomeState? fromJson(Map<String, dynamic> json) => HomeState.fromJson(json);
+
+  @override
+  Map<String, dynamic>? toJson(HomeState state) => state.toJson();
 }

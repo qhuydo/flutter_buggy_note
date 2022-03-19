@@ -1,4 +1,4 @@
-package com.example.flutter_buggy_note
+package vn.hcmus.flutter_buggy_note
 
 import android.content.ContentResolver
 import android.content.Context

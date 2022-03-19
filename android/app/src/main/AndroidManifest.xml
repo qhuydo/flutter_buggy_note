@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.flutter_buggy_note">
+    package="vn.hcmus.flutter_buggy_note">
    <application
         android:label="Buggy note"
         android:name="${applicationName}"

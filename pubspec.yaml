@@ -93,7 +93,7 @@ dependencies:
   table_calendar: ^3.0.4
 
   # Collections and utilities functions and classes related to collections.
-  # (c)  BSD-3-Clause License. By the Dart project authors.
+  # (c) BSD-3-Clause License. By the Dart project authors.
   collection: ^1.15.0
 
   # A Flutter implementation of an expandable and animated floating search bar, also known as
@@ -112,6 +112,16 @@ dependencies:
   # A flexible multi select package for Flutter. Make multi select widgets the way you want.
   # (c) BSD-2-Clause License. By Christiaan H. Botha.
   multi_select_flutter: ^4.1.2
+
+  # Allows resizing and repositioning the window containing the Flutter content, as well as querying
+  # screen information
+  # This is a prototype, and in the long term is expected to be replaced by functionality within
+  # the Flutter framework.
+  # (c) Apache-2.0 License.
+  window_size:
+    git:
+      url: https://github.com/google/flutter-desktop-embedding.git
+      path: plugins/window_size
 
 dev_dependencies:
   flutter_test:

@@ -1,9 +1,12 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_framework/responsive_framework.dart';
+import 'package:window_size/window_size.dart';
 
 import 'app/bootstrap.dart';
 import 'app/hive_setup.dart';
@@ -25,6 +28,10 @@ Future<void> main() async {
   );
 
   final todoApi = LocalTodoApi();
+
+  if (Platform.isLinux || Platform.isMacOS || Platform.isWindows) {
+    setWindowMinSize(const Size(600, 750));
+  }
   bootstrap(todoApi: todoApi, storage: storage);
 }
 

@@ -38,7 +38,7 @@ class ThemeState with _$ThemeState {
   const ThemeState._();
 
   const factory ThemeState({
-    @Default(FlexScheme.mandyRed) FlexScheme scheme,
+    @Default(FlexScheme.blue) FlexScheme scheme,
     @Default(ThemeMode.system) ThemeMode mode,
     @Default(true) bool useFlexColourTheme,
   }) = _ThemeState;

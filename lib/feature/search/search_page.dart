@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
 import '../../domain/todo_repository.dart';
+import '../common/widgets/empty_todos.dart';
 import '../common/widgets/scaffold_with_search_bar.dart';
 import '../common/widgets/todo_list.dart';
 import 'bloc/search_todo_bloc.dart';
@@ -86,25 +87,42 @@ class _SearchPageViewState extends State<SearchPageView> {
             controller.close();
           },
           body: FloatingSearchBarScrollNotifier(
-            child: SingleChildScrollView(
-              primary: true,
-              child: Padding(
-                padding: const EdgeInsets.only(
-                  top: searchBarHeight + 12,
-                  left: 8,
-                  right: 8,
-                ),
-                child: TodoList(
-                  todos: state.result.toList(),
-                  shrinkWrap: true,
-                  primary: false,
-                  showCompletedTodos: true,
-                ),
-              ),
-            ),
+            child: buildBody(state, context),
           ),
         );
       },
+    );
+  }
+
+  Widget buildBody(SearchTodoState state, BuildContext context) {
+    if (state.status == SearchTodoStatus.initial) {
+      return const EmptyTodos(
+        emoticon: '🔍',
+        text: 'Type your keyword, then hit enter',
+      );
+    }
+
+    if (state.result.isEmpty) {
+      return const EmptyTodos(
+        text: 'Empty result',
+      );
+    }
+
+    return SingleChildScrollView(
+      primary: true,
+      child: Padding(
+        padding: const EdgeInsets.only(
+          top: searchBarHeight + 12,
+          left: 8,
+          right: 8,
+        ),
+        child: TodoList(
+          todos: state.result.toList(),
+          shrinkWrap: true,
+          primary: false,
+          showCompletedTodos: true,
+        ),
+      ),
     );
   }
 

@@ -13,6 +13,7 @@ class TodoList extends StatelessWidget {
   final bool shrinkWrap;
   final bool primary;
   final bool showCompletedTodos;
+  final Widget? emptyTodoPage;
 
   const TodoList({
     Key? key,
@@ -20,6 +21,7 @@ class TodoList extends StatelessWidget {
     this.shrinkWrap = false,
     this.primary = true,
     this.showCompletedTodos = false,
+    this.emptyTodoPage,
   }) : super(key: key);
 
   @override
@@ -39,6 +41,11 @@ class TodoList extends StatelessWidget {
         } else {
           displayTodos = todos;
         }
+
+        if (displayTodos.isEmpty && emptyTodoPage != null) {
+          return emptyTodoPage!;
+        }
+
         return Scrollbar(
           child: MasonryGridView.extent(
             padding: const EdgeInsets.fromLTRB(8, 16, 16, 72),

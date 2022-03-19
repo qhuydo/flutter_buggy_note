@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../domain/todo_repository.dart';
+import '../common/widgets/empty_todos.dart';
 import '../common/widgets/todo_list.dart';
 import 'bloc/today_todo_bloc.dart';
 
@@ -50,17 +51,15 @@ class TodayTodoView extends StatelessWidget {
               return const Center(child: CircularProgressIndicator());
             }
             if (state.status == TodayTodoStatus.success) {
-              return Center(
-                child: Text(
-                  'No todos',
-                  style: Theme.of(context).textTheme.caption,
-                ),
-              );
+              return const EmptyTodos();
             }
             return const SizedBox();
           }
 
-          return TodoList(todos: state.todos);
+          return TodoList(
+            todos: state.todos,
+            emptyTodoPage: const EmptyTodos(),
+          );
         },
       ),
     );

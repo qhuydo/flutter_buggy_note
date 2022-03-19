@@ -54,7 +54,7 @@ class SearchTodoBloc extends HydratedBloc<SearchTodoEvent, SearchTodoState> {
 
   Future<void> _onSubscriptionRequested(Emitter<SearchTodoState> emit) async {
     // TODO
-    emit(state.copyWith(status: SearchTodoStatus.loading));
+    // emit(state.copyWith(status: SearchTodoStatus.loading));
     await emit.forEach<List<Todo>>(
       _todoRepository.getTodos(),
       onData: (todos) {

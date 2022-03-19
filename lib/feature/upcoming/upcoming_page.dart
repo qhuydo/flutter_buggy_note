@@ -27,6 +27,18 @@ class UpcomingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final emptyTodoPage = Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 8.0,
+        vertical: 24,
+      ),
+      child: Center(
+        child: Text(
+          'No todo',
+          style: Theme.of(context).textTheme.bodyText2,
+        ),
+      ),
+    );
     return MultiBlocListener(
       listeners: [
         BlocListener<UpcomingBloc, UpcomingState>(
@@ -67,12 +79,7 @@ class UpcomingView extends StatelessWidget {
                   );
                 }
                 if (state.status == UpcomingStatus.success) {
-                  return Center(
-                    child: Text(
-                      'No todo',
-                      style: Theme.of(context).textTheme.caption,
-                    ),
-                  );
+                  return emptyTodoPage;
                 }
 
                 return const SizedBox();
@@ -81,6 +88,7 @@ class UpcomingView extends StatelessWidget {
                 todos: state.currentTodos,
                 shrinkWrap: true,
                 primary: false,
+                emptyTodoPage: emptyTodoPage,
               );
             }),
           ],

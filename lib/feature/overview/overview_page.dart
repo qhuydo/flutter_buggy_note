@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../domain/todo_repository.dart';
+import '../common/widgets/empty_todos.dart';
 import '../common/widgets/todo_list.dart';
 import '../home/bloc/home_bloc.dart';
 import 'bloc/todo_overview_bloc.dart';
@@ -77,18 +78,16 @@ class TodoOverviewView extends StatelessWidget {
             if (state.status == TodoOverViewStatus.loading) {
               return const Center(child: CircularProgressIndicator());
             } else if (state.status == TodoOverViewStatus.success) {
-              return Center(
-                child: Text(
-                  'No todos',
-                  style: Theme.of(context).textTheme.caption,
-                ),
-              );
+              return const EmptyTodos();
             } else {
               return const SizedBox();
             }
           }
 
-          return TodoList(todos: state.todos);
+          return TodoList(
+            todos: state.todos,
+            emptyTodoPage: const EmptyTodos(),
+          );
         },
       ),
     );

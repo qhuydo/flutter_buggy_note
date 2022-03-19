@@ -6,6 +6,7 @@ import 'package:responsive_framework/responsive_framework.dart';
 
 import 'app/bootstrap.dart';
 import 'app/hive_setup.dart';
+import 'app/notification_setup.dart';
 import 'const/breakpoints.dart';
 import 'data/api/local_todo_api.dart';
 import 'domain/todo_repository.dart';
@@ -16,6 +17,7 @@ import 'feature/home/bloc/home_bloc.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initHive();
+  await initNotification();
 
   final storage = await HydratedStorage.build(
     storageDirectory: await getApplicationDocumentsDirectory(),

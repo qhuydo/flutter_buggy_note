@@ -46,14 +46,6 @@ dependencies:
   # By The Flutter Authors.
   path_provider: ^2.0.9
 
-  # Flutter plugin for SQLite, a self-contained, high-reliability, embedded, SQL database engine.
-  # By Tekartik.
-  sqflite: ^2.0.2
-
-  # sqflite ffi based implementation, for desktop and units tests.
-  # By Tekartik & Simon Binder.
-  sqflite_common_ffi: ^2.1.0+2
-
   # Code generator for unions/pattern-matching/copy
   # By Remi Rousselet.
   freezed_annotation: ^1.1.0
@@ -67,10 +59,6 @@ dependencies:
   # (c) Apache-2.0 License. By Simon Leier.
   hive: ^2.0.6
   hive_flutter: ^1.1.0
-
-  # RFC4122 (v1, v4, v5) UUID Generator and Parser for all Dart platforms (Web, VM, Flutter)
-  # (c) MIT License. By Yulian Kuncheff.
-  uuid: ^3.0.6
 
   # RxDart is an implementation of the popular reactiveX api for asynchronous programming,
   # leveraging the native Dart Streams api.
@@ -124,9 +112,8 @@ dependencies:
       path: plugins/window_size
 
   # Provides a collection of Flutter grids layouts (staggered, masonry, quilted, woven, etc.).
-  # # (c) MIT License. By Romain Rastel.
+  # (c) MIT License. By Romain Rastel.
   flutter_staggered_grid_view: ^0.6.1
-
 
 dev_dependencies:
   flutter_test:

@@ -10,6 +10,7 @@ enum MenuOption {
   settings,
   showCompletedTodos,
   hideCompletedTodos,
+  about,
 }
 
 extension on MenuOption {
@@ -21,6 +22,8 @@ extension on MenuOption {
         return 'Show completed todos';
       case MenuOption.hideCompletedTodos:
         return 'Hide completed todos';
+      case MenuOption.about:
+        return 'About';
     }
   }
 
@@ -32,6 +35,8 @@ extension on MenuOption {
         return Icons.task_alt;
       case MenuOption.hideCompletedTodos:
         return Icons.radio_button_unchecked;
+      case MenuOption.about:
+        return Icons.info;
     }
   }
 }
@@ -41,7 +46,6 @@ class OptionMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) {
         final displayItems = [
@@ -49,6 +53,7 @@ class OptionMenu extends StatelessWidget {
           state.showCompletedTodo
               ? MenuOption.hideCompletedTodos
               : MenuOption.showCompletedTodos,
+          MenuOption.about,
         ];
         return PopupMenuButton<MenuOption>(
           itemBuilder: (context) => displayItems
@@ -77,6 +82,13 @@ class OptionMenu extends StatelessWidget {
                     .read<HomeBloc>()
                     .add(HomeEvent.filterCompletedTodoOptionChanged(false));
                 break;
+              case MenuOption.about:
+                showAboutDialog(
+                  context: context,
+                  applicationName: 'Buggy note',
+                  applicationVersion: '1.0.0',
+                  applicationIcon: Image.asset('assets/icons/app_icon.png', width: 64, height: 64,),
+                );
             }
           },
         );

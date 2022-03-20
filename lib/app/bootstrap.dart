@@ -2,6 +2,8 @@ import 'dart:async';
 import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 
@@ -19,7 +21,12 @@ void bootstrap({required TodoApi todoApi, required HydratedStorage storage}) {
   runZonedGuarded(
     () => HydratedBlocOverrides.runZoned(
       () async => runApp(
-        BuggyNoteApp(todoRepository: todosRepository),
+
+        // BuggyNoteApp(todoRepository: todosRepository),
+        DevicePreview(
+          enabled: false,
+          builder: (context) => BuggyNoteApp(todoRepository: todosRepository),
+        ),
       ),
       blocObserver: AppBlocObserver(),
       storage: storage,

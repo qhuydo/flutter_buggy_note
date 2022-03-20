@@ -50,6 +50,7 @@ class OptionMenu extends StatelessWidget {
       builder: (context, state) {
         final displayItems = [
           if (context.isMobileSize()) MenuOption.settings,
+          // MenuOption.settings,
           state.showCompletedTodo
               ? MenuOption.hideCompletedTodos
               : MenuOption.showCompletedTodos,

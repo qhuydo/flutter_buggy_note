@@ -1,17 +1,16 @@
 import 'dart:io';
 
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:responsive_framework/responsive_framework.dart';
 import 'package:window_size/window_size.dart';
 
 import 'app/bootstrap.dart';
 import 'app/hive_setup.dart';
 import 'app/notification/notification_setup.dart';
-import 'const/breakpoints.dart';
 import 'data/api/local_todo_api.dart';
 import 'domain/todo_repository.dart';
 import 'feature/common/routes/app_routes.gr.dart';
@@ -84,17 +83,7 @@ class _BuggyNoteAppViewState extends State<_BuggyNoteAppView> {
         debugShowCheckedModeBanner: false,
         routerDelegate: _appRouter.delegate(),
         routeInformationParser: _appRouter.defaultRouteParser(),
-        builder: (context, child) => ResponsiveWrapper.builder(
-          child,
-          // maxWidth: 1200,
-          // minWidth: 600,
-          defaultScale: true,
-          breakpoints: const [
-            ResponsiveBreakpoint.autoScale(phoneBreakpoint, name: MOBILE),
-            ResponsiveBreakpoint.resize(tabletBreakpoint, name: TABLET),
-            ResponsiveBreakpoint.resize(desktopBreakpoint, name: DESKTOP),
-          ],
-        ),
+        builder: DevicePreview.appBuilder,
         themeMode: state.mode,
         theme: state.light,
         darkTheme: state.dark,

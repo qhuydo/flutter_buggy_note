@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
-import 'package:responsive_framework/responsive_framework.dart';
 
 import '../common/helpers/device.dart';
 import '../common/routes/app_routes.gr.dart';
@@ -73,14 +72,9 @@ class _HomePageState extends State<HomePage> {
             OptionMenu(),
           ],
         ),
-        bottomNavigationBuilder: (context, tabsRouter) => ResponsiveVisibility(
-          visibleWhen: const [
-            Condition.smallerThan(name: MOBILE),
-            Condition.equals(name: MOBILE),
-          ],
-          hiddenWhen: const [
-            Condition.largerThan(name: MOBILE),
-          ],
+        bottomNavigationBuilder: (context, tabsRouter) => Visibility(
+          maintainState: true,
+          visible: context.isMobileSize(),
           child: NavigationBar(
             labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
             selectedIndex: tabsRouter.activeIndex >= _nVisibleNavigationRoutes

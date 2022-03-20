@@ -1,6 +1,8 @@
 # flutter_buggy_note
 
-A new Flutter project.
+Simple todo app (using bloc pattern).
+
+![](assets/cover/cover.png)
 
 ## Getting Started
 
